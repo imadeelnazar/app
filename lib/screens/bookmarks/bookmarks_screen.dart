@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/app_chrome.dart';
 
 class BookmarksScreen extends StatelessWidget {
   const BookmarksScreen({Key? key}) : super(key: key);
@@ -13,10 +14,8 @@ class BookmarksScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bookmarks'),
-        backgroundColor: const Color(0xFF1B4D3E),
-      ),
+      appBar: hidayatAppBar(context, title: 'Bookmarks'),
+      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
       body: bookmarks.isEmpty
           ? const Center(
               child: Text('No bookmarks yet'),

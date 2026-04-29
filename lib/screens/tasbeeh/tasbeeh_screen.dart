@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/app_chrome.dart';
 
 class TasbeehScreen extends StatefulWidget {
   const TasbeehScreen({Key? key}) : super(key: key);
@@ -24,11 +25,8 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
     final progress = count / dailyGoal;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tasbeeh Counter'),
-        backgroundColor: const Color(0xFF1BA098),
-        elevation: 0,
-      ),
+      appBar: hidayatAppBar(context, title: 'Tasbeeh Counter'),
+      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -64,7 +62,8 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
                       const SizedBox(height: 4),
                       Text(
                         tasbeehs[currentTasbeeh] ?? '',
-                        style: const TextStyle(fontSize: 14, color: Colors.grey),
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),
@@ -226,9 +225,8 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
                         vertical: 10,
                       ),
                       decoration: BoxDecoration(
-                        color: isSelected
-                            ? const Color(0xFFFFA500)
-                            : Colors.white,
+                        color:
+                            isSelected ? const Color(0xFFFFA500) : Colors.white,
                         border: Border.all(
                           color: isSelected
                               ? const Color(0xFFFFA500)
@@ -432,9 +430,7 @@ class _MilestoneCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: isCompleted
-                    ? const Color(0xFF4CAF50)
-                    : Colors.grey,
+                color: isCompleted ? const Color(0xFF4CAF50) : Colors.grey,
               ),
             ),
           ],

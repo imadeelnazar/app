@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../widgets/app_chrome.dart';
+import '../../services/reader_audio_service.dart';
+import '../../widgets/reader_audio_bar.dart';
 
 class BookDetailScreen extends StatelessWidget {
   final String bookId;
@@ -31,10 +34,8 @@ class BookDetailScreen extends StatelessWidget {
         final title = snapshot.data?['title'] as String? ?? 'Book';
 
         return Scaffold(
-          appBar: AppBar(
-            title: Text(title),
-            backgroundColor: const Color(0xFF1B4D3E),
-          ),
+          appBar: hidayatAppBar(context, title: title),
+          bottomNavigationBar: const HidayatBottomNav(currentIndex: 3),
           body: _buildBody(context, snapshot),
         );
       },
@@ -56,6 +57,8 @@ class BookDetailScreen extends StatelessWidget {
     final chapters =
         List<Map<String, dynamic>>.from(book['chapters'] as List? ?? []);
     final titleArabic = book['titleArabic'] as String? ?? '';
+    final title = book['title'] as String? ?? 'Book';
+    final readerLines = _collectBookLines(chapters);
 
     if (chapters.isEmpty) {
       return ListView(
@@ -78,16 +81,37 @@ class BookDetailScreen extends StatelessWidget {
     }
 
     return ListView.builder(
-      itemCount: chapters.length,
-      itemBuilder: (context, index) => _ChapterTile(chapter: chapters[index]),
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: chapters.length + 1,
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return ReaderAudioBar(title: title, lines: readerLines);
+        }
+        return _ChapterTile(chapter: chapters[index - 1], title: title);
+      },
     );
+  }
+
+  List<ReaderLine> _collectBookLines(List<Map<String, dynamic>> chapters) {
+    final lines = <ReaderLine>[];
+    for (final chapter in chapters) {
+      final sections =
+          List<Map<String, dynamic>>.from(chapter['sections'] as List? ?? []);
+      for (final section in sections) {
+        final sectionLines =
+            List<Map<String, dynamic>>.from(section['lines'] as List? ?? []);
+        lines.addAll(sectionLines.map(ReaderLine.fromJson));
+      }
+    }
+    return lines;
   }
 }
 
 class _ChapterTile extends StatelessWidget {
   final Map<String, dynamic> chapter;
+  final String title;
 
-  const _ChapterTile({required this.chapter});
+  const _ChapterTile({required this.chapter, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +131,7 @@ class _ChapterTile extends StatelessWidget {
         for (final section in sections)
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-            child: _SectionView(section: section),
+            child: _SectionView(section: section, title: title),
           ),
       ],
     );
@@ -116,8 +140,9 @@ class _ChapterTile extends StatelessWidget {
 
 class _SectionView extends StatelessWidget {
   final Map<String, dynamic> section;
+  final String title;
 
-  const _SectionView({required this.section});
+  const _SectionView({required this.section, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +157,12 @@ class _SectionView extends StatelessWidget {
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 8),
-        for (final line in lines) _LineView(line: line),
+        for (final line in lines)
+          _LineView(
+            line: line,
+            readerLine: ReaderLine.fromJson(line),
+            title: title,
+          ),
       ],
     );
   }
@@ -140,8 +170,14 @@ class _SectionView extends StatelessWidget {
 
 class _LineView extends StatelessWidget {
   final Map<String, dynamic> line;
+  final ReaderLine readerLine;
+  final String title;
 
-  const _LineView({required this.line});
+  const _LineView({
+    required this.line,
+    required this.readerLine,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -151,14 +187,29 @@ class _LineView extends StatelessWidget {
     final english = line['textEnglish'] as String? ?? '';
     final transliteration = line['transliteration'] as String? ?? '';
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+    final number = line['number'] as int? ?? readerLine.number;
+
+    return ReaderLineHighlight(
+      lineNumber: number,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            '${line['number']}',
-            style: Theme.of(context).textTheme.labelMedium,
+          Row(
+            children: [
+              Text(
+                '$number',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const Spacer(),
+              IconButton(
+                icon: const Icon(Icons.volume_up_outlined),
+                tooltip: 'Read this line',
+                onPressed: () => ReaderAudioService.instance.playSingle(
+                  title: title,
+                  line: readerLine,
+                ),
+              ),
+            ],
           ),
           if (arabic.isNotEmpty)
             Directionality(
@@ -184,6 +235,7 @@ class _LineView extends StatelessWidget {
               transliteration,
               style: Theme.of(context).textTheme.bodySmall,
             ),
+          const SizedBox(height: 16),
         ],
       ),
     );

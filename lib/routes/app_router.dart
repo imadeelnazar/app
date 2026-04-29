@@ -9,6 +9,7 @@ import '../screens/duas/dua_detail_screen.dart';
 import '../screens/books/books_screen.dart';
 import '../screens/books/book_detail_screen.dart';
 import '../screens/events/events_screen.dart';
+import '../screens/live_ziyaraat/live_ziyaraat_screen.dart';
 import '../screens/ziyaraat/ziyaraat_screen.dart';
 import '../screens/ziyaraat/ziyarah_detail_screen.dart';
 import '../screens/prayer_times/prayer_times_screen.dart';
@@ -71,9 +72,13 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const EventsScreen(),
     ),
     GoRoute(
+      path: '/live-ziyaraat',
+      builder: (context, state) => const LiveZiyaraatScreen(),
+    ),
+    GoRoute(
       path: '/ziyarah/:ziyarahId',
       builder: (context, state) {
-        final ziyarahId = int.parse(state.pathParameters['ziyarahId']!);
+        final ziyarahId = state.pathParameters['ziyarahId']!;
         return ZiyarahDetailScreen(ziyarahId: ziyarahId);
       },
     ),

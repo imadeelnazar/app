@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../widgets/app_chrome.dart';
+import '../../services/reader_audio_service.dart';
+import '../../widgets/reader_audio_bar.dart';
 
 class DuaDetailScreen extends StatelessWidget {
   final String duaId;
@@ -31,10 +34,8 @@ class DuaDetailScreen extends StatelessWidget {
         final title = snapshot.data?['title'] as String? ?? 'Dua';
 
         return Scaffold(
-          appBar: AppBar(
-            title: Text(title),
-            backgroundColor: const Color(0xFF1B4D3E),
-          ),
+          appBar: hidayatAppBar(context, title: title),
+          bottomNavigationBar: const HidayatBottomNav(currentIndex: 2),
           body: _buildBody(context, snapshot),
         );
       },
@@ -54,7 +55,9 @@ class DuaDetailScreen extends StatelessWidget {
 
     final dua = snapshot.data ?? {};
     final lines = List<Map<String, dynamic>>.from(dua['lines'] as List? ?? []);
+    final readerLines = lines.map(ReaderLine.fromJson).toList();
     final titleArabic = dua['titleArabic'] as String? ?? '';
+    final title = dua['title'] as String? ?? 'Dua';
 
     if (lines.isEmpty) {
       return ListView(
@@ -78,16 +81,29 @@ class DuaDetailScreen extends StatelessWidget {
 
     return ListView.builder(
       padding: const EdgeInsets.all(16),
-      itemCount: lines.length,
-      itemBuilder: (context, index) => _DuaLineView(line: lines[index]),
+      itemCount: lines.length + 1,
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return ReaderAudioBar(title: title, lines: readerLines);
+        }
+        final line = lines[index - 1];
+        final readerLine = readerLines[index - 1];
+        return _DuaLineView(line: line, readerLine: readerLine, title: title);
+      },
     );
   }
 }
 
 class _DuaLineView extends StatelessWidget {
   final Map<String, dynamic> line;
+  final ReaderLine readerLine;
+  final String title;
 
-  const _DuaLineView({required this.line});
+  const _DuaLineView({
+    required this.line,
+    required this.readerLine,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -97,14 +113,29 @@ class _DuaLineView extends StatelessWidget {
     final english = line['textEnglish'] as String? ?? '';
     final transliteration = line['transliteration'] as String? ?? '';
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 18),
+    final number = line['number'] as int? ?? readerLine.number;
+
+    return ReaderLineHighlight(
+      lineNumber: number,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            '${line['number']}',
-            style: Theme.of(context).textTheme.labelMedium,
+          Row(
+            children: [
+              Text(
+                '$number',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const Spacer(),
+              IconButton(
+                icon: const Icon(Icons.volume_up_outlined),
+                tooltip: 'Read this line',
+                onPressed: () => ReaderAudioService.instance.playSingle(
+                  title: title,
+                  line: readerLine,
+                ),
+              ),
+            ],
           ),
           if (arabic.isNotEmpty)
             Directionality(
@@ -130,6 +161,7 @@ class _DuaLineView extends StatelessWidget {
               transliteration,
               style: Theme.of(context).textTheme.bodySmall,
             ),
+          const SizedBox(height: 18),
         ],
       ),
     );

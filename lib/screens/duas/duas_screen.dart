@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import '../../services/reader_audio_service.dart';
+import '../../widgets/app_chrome.dart';
 
 class DuasScreen extends StatefulWidget {
   const DuasScreen({super.key});
@@ -22,6 +24,21 @@ class _DuasScreenState extends State<DuasScreen> {
     return List<Map<String, dynamic>>.from(data['items'] as List? ?? []);
   }
 
+  Future<void> _readDua(Map<String, dynamic> dua) async {
+    final file = dua['file'] as String? ?? '';
+    if (file.isEmpty) return;
+
+    final jsonString = await rootBundle.loadString('assets/json/duas/$file');
+    final data = json.decode(jsonString) as Map<String, dynamic>;
+    final lines = List<Map<String, dynamic>>.from(data['lines'] as List? ?? [])
+        .map(ReaderLine.fromJson)
+        .toList();
+    await ReaderAudioService.instance.playLines(
+      title: data['title'] as String? ?? dua['title'] as String? ?? 'Dua',
+      lines: lines,
+    );
+  }
+
   @override
   void dispose() {
     _searchController.dispose();
@@ -31,10 +48,8 @@ class _DuasScreenState extends State<DuasScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Duas'),
-        backgroundColor: const Color(0xFF1B4D3E),
-      ),
+      appBar: hidayatAppBar(context, title: 'Duas'),
+      bottomNavigationBar: const HidayatBottomNav(currentIndex: 2),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: _loadDuas(),
         builder: (context, snapshot) {
@@ -87,7 +102,17 @@ class _DuasScreenState extends State<DuasScreen> {
                           Text('${dua['category']} - $lineCount lines'),
                         ],
                       ),
-                      trailing: const Icon(Icons.chevron_right),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.volume_up_outlined),
+                            tooltip: 'Read aloud',
+                            onPressed: () => _readDua(dua),
+                          ),
+                          const Icon(Icons.chevron_right),
+                        ],
+                      ),
                       onTap: () => context.push('/dua/${dua['id']}'),
                     );
                   },

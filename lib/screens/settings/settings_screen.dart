@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/app_chrome.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -15,10 +16,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        backgroundColor: const Color(0xFF1B4D3E),
-      ),
+      appBar: hidayatAppBar(context, title: 'Settings'),
+      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
       body: ListView(
         children: [
           // Language Setting

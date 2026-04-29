@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../widgets/app_chrome.dart';
 
 class EventsScreen extends StatefulWidget {
   const EventsScreen({super.key});
@@ -49,8 +50,18 @@ class _EventsScreenState extends State<EventsScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Islamic Events'),
-          backgroundColor: const Color(0xFF1B4D3E),
+          backgroundColor: hidayatGreen,
+          foregroundColor: Colors.white,
+          iconTheme: const IconThemeData(color: Colors.white),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
           bottom: const TabBar(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white70,
+            indicatorColor: Colors.white,
             tabs: [
               Tab(text: 'Today'),
               Tab(text: 'Upcoming'),
@@ -58,6 +69,7 @@ class _EventsScreenState extends State<EventsScreen> {
             ],
           ),
         ),
+        bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
         body: FutureBuilder<List<IslamicEvent>>(
           future: _loadEvents(),
           builder: (context, snapshot) {

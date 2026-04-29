@@ -3,6 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  flutter_tts
+  geolocator_windows
   isar_flutter_libs
 )
 
