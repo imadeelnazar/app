@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'onboarding/onboarding_screen.dart';
+
+const Duration splashHoldDuration = Duration(seconds: 2);
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
 
@@ -16,20 +22,24 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 2400),
       vsync: this,
     );
 
-    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(_animationController);
+    _fadeAnimation =
+        Tween<double>(begin: 0, end: 1).animate(_animationController);
 
     _animationController.forward();
+    _navigateAfterIntro();
+  }
 
-    // Navigate after 3 seconds
-    Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
-        context.go('/home');
-      }
-    });
+  Future<void> _navigateAfterIntro() async {
+    await Future.delayed(splashHoldDuration);
+    final prefs = await SharedPreferences.getInstance();
+    final onboardingSeen = prefs.getBool(onboardingSeenKey) ?? false;
+    if (!mounted) return;
+
+    context.go(onboardingSeen ? '/home' : '/onboarding');
   }
 
   @override
@@ -45,16 +55,16 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       body: Center(
         child: FadeTransition(
           opacity: _fadeAnimation,
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.book,
                 size: 100,
-                color: const Color(0xFF1B4D3E),
+                color: Color(0xFF1B4D3E),
               ),
-              const SizedBox(height: 20),
-              const Text(
+              SizedBox(height: 20),
+              Text(
                 'Hidayat',
                 style: TextStyle(
                   fontSize: 32,
@@ -62,16 +72,16 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   color: Color(0xFF1B4D3E),
                 ),
               ),
-              const SizedBox(height: 10),
-              const Text(
+              SizedBox(height: 10),
+              Text(
                 'Islamic Knowledge',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(height: 40),
-              const CircularProgressIndicator(
+              SizedBox(height: 40),
+              CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1B4D3E)),
               ),
             ],

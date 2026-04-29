@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/splash_screen.dart';
+import '../screens/onboarding/onboarding_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/quran/quran_screen.dart';
 import '../screens/quran/surah_detail_screen.dart';
@@ -18,6 +19,7 @@ import '../screens/tasbeeh/tasbeeh_screen.dart';
 import '../screens/bookmarks/bookmarks_screen.dart';
 import '../screens/settings/settings_screen.dart';
 import '../screens/audio_player/full_audio_player_screen.dart';
+import '../screens/shrine_view/shrine_3d_view_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -25,6 +27,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const SplashScreen(),
+    ),
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, state) => const OnboardingScreen(),
     ),
     GoRoute(
       path: '/home',
@@ -74,6 +80,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/live-ziyaraat',
       builder: (context, state) => const LiveZiyaraatScreen(),
+    ),
+    GoRoute(
+      path: '/shrine-view/:shrineId',
+      builder: (context, state) {
+        final shrineId = state.pathParameters['shrineId']!;
+        return Shrine3DViewScreen(shrineId: shrineId);
+      },
     ),
     GoRoute(
       path: '/ziyarah/:ziyarahId',

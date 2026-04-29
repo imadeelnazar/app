@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'routes/app_router.dart';
 import 'services/database/database_service.dart';
 import 'services/audio_player_service.dart';
+import 'services/event_notification_service.dart';
 import 'services/notification_service.dart';
 import 'services/prayer_times_service.dart';
 import 'constants/app_colors.dart';
@@ -20,14 +21,17 @@ void main() async {
     await NotificationService().initialize();
   } catch (_) {}
   try {
-    PrayerTimesService();
+    await PrayerTimesService().fetchPrayerTimesView();
+  } catch (_) {}
+  try {
+    await EventNotificationService().scheduleUpcomingEventNotifications();
   } catch (_) {}
 
   runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

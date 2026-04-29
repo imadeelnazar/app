@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+
 import 'package:just_audio/just_audio.dart';
 
 class AudioPlayerService {
@@ -11,20 +13,64 @@ class AudioPlayerService {
 
   late AudioPlayer _audioPlayer;
   bool _isInitialized = false;
+  String? _currentAssetPath;
 
   Future<void> initialize() async {
     if (_isInitialized) return;
-    
+
     _audioPlayer = AudioPlayer();
     _isInitialized = true;
   }
 
   Future<void> play(String url) async {
     try {
+      await initialize();
+      _currentAssetPath = null;
+      await _audioPlayer.setLoopMode(LoopMode.off);
       await _audioPlayer.setUrl(url);
       await _audioPlayer.play();
     } catch (e) {
-      print('Error playing audio: $e');
+      developer.log('Error playing audio',
+          error: e, name: 'AudioPlayerService');
+    }
+  }
+
+  Future<void> playAsset(String assetPath) async {
+    try {
+      await initialize();
+      if (_audioPlayer.playing && _currentAssetPath == assetPath) return;
+
+      await _audioPlayer.stop();
+      _currentAssetPath = assetPath;
+      await _audioPlayer.setLoopMode(LoopMode.off);
+      await _audioPlayer.setAsset(assetPath);
+      await _audioPlayer.play();
+    } catch (e) {
+      developer.log(
+        'Error playing asset audio',
+        error: e,
+        name: 'AudioPlayerService',
+      );
+    }
+  }
+
+  Future<void> playAssetLooping(String assetPath) async {
+    try {
+      await initialize();
+      if (_audioPlayer.playing && _currentAssetPath == assetPath) return;
+
+      await _audioPlayer.stop();
+      _currentAssetPath = assetPath;
+      await _audioPlayer.setLoopMode(LoopMode.one);
+      await _audioPlayer.setVolume(1.0);
+      await _audioPlayer.setAsset(assetPath);
+      await _audioPlayer.play();
+    } catch (e) {
+      developer.log(
+        'Error playing looping asset audio',
+        error: e,
+        name: 'AudioPlayerService',
+      );
     }
   }
 
@@ -37,6 +83,8 @@ class AudioPlayerService {
   }
 
   Future<void> stop() async {
+    _currentAssetPath = null;
+    await _audioPlayer.setLoopMode(LoopMode.off);
     await _audioPlayer.stop();
   }
 
@@ -71,14 +119,19 @@ class AudioPlayerService {
 
   Future<void> loadPlaylist(List<String> urls) async {
     try {
+      await initialize();
+      _currentAssetPath = null;
+      await _audioPlayer.setLoopMode(LoopMode.off);
       final playlist = ConcatenatingAudioSource(
-        children: urls
-            .map((url) => AudioSource.uri(Uri.parse(url)))
-            .toList(),
+        children: urls.map((url) => AudioSource.uri(Uri.parse(url))).toList(),
       );
       await _audioPlayer.setAudioSource(playlist);
     } catch (e) {
-      print('Error loading playlist: $e');
+      developer.log(
+        'Error loading playlist',
+        error: e,
+        name: 'AudioPlayerService',
+      );
     }
   }
 
@@ -114,7 +167,11 @@ class AudioPlayerService {
         await seek(Duration(milliseconds: startTimeMs));
       }
     } catch (e) {
-      print('Error playing at line: $e');
+      developer.log(
+        'Error playing at line',
+        error: e,
+        name: 'AudioPlayerService',
+      );
     }
   }
 
@@ -125,9 +182,14 @@ class AudioPlayerService {
   }) async {
     try {
       await setSpeed(0.75); // Slow down for clarity
-      await playAtLine(url: url, startTimeMs: startTimeMs, endTimeMs: endTimeMs);
+      await playAtLine(
+          url: url, startTimeMs: startTimeMs, endTimeMs: endTimeMs);
     } catch (e) {
-      print('Error repeating line: $e');
+      developer.log(
+        'Error repeating line',
+        error: e,
+        name: 'AudioPlayerService',
+      );
     }
   }
 }

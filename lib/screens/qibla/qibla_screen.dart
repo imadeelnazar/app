@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:geolocator/geolocator.dart';
@@ -27,6 +28,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
   double? _distanceKm;
   bool _loadingLocation = true;
   String? _statusMessage;
+  String _locationSource = 'Waiting for phone GPS';
 
   @override
   void initState() {
@@ -64,15 +66,6 @@ class _QiblaScreenState extends State<QiblaScreen> {
       _statusMessage = null;
     });
 
-    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      setState(() {
-        _loadingLocation = false;
-        _statusMessage = 'Please turn on phone location to calculate Qibla.';
-      });
-      return;
-    }
-
     var permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -95,29 +88,60 @@ class _QiblaScreenState extends State<QiblaScreen> {
       return;
     }
 
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      setState(() {
+        _loadingLocation = false;
+        _statusMessage =
+            'Turn on phone Location/GPS. Internet is not required for Qibla.';
+      });
+      return;
+    }
+
     try {
+      final lastKnown = await Geolocator.getLastKnownPosition(
+        forceAndroidLocationManager:
+            defaultTargetPlatform == TargetPlatform.android,
+      );
+      if (lastKnown != null) {
+        _updatePosition(lastKnown, source: 'Offline phone location');
+      }
+
       final position = await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
+        locationSettings: _offlineLocationSettings(
+          accuracy: LocationAccuracy.best,
+          timeLimit: const Duration(seconds: 12),
         ),
       );
-      _updatePosition(position);
+      _updatePosition(position, source: 'Live GPS compass mode');
       _positionSubscription?.cancel();
       _positionSubscription = Geolocator.getPositionStream(
-        locationSettings: const LocationSettings(
+        locationSettings: _offlineLocationSettings(
           accuracy: LocationAccuracy.high,
           distanceFilter: 10,
         ),
-      ).listen(_updatePosition);
-    } catch (_) {
+      ).listen((position) {
+        _updatePosition(position, source: 'Live GPS compass mode');
+      });
+    } catch (error) {
+      if (_position != null) {
+        setState(() {
+          _loadingLocation = false;
+          _statusMessage =
+              'Using last phone location. Go outside for a fresh GPS fix.';
+        });
+        return;
+      }
+
       setState(() {
         _loadingLocation = false;
-        _statusMessage = 'Unable to get current location. Please try again.';
+        _statusMessage =
+            'Unable to get GPS location. Internet is not needed, but phone Location/GPS must be enabled.';
       });
     }
   }
 
-  void _updatePosition(Position position) {
+  void _updatePosition(Position position, {required String source}) {
     if (!mounted) return;
     setState(() {
       _position = position;
@@ -131,7 +155,30 @@ class _QiblaScreenState extends State<QiblaScreen> {
       );
       _loadingLocation = false;
       _statusMessage = null;
+      _locationSource = source;
     });
+  }
+
+  LocationSettings _offlineLocationSettings({
+    required LocationAccuracy accuracy,
+    int distanceFilter = 0,
+    Duration? timeLimit,
+  }) {
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return AndroidSettings(
+        accuracy: accuracy,
+        distanceFilter: distanceFilter,
+        forceLocationManager: true,
+        intervalDuration: const Duration(seconds: 2),
+        timeLimit: timeLimit,
+      );
+    }
+
+    return LocationSettings(
+      accuracy: accuracy,
+      distanceFilter: distanceFilter,
+      timeLimit: timeLimit,
+    );
   }
 
   @override
@@ -168,6 +215,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
               aligned: aligned,
               loading: _loadingLocation,
               statusMessage: _statusMessage,
+              locationSource: _locationSource,
               onRetry: _loadLocation,
             ),
             const SizedBox(height: 24),
@@ -232,6 +280,7 @@ class _QiblaCompassCard extends StatelessWidget {
   final bool aligned;
   final bool loading;
   final String? statusMessage;
+  final String locationSource;
   final VoidCallback onRetry;
 
   const _QiblaCompassCard({
@@ -241,6 +290,7 @@ class _QiblaCompassCard extends StatelessWidget {
     required this.aligned,
     required this.loading,
     required this.statusMessage,
+    required this.locationSource,
     required this.onRetry,
   });
 
@@ -257,42 +307,44 @@ class _QiblaCompassCard extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              width: 260,
-              height: 260,
+              width: 300,
+              height: 300,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   CustomPaint(
-                    size: const Size.square(260),
+                    size: const Size.square(300),
                     painter: _CompassPainter(heading: heading ?? 0),
                   ),
                   AnimatedRotation(
                     turns: arrowTurns,
                     duration: const Duration(milliseconds: 180),
                     curve: Curves.easeOutCubic,
-                    child: Container(
-                      width: 96,
-                      height: 96,
-                      decoration: BoxDecoration(
-                        color: aligned ? const Color(0xFF1BA098) : hidayatGreen,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.18),
-                            blurRadius: 18,
-                            offset: const Offset(0, 8),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.navigation,
-                        color: Colors.white,
-                        size: 52,
-                      ),
+                    child: _KaabaDirectionIndicator(
+                      aligned: aligned,
                     ),
                   ),
                   Positioned(
-                    bottom: 18,
+                    top: 20,
+                    right: 48,
+                    child: Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.28),
+                            blurRadius: 12,
+                            offset: const Offset(0, 7),
+                          ),
+                        ],
+                      ),
+                      child: const _KaabaIcon(size: 58),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 22,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12,
@@ -326,8 +378,17 @@ class _QiblaCompassCard extends StatelessWidget {
               ),
             ),
             const Text(
-              'Qibla direction from your location',
+              'Qibla direction from phone GPS, offline ready',
               style: TextStyle(fontSize: 12, color: Colors.grey),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              locationSource,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Colors.grey.shade600,
+              ),
             ),
             const SizedBox(height: 16),
             Text(
@@ -364,7 +425,9 @@ class _QiblaCompassCard extends StatelessWidget {
   }
 
   String _directionMessage() {
-    if (qiblaBearing == null) return 'Allow location to calculate Qibla.';
+    if (qiblaBearing == null) {
+      return 'Allow phone Location/GPS to calculate Qibla offline.';
+    }
     if (heading == null) {
       return 'Move the phone gently until compass heading appears.';
     }
@@ -374,6 +437,168 @@ class _QiblaCompassCard extends StatelessWidget {
     final amount = turnAngle!.abs().round();
     final side = turnAngle! > 0 ? 'right' : 'left';
     return 'Rotate the phone $amount deg to the $side.';
+  }
+}
+
+class _KaabaDirectionIndicator extends StatelessWidget {
+  final bool aligned;
+
+  const _KaabaDirectionIndicator({required this.aligned});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 218,
+      height: 218,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          CustomPaint(
+            size: const Size.square(206),
+            painter: _QiblaNeedlePainter(aligned: aligned),
+          ),
+          Container(
+            width: aligned ? 16 : 12,
+            height: aligned ? 16 : 12,
+            decoration: BoxDecoration(
+              color: aligned ? const Color(0xFF1BA098) : Colors.white,
+              shape: BoxShape.circle,
+              border: Border.all(color: const Color(0xFF222222), width: 2),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _KaabaIcon extends StatelessWidget {
+  final double size;
+
+  const _KaabaIcon({required this.size});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      size: Size.square(size),
+      painter: const _KaabaIconPainter(),
+    );
+  }
+}
+
+class _KaabaIconPainter extends CustomPainter {
+  const _KaabaIconPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final body = RRect.fromRectAndRadius(
+      Rect.fromLTWH(size.width * 0.1, size.height * 0.18, size.width * 0.8,
+          size.height * 0.7),
+      Radius.circular(size.width * 0.08),
+    );
+    final blackPaint = Paint()..color = const Color(0xFF111111);
+    final sidePaint = Paint()..color = const Color(0xFF262626);
+    final goldPaint = Paint()..color = const Color(0xFFD4A574);
+    final doorPaint = Paint()..color = const Color(0xFFE1B866);
+
+    canvas.drawRRect(body, blackPaint);
+    final sidePath = Path()
+      ..moveTo(size.width * 0.7, size.height * 0.18)
+      ..lineTo(size.width * 0.9, size.height * 0.3)
+      ..lineTo(size.width * 0.9, size.height * 0.88)
+      ..lineTo(size.width * 0.7, size.height * 0.88)
+      ..close();
+    canvas.drawPath(sidePath, sidePaint);
+    canvas.drawRect(
+      Rect.fromLTWH(
+        size.width * 0.1,
+        size.height * 0.34,
+        size.width * 0.8,
+        size.height * 0.1,
+      ),
+      goldPaint,
+    );
+    canvas.drawRect(
+      Rect.fromLTWH(
+        size.width * 0.49,
+        size.height * 0.57,
+        size.width * 0.16,
+        size.height * 0.31,
+      ),
+      doorPaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _KaabaIconPainter oldDelegate) => false;
+}
+
+class _QiblaNeedlePainter extends CustomPainter {
+  final bool aligned;
+
+  const _QiblaNeedlePainter({required this.aligned});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = size.center(Offset.zero);
+    final tip = Offset(center.dx, size.height * 0.08);
+    final tail = Offset(center.dx, size.height * 0.86);
+    final left = Offset(center.dx - size.width * 0.18, center.dy + 18);
+    final right = Offset(center.dx + size.width * 0.18, center.dy + 18);
+    final headLeft = Offset(center.dx - size.width * 0.09, center.dy + 14);
+    final headRight = Offset(center.dx + size.width * 0.09, center.dy + 14);
+    final tailLeft = Offset(center.dx - size.width * 0.08, center.dy + 16);
+    final tailRight = Offset(center.dx + size.width * 0.08, center.dy + 16);
+    final shadowPaint = Paint()
+      ..color = Colors.black.withValues(alpha: 0.22)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
+    final tailPaint = Paint()..color = const Color(0xFF82CBE0);
+    final tailDarkPaint = Paint()..color = const Color(0xFF5BAAC7);
+    final headLightPaint = Paint()
+      ..color = aligned ? const Color(0xFF25B9A9) : const Color(0xFF1D78A8);
+    final headDarkPaint = Paint()
+      ..color = aligned ? const Color(0xFF1BA098) : const Color(0xFF0A527D);
+
+    final shadowPath = Path()
+      ..moveTo(tip.dx + 3, tip.dy + 4)
+      ..lineTo(headRight.dx + 3, headRight.dy + 4)
+      ..lineTo(tail.dx + 3, tail.dy + 4)
+      ..lineTo(headLeft.dx + 3, headLeft.dy + 4)
+      ..close();
+    canvas.drawPath(shadowPath, shadowPaint);
+
+    final tailLightPath = Path()
+      ..moveTo(center.dx, center.dy)
+      ..lineTo(tailLeft.dx, tailLeft.dy)
+      ..lineTo(tail.dx, tail.dy)
+      ..close();
+    canvas.drawPath(tailLightPath, tailPaint);
+
+    final tailDarkPath = Path()
+      ..moveTo(center.dx, center.dy)
+      ..lineTo(tailRight.dx, tailRight.dy)
+      ..lineTo(tail.dx, tail.dy)
+      ..close();
+    canvas.drawPath(tailDarkPath, tailDarkPaint);
+
+    final headLightPath = Path()
+      ..moveTo(center.dx, center.dy)
+      ..lineTo(left.dx, left.dy)
+      ..lineTo(tip.dx, tip.dy)
+      ..close();
+    canvas.drawPath(headLightPath, headLightPaint);
+
+    final headDarkPath = Path()
+      ..moveTo(center.dx, center.dy)
+      ..lineTo(right.dx, right.dy)
+      ..lineTo(tip.dx, tip.dy)
+      ..close();
+    canvas.drawPath(headDarkPath, headDarkPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant _QiblaNeedlePainter oldDelegate) {
+    return oldDelegate.aligned != aligned;
   }
 }
 
@@ -517,71 +742,80 @@ class _CompassPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final center = size.center(Offset.zero);
     final radius = size.width / 2;
-    final borderPaint = Paint()
-      ..color = const Color(0xFFD4A574)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2;
-    final fillPaint = Paint()
-      ..shader = const LinearGradient(
-        colors: [Color(0x1AD4A574), Color(0x101BA098)],
+    final outerShadow = Paint()
+      ..color = Colors.black.withValues(alpha: 0.2)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 7);
+    final outerRedPaint = Paint()..color = const Color(0xFFFF3B45);
+    final innerRedPaint = Paint()..color = const Color(0xFFD72C34);
+    final facePaint = Paint()
+      ..shader = const RadialGradient(
+        colors: [Color(0xFFFFFFFF), Color(0xFFF1F1F1)],
       ).createShader(Offset.zero & size);
+    final starPaint = Paint()..color = const Color(0xFFC7CBD0);
+    final innerPaint = Paint()
+      ..color = const Color(0xFFE2E2E2)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2;
     final tickPaint = Paint()
-      ..color = const Color(0xFF806B45)
-      ..strokeWidth = 1.4
+      ..color = const Color(0xFF0D3876)
+      ..strokeWidth = 1.8
+      ..strokeCap = StrokeCap.round;
+    final majorTickPaint = Paint()
+      ..color = const Color(0xFF0D3876)
+      ..strokeWidth = 2.4
       ..strokeCap = StrokeCap.round;
 
-    canvas.drawCircle(center, radius - 1, fillPaint);
-    canvas.drawCircle(center, radius - 1, borderPaint);
+    canvas.drawCircle(center.translate(7, 8), radius - 20, outerShadow);
+    canvas.drawCircle(center, radius - 18, outerRedPaint);
+    canvas.drawCircle(center, radius - 29, innerRedPaint);
+    canvas.drawCircle(center, radius - 39, facePaint);
+    canvas.drawCircle(center, radius - 50, innerPaint);
+    _drawCompassRose(canvas, center, radius - 72, starPaint);
 
-    for (var i = 0; i < 360; i += 10) {
+    for (var i = 0; i < 360; i += 15) {
       final adjusted = i - heading;
       final angle = (adjusted - 90) * math.pi / 180;
-      final isMajor = i % 30 == 0;
+      final isCardinal = i % 90 == 0;
       final outer = Offset(
-        center.dx + math.cos(angle) * (radius - 13),
-        center.dy + math.sin(angle) * (radius - 13),
+        center.dx + math.cos(angle) * (radius - 58),
+        center.dy + math.sin(angle) * (radius - 58),
       );
       final inner = Offset(
-        center.dx + math.cos(angle) * (radius - (isMajor ? 28 : 20)),
-        center.dy + math.sin(angle) * (radius - (isMajor ? 28 : 20)),
+        center.dx + math.cos(angle) * (radius - (isCardinal ? 90 : 78)),
+        center.dy + math.sin(angle) * (radius - (isCardinal ? 90 : 78)),
       );
-      canvas.drawLine(inner, outer, tickPaint);
+      canvas.drawLine(inner, outer, isCardinal ? majorTickPaint : tickPaint);
     }
-
-    _drawDirection(canvas, center, radius, 'N', 0);
-    _drawDirection(canvas, center, radius, 'E', 90);
-    _drawDirection(canvas, center, radius, 'S', 180);
-    _drawDirection(canvas, center, radius, 'W', 270);
   }
 
-  void _drawDirection(
+  void _drawCompassRose(
     Canvas canvas,
     Offset center,
     double radius,
-    String text,
-    double degrees,
+    Paint paint,
   ) {
-    final adjusted = degrees - heading;
-    final angle = (adjusted - 90) * math.pi / 180;
-    final position = Offset(
-      center.dx + math.cos(angle) * (radius - 46),
-      center.dy + math.sin(angle) * (radius - 46),
-    );
-    final painter = TextPainter(
-      text: TextSpan(
-        text: text,
-        style: const TextStyle(
-          color: Color(0xFF2D2D2D),
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      textDirection: TextDirection.ltr,
-    )..layout();
-    painter.paint(
-      canvas,
-      Offset(position.dx - painter.width / 2, position.dy - painter.height / 2),
-    );
+    for (var i = 0; i < 8; i++) {
+      final angle = (i * 45 - heading - 90) * math.pi / 180;
+      final long = i.isEven;
+      final tip = Offset(
+        center.dx + math.cos(angle) * (long ? radius : radius * 0.68),
+        center.dy + math.sin(angle) * (long ? radius : radius * 0.68),
+      );
+      final left = Offset(
+        center.dx + math.cos(angle + 0.12) * 10,
+        center.dy + math.sin(angle + 0.12) * 10,
+      );
+      final right = Offset(
+        center.dx + math.cos(angle - 0.12) * 10,
+        center.dy + math.sin(angle - 0.12) * 10,
+      );
+      final path = Path()
+        ..moveTo(tip.dx, tip.dy)
+        ..lineTo(left.dx, left.dy)
+        ..lineTo(right.dx, right.dy)
+        ..close();
+      canvas.drawPath(path, paint);
+    }
   }
 
   @override

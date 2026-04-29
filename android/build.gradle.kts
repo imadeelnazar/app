@@ -1,4 +1,5 @@
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.variant.AndroidComponentsExtension
 
 allprojects {
     repositories {
@@ -23,7 +24,16 @@ subprojects {
 
 subprojects {
     plugins.withId("com.android.library") {
+        @Suppress("UNCHECKED_CAST")
+        extensions.configure<AndroidComponentsExtension<LibraryExtension, *, *>>(
+            "androidComponents"
+        ) {
+            finalizeDsl { extension ->
+                extension.compileSdk = 36
+            }
+        }
         extensions.configure<LibraryExtension>("android") {
+            compileSdk = 36
             if (namespace == null) {
                 namespace = project.group.toString()
             }

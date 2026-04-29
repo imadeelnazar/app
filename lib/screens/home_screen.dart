@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../data/masoomeen_shrines.dart';
 import '../services/prayer_times_service.dart';
 import '../widgets/app_chrome.dart';
 
@@ -16,6 +17,8 @@ class HomeScreen extends ConsumerWidget {
         slivers: [
           const SliverAppBar(
             expandedHeight: 240,
+            collapsedHeight: 0,
+            toolbarHeight: 0,
             floating: false,
             pinned: true,
             backgroundColor: Color(0xFF1BA098),
@@ -365,6 +368,11 @@ class _QuickActionsSection extends StatelessWidget {
               onTap: () => context.go('/live-ziyaraat'),
             ),
             _FeatureButton(
+              icon: Icons.radio_button_checked,
+              label: 'Tasbeeh',
+              onTap: () => context.go('/tasbeeh'),
+            ),
+            _FeatureButton(
               icon: Icons.event,
               label: 'Events',
               onTap: () => context.go('/events'),
@@ -385,7 +393,6 @@ class _MasoomeenHeroBackground extends StatefulWidget {
 }
 
 class _MasoomeenHeroBackgroundState extends State<_MasoomeenHeroBackground> {
-  final PageController _controller = PageController();
   Timer? _timer;
   int _index = 0;
 
@@ -393,40 +400,63 @@ class _MasoomeenHeroBackgroundState extends State<_MasoomeenHeroBackground> {
   void initState() {
     super.initState();
     _timer = Timer.periodic(const Duration(seconds: 4), (_) {
-      if (!_controller.hasClients) return;
-      final next = (_index + 1) % _masomeenSlides.length;
-      _controller.animateToPage(
-        next,
-        duration: const Duration(milliseconds: 420),
-        curve: Curves.easeOutCubic,
-      );
+      _goToSlide(_index + 1);
     });
   }
 
   @override
   void dispose() {
     _timer?.cancel();
-    _controller.dispose();
     super.dispose();
+  }
+
+  void _goToSlide(int index) {
+    if (!mounted) return;
+    setState(() => _index = index % masoomeenShrines.length);
+  }
+
+  void _handleSwipe(DragEndDetails details) {
+    final velocity = details.primaryVelocity ?? 0;
+    if (velocity.abs() < 160) return;
+    if (velocity < 0) {
+      _goToSlide(_index + 1);
+    } else {
+      _goToSlide(_index - 1);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final slide = _masomeenSlides[_index];
+    final slide = masoomeenShrines[_index];
 
-    return GestureDetector(
-      onTap: () => context.go('/live-ziyaraat'),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          PageView.builder(
-            controller: _controller,
-            onPageChanged: (index) => setState(() => _index = index),
-            itemBuilder: (context, index) {
-              final slide = _masomeenSlides[index % _masomeenSlides.length];
-              return Image.network(
-                slide.imageUrl,
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        GestureDetector(
+          onTap: () => context.push('/shrine-view/${slide.id}'),
+          onHorizontalDragEnd: _handleSwipe,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 720),
+            switchInCurve: Curves.easeOutCubic,
+            switchOutCurve: Curves.easeInCubic,
+            transitionBuilder: (child, animation) {
+              final scale = Tween<double>(begin: 1.03, end: 1).animate(
+                CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+              );
+              return FadeTransition(
+                opacity: animation,
+                child: ScaleTransition(scale: scale, child: child),
+              );
+            },
+            child: Hero(
+              key: ValueKey(slide.id),
+              tag: 'shrine_${slide.id}',
+              child: Image.asset(
+                slide.assetPath,
                 fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+                filterQuality: FilterQuality.high,
                 errorBuilder: (_, __, ___) => Container(
                   color: hidayatGreen,
                   child: const Icon(
@@ -435,11 +465,12 @@ class _MasoomeenHeroBackgroundState extends State<_MasoomeenHeroBackground> {
                     size: 54,
                   ),
                 ),
-              );
-            },
-            itemCount: _masomeenSlides.length,
+              ),
+            ),
           ),
-          DecoratedBox(
+        ),
+        IgnorePointer(
+          child: DecoratedBox(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -451,203 +482,108 @@ class _MasoomeenHeroBackgroundState extends State<_MasoomeenHeroBackground> {
               ),
             ),
           ),
-          SafeArea(
-            bottom: false,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(18, 34, 18, 18),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Assalamu Alaikum',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      letterSpacing: 1,
+        ),
+        SafeArea(
+          bottom: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(18, 34, 18, 18),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Assalamu Alaikum',
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 1,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  slide.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  slide.location,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 12, color: Colors.white70),
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    _HeroActionChip(
+                      icon: Icons.view_in_ar,
+                      label: '3D View',
+                      onTap: () => context.push('/shrine-view/${slide.id}'),
                     ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    slide.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
+                    const SizedBox(width: 8),
+                    _HeroActionChip(
+                      icon: Icons.live_tv,
+                      label: 'Live Ziyaraat',
+                      onTap: () => context.go('/live-ziyaraat'),
                     ),
-                  ),
-                  const SizedBox(height: 3),
-                  Text(
-                    slide.location,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 12, color: Colors.white70),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 6,
-                        ),
-                        decoration: BoxDecoration(
-                          color: hidayatTeal,
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.live_tv, color: Colors.white, size: 15),
-                            SizedBox(width: 5),
-                            Text(
-                              'Live Ziyaraat',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children:
-                              List.generate(_masomeenSlides.length, (dotIndex) {
-                            final active = dotIndex == _index;
-                            return AnimatedContainer(
-                              duration: const Duration(milliseconds: 180),
-                              width: active ? 16 : 5,
-                              height: 5,
-                              margin: const EdgeInsets.symmetric(horizontal: 2),
-                              decoration: BoxDecoration(
-                                color: active
-                                    ? Colors.white
-                                    : Colors.white.withValues(alpha: 0.42),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            );
-                          }),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
-class _MasoomeenSlide {
-  final String title;
-  final String location;
-  final String imageUrl;
+class _HeroActionChip extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
 
-  const _MasoomeenSlide({
-    required this.title,
-    required this.location,
-    required this.imageUrl,
+  const _HeroActionChip({
+    required this.icon,
+    required this.label,
+    required this.onTap,
   });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: hidayatTeal,
+      borderRadius: BorderRadius.circular(18),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(18),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, color: Colors.white, size: 15),
+              const SizedBox(width: 5),
+              Text(
+                label,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
-
-const String _commons = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
-const String _nabawi = '$_commons'
-    'Green%20Dome%2C%20Masjid%20Al%20Nabawi.jpg?width=1200';
-const String _baqi = '$_commons'
-    'Grave%20of%20Ibrahim%20at%20Jannat-ul-Baqi%2C%20Medina.JPG?width=1200';
-const String _najaf = '$_commons'
-    'Imam%20Ali%20Shrine%20%281%29.jpg?width=1200';
-const String _karbala = '$_commons'
-    'Imam%20Husayn%20Shrine%202.jpg?width=1200';
-const String _mashhad = '$_commons'
-    'Imam%20Reza%20shrine.jpg?width=1200';
-const String _kadhimiya = '$_commons'
-    '%D8%AD%D8%B1%D9%85%20%DA%A9%D8%A7%D8%B8%D9%85%DB%8C%D9%86.jpg?width=1200';
-const String _samarra = '$_commons'
-    'Al-Askari%20Shrine%20-%20Nov%2015%2C%202018.jpg?width=1200';
-
-const List<_MasoomeenSlide> _masomeenSlides = [
-  _MasoomeenSlide(
-    title: 'Prophet Muhammad (S.A.W.W)',
-    location: 'Masjid al-Nabawi, Madinah',
-    imageUrl: _nabawi,
-  ),
-  _MasoomeenSlide(
-    title: 'Janab-e-Fatima Zahra (S.A)',
-    location: 'Madinah / Jannat al-Baqi area',
-    imageUrl: _baqi,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Ali (A.S)',
-    location: 'Najaf al-Ashraf',
-    imageUrl: _najaf,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Hasan (A.S)',
-    location: 'Jannat al-Baqi, Madinah',
-    imageUrl: _baqi,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Hussain (A.S)',
-    location: 'Karbala al-Mualla',
-    imageUrl: _karbala,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Sajjad (A.S)',
-    location: 'Jannat al-Baqi, Madinah',
-    imageUrl: _baqi,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Baqir (A.S)',
-    location: 'Jannat al-Baqi, Madinah',
-    imageUrl: _baqi,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Sadiq (A.S)',
-    location: 'Jannat al-Baqi, Madinah',
-    imageUrl: _baqi,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Kazim (A.S)',
-    location: 'Kadhimiya, Baghdad',
-    imageUrl: _kadhimiya,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Reza (A.S)',
-    location: 'Mashhad, Iran',
-    imageUrl: _mashhad,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Taqi (A.S)',
-    location: 'Kadhimiya, Baghdad',
-    imageUrl: _kadhimiya,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Naqi (A.S)',
-    location: 'Samarra, Iraq',
-    imageUrl: _samarra,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Hasan Askari (A.S)',
-    location: 'Samarra, Iraq',
-    imageUrl: _samarra,
-  ),
-  _MasoomeenSlide(
-    title: 'Imam Mahdi (A.S)',
-    location: 'Associated holy sites in Samarra',
-    imageUrl: _samarra,
-  ),
-];
 
 class _FeatureButton extends StatelessWidget {
   final IconData icon;
