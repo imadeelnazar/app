@@ -1,0 +1,156 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Shaban",
+  "hijriMonthNumber": 8,
+  "events": [
+    {
+      "id": "event_wiladat_imam_hussain",
+      "title": "Wiladat Imam Hussain A.S",
+      "titleArabic": "ولادة الإمام الحسين عليه السلام",
+      "titleUrdu": "ولادت امام حسینؑ",
+      "titleFarsi": "ولادت امام حسین علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 3,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hussain A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_shaban"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hussain"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_hazrat_abbas",
+      "title": "Wiladat Hazrat Abbas A.S",
+      "titleArabic": "ولادة العباس عليه السلام",
+      "titleUrdu": "ولادت حضرت عباسؑ",
+      "titleFarsi": "ولادت حضرت عباس علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 4,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Hazrat Abbas A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_shaban"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_hazrat_abbas"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_sajjad",
+      "title": "Wiladat Imam Sajjad A.S",
+      "titleArabic": "ولادة الإمام السجاد عليه السلام",
+      "titleUrdu": "ولادت امام سجادؑ",
+      "titleFarsi": "ولادت امام سجاد علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 5,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Sajjad A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_shaban"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_sajjad"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_ali_akbar",
+      "title": "Wiladat Ali Akbar A.S",
+      "titleArabic": "ولادة علي الأكبر عليه السلام",
+      "titleUrdu": "ولادت علی اکبرؑ",
+      "titleFarsi": "ولادت علی اکبر علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 11,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Ali Akbar A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_shaban"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_mahdi",
+      "title": "Wiladat Imam Mahdi A.S",
+      "titleArabic": "ولادة الإمام المهدي عجل الله فرجه",
+      "titleUrdu": "ولادت امام مہدیؑ",
+      "titleFarsi": "ولادت امام مهدی عجل الله فرجه",
+      "category": "wiladat_events",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 15,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Mahdi A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_shaban"
+      ],
+      "recommendedDuas": [
+        "dua_ahad",
+        "dua_nudba",
+        "dua_faraj"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_ale_yasin",
+        "ziyarat_imam_mahdi"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "shaban_duas",
+  "title": "Shaban Duas",
+  "titleArabic": "أدعية شهر شعبان",
+  "titleUrdu": "شعبان کی دعائیں",
+  "titleFarsi": "دعاهای ماه شعبان",
+  "category": "shaban_duas",
+  "recommendedDays": [
+    "shaban"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "shaban",
+    "shaban_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "shaban duas أدعية شهر شعبان شعبان کی دعائیں دعاهای ماه شعبان shaban_duas shaban shaban shaban_duas"
+}

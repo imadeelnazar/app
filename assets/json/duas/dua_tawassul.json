@@ -1,0 +1,38 @@
+{
+  "id": "dua_tawassul",
+  "title": "Dua Tawassul",
+  "titleArabic": "دعاء التوسل",
+  "titleUrdu": "دعائے توسل",
+  "titleFarsi": "دعای توسل",
+  "category": "weekly_duas",
+  "recommendedDays": [
+    "tuesday_night",
+    "anytime"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "anytime",
+    "dua_tawassul",
+    "tuesday_night",
+    "weekly_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua tawassul دعاء التوسل دعائے توسل دعای توسل weekly_duas tuesday_night anytime anytime dua_tawassul tuesday_night weekly_duas"
+}

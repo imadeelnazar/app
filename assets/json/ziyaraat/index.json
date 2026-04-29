@@ -1,0 +1,294 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "items": [
+    {
+      "id": "ziyarat_ashura",
+      "title": "Ziyarat Ashura",
+      "titleArabic": "زيارة عاشوراء",
+      "titleUrdu": "زیارت عاشورہ",
+      "file": "ziyarat_ashura.json",
+      "category": "imam_hussain_as"
+    },
+    {
+      "id": "ziyarat_warith",
+      "title": "Ziyarat Warith",
+      "titleArabic": "زيارة وارث",
+      "titleUrdu": "زیارت وارث",
+      "file": "ziyarat_warith.json",
+      "category": "imam_hussain_as"
+    },
+    {
+      "id": "ziyarat_arbaeen",
+      "title": "Ziyarat Arbaeen",
+      "titleArabic": "زيارة الأربعين",
+      "titleUrdu": "زیارت اربعین",
+      "file": "ziyarat_arbaeen.json",
+      "category": "imam_hussain_as"
+    },
+    {
+      "id": "ziyarat_ameenullah",
+      "title": "Ziyarat Ameenullah",
+      "titleArabic": "زيارة أمين الله",
+      "titleUrdu": "زیارت امین اللہ",
+      "file": "ziyarat_ameenullah.json",
+      "category": "general"
+    },
+    {
+      "id": "ziyarat_ale_yasin",
+      "title": "Ziyarat Ale Yasin",
+      "titleArabic": "زيارة آل ياسين",
+      "titleUrdu": "زیارت آل یاسین",
+      "file": "ziyarat_ale_yasin.json",
+      "category": "imam_mahdi_as"
+    },
+    {
+      "id": "ziyarat_jamia_kabira",
+      "title": "Ziyarat Jamia Kabira",
+      "titleArabic": "الزيارة الجامعة الكبيرة",
+      "titleUrdu": "زیارت جامعہ کبیرہ",
+      "file": "ziyarat_jamia_kabira.json",
+      "category": "ahlulbayt_as"
+    },
+    {
+      "id": "ziyarat_jamia_sagheera",
+      "title": "Ziyarat Jamia Sagheera",
+      "titleArabic": "الزيارة الجامعة الصغيرة",
+      "titleUrdu": "زیارت جامعہ صغیرہ",
+      "file": "ziyarat_jamia_sagheera.json",
+      "category": "ahlulbayt_as"
+    },
+    {
+      "id": "ziyarat_nahiya",
+      "title": "Ziyarat Nahiya Muqaddasa",
+      "titleArabic": "زيارة الناحية المقدسة",
+      "titleUrdu": "زیارت ناحیہ مقدسہ",
+      "file": "ziyarat_nahiya.json",
+      "category": "imam_hussain_as"
+    },
+    {
+      "id": "ziyarat_rajabiyah",
+      "title": "Ziyarat Rajabiyah",
+      "titleArabic": "الزيارة الرجبية",
+      "titleUrdu": "زیارت رجبیہ",
+      "file": "ziyarat_rajabiyah.json",
+      "category": "rajab"
+    },
+    {
+      "id": "ziyarat_imam_hussain",
+      "title": "Ziyarat Imam Hussain A.S",
+      "titleArabic": "زيارة الإمام الحسين عليه السلام",
+      "titleUrdu": "زیارت امام حسینؑ",
+      "file": "ziyarat_imam_hussain.json",
+      "category": "imam_hussain_as"
+    },
+    {
+      "id": "ziyarat_imam_ali",
+      "title": "Ziyarat Imam Ali A.S",
+      "titleArabic": "زيارة الإمام علي عليه السلام",
+      "titleUrdu": "زیارت امام علیؑ",
+      "file": "ziyarat_imam_ali.json",
+      "category": "imam_ali_as"
+    },
+    {
+      "id": "ziyarat_prophet_muhammad",
+      "title": "Ziyarat Prophet Muhammad S.A.W.W",
+      "titleArabic": "زيارة النبي محمد صلى الله عليه وآله",
+      "titleUrdu": "زیارت حضرت محمد مصطفیٰؐ",
+      "file": "ziyarat_prophet_muhammad.json",
+      "category": "prophet_saww"
+    },
+    {
+      "id": "ziyarat_fatima_zahra",
+      "title": "Ziyarat Janab-e-Fatima Zahra S.A",
+      "titleArabic": "زيارة السيدة فاطمة الزهراء عليها السلام",
+      "titleUrdu": "زیارت جناب فاطمہ زہرا سلام اللہ علیہا",
+      "file": "ziyarat_fatima_zahra.json",
+      "category": "fatima_zahra_sa"
+    },
+    {
+      "id": "ziyarat_imam_hasan",
+      "title": "Ziyarat Imam Hasan A.S",
+      "titleArabic": "زيارة الإمام الحسن عليه السلام",
+      "titleUrdu": "زیارت امام حسنؑ",
+      "file": "ziyarat_imam_hasan.json",
+      "category": "imam_hasan_as"
+    },
+    {
+      "id": "ziyarat_imam_sajjad",
+      "title": "Ziyarat Imam Sajjad A.S",
+      "titleArabic": "زيارة الإمام السجاد عليه السلام",
+      "titleUrdu": "زیارت امام سجادؑ",
+      "file": "ziyarat_imam_sajjad.json",
+      "category": "imam_sajjad_as"
+    },
+    {
+      "id": "ziyarat_imam_baqir",
+      "title": "Ziyarat Imam Baqir A.S",
+      "titleArabic": "زيارة الإمام الباقر عليه السلام",
+      "titleUrdu": "زیارت امام باقرؑ",
+      "file": "ziyarat_imam_baqir.json",
+      "category": "imam_baqir_as"
+    },
+    {
+      "id": "ziyarat_imam_sadiq",
+      "title": "Ziyarat Imam Sadiq A.S",
+      "titleArabic": "زيارة الإمام الصادق عليه السلام",
+      "titleUrdu": "زیارت امام صادقؑ",
+      "file": "ziyarat_imam_sadiq.json",
+      "category": "imam_sadiq_as"
+    },
+    {
+      "id": "ziyarat_imam_kazim",
+      "title": "Ziyarat Imam Kazim A.S",
+      "titleArabic": "زيارة الإمام الكاظم عليه السلام",
+      "titleUrdu": "زیارت امام کاظمؑ",
+      "file": "ziyarat_imam_kazim.json",
+      "category": "imam_kazim_as"
+    },
+    {
+      "id": "ziyarat_imam_raza",
+      "title": "Ziyarat Imam Raza A.S",
+      "titleArabic": "زيارة الإمام الرضا عليه السلام",
+      "titleUrdu": "زیارت امام رضاؑ",
+      "file": "ziyarat_imam_raza.json",
+      "category": "imam_raza_as"
+    },
+    {
+      "id": "ziyarat_imam_taqi",
+      "title": "Ziyarat Imam Taqi A.S",
+      "titleArabic": "زيارة الإمام التقي الجواد عليه السلام",
+      "titleUrdu": "زیارت امام تقی جوادؑ",
+      "file": "ziyarat_imam_taqi.json",
+      "category": "imam_taqi_as"
+    },
+    {
+      "id": "ziyarat_imam_naqi",
+      "title": "Ziyarat Imam Naqi A.S",
+      "titleArabic": "زيارة الإمام النقي الهادي عليه السلام",
+      "titleUrdu": "زیارت امام نقی ہادیؑ",
+      "file": "ziyarat_imam_naqi.json",
+      "category": "imam_naqi_as"
+    },
+    {
+      "id": "ziyarat_imam_hasan_askari",
+      "title": "Ziyarat Imam Hasan Askari A.S",
+      "titleArabic": "زيارة الإمام الحسن العسكري عليه السلام",
+      "titleUrdu": "زیارت امام حسن عسکریؑ",
+      "file": "ziyarat_imam_hasan_askari.json",
+      "category": "imam_hasan_askari_as"
+    },
+    {
+      "id": "ziyarat_imam_mahdi",
+      "title": "Ziyarat Imam Mahdi A.S",
+      "titleArabic": "زيارة الإمام المهدي عجل الله تعالى فرجه",
+      "titleUrdu": "زیارت امام مہدیؑ",
+      "file": "ziyarat_imam_mahdi.json",
+      "category": "imam_mahdi_as"
+    },
+    {
+      "id": "ziyarat_aimmat_ul_baqi",
+      "title": "Ziyarat Aimmat-ul-Baqi A.S",
+      "titleArabic": "زيارة أئمة البقيع عليهم السلام",
+      "titleUrdu": "زیارت ائمہ بقیعؑ",
+      "file": "ziyarat_aimmat_ul_baqi.json",
+      "category": "baqi_as"
+    },
+    {
+      "id": "ziyarat_muslim_bin_aqeel",
+      "title": "Ziyarat Muslim Bin Aqeel A.S",
+      "titleArabic": "زيارة مسلم بن عقيل عليه السلام",
+      "titleUrdu": "زیارت مسلم بن عقیلؑ",
+      "file": "ziyarat_muslim_bin_aqeel.json",
+      "category": "kufa"
+    },
+    {
+      "id": "ziyarat_hazrat_abbas",
+      "title": "Ziyarat Hazrat Abbas A.S",
+      "titleArabic": "زيارة أبي الفضل العباس عليه السلام",
+      "titleUrdu": "زیارت حضرت عباسؑ",
+      "file": "ziyarat_hazrat_abbas.json",
+      "category": "hazrat_abbas_as"
+    },
+    {
+      "id": "ziyarat_shohada_e_karbala",
+      "title": "Ziyarat Shohada-e-Karbala",
+      "titleArabic": "زيارة شهداء كربلاء",
+      "titleUrdu": "زیارت شہدائے کربلا",
+      "file": "ziyarat_shohada_e_karbala.json",
+      "category": "karbala_martyrs"
+    },
+    {
+      "id": "ziyarat_hazrat_zainab",
+      "title": "Ziyarat Hazrat Zainab S.A",
+      "titleArabic": "زيارة السيدة زينب عليها السلام",
+      "titleUrdu": "زیارت حضرت زینب سلام اللہ علیہا",
+      "file": "ziyarat_hazrat_zainab.json",
+      "category": "hazrat_zainab_sa"
+    },
+    {
+      "id": "ziyarat_umme_kulsoom",
+      "title": "Ziyarat Umme Kulsoom S.A",
+      "titleArabic": "زيارة أم كلثوم عليها السلام",
+      "titleUrdu": "زیارت ام کلثوم سلام اللہ علیہا",
+      "file": "ziyarat_umme_kulsoom.json",
+      "category": "umme_kulsoom_sa"
+    },
+    {
+      "id": "ziyarat_weekly_saturday",
+      "title": "Saturday Ziyarat",
+      "titleArabic": "زيارة يوم السبت",
+      "titleUrdu": "ہفتہ کی زیارت",
+      "file": "ziyarat_weekly_saturday.json",
+      "category": "weekly"
+    },
+    {
+      "id": "ziyarat_weekly_sunday",
+      "title": "Sunday Ziyarat",
+      "titleArabic": "زيارة يوم الأحد",
+      "titleUrdu": "اتوار کی زیارت",
+      "file": "ziyarat_weekly_sunday.json",
+      "category": "weekly"
+    },
+    {
+      "id": "ziyarat_weekly_monday",
+      "title": "Monday Ziyarat",
+      "titleArabic": "زيارة يوم الاثنين",
+      "titleUrdu": "پیر کی زیارت",
+      "file": "ziyarat_weekly_monday.json",
+      "category": "weekly"
+    },
+    {
+      "id": "ziyarat_weekly_tuesday",
+      "title": "Tuesday Ziyarat",
+      "titleArabic": "زيارة يوم الثلاثاء",
+      "titleUrdu": "منگل کی زیارت",
+      "file": "ziyarat_weekly_tuesday.json",
+      "category": "weekly"
+    },
+    {
+      "id": "ziyarat_weekly_wednesday",
+      "title": "Wednesday Ziyarat",
+      "titleArabic": "زيارة يوم الأربعاء",
+      "titleUrdu": "بدھ کی زیارت",
+      "file": "ziyarat_weekly_wednesday.json",
+      "category": "weekly"
+    },
+    {
+      "id": "ziyarat_weekly_thursday",
+      "title": "Thursday Ziyarat",
+      "titleArabic": "زيارة يوم الخميس",
+      "titleUrdu": "جمعرات کی زیارت",
+      "file": "ziyarat_weekly_thursday.json",
+      "category": "weekly"
+    },
+    {
+      "id": "ziyarat_weekly_friday",
+      "title": "Friday Ziyarat",
+      "titleArabic": "زيارة يوم الجمعة",
+      "titleUrdu": "جمعہ کی زیارت",
+      "file": "ziyarat_weekly_friday.json",
+      "category": "weekly"
+    }
+  ]
+}

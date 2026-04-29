@@ -1,0 +1,90 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Safar",
+  "hijriMonthNumber": 2,
+  "events": [
+    {
+      "id": "event_arbaeen",
+      "title": "Arbaeen",
+      "titleArabic": "الأربعين",
+      "titleUrdu": "اربعین",
+      "titleFarsi": "اربعین",
+      "category": "ayyame_aza",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 20,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "ayyame_aza",
+      "relatedPersonality": "Imam Hussain A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_arbaeen"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wafat_prophet_shahadat_imam_hasan",
+      "title": "Wafat Prophet Muhammad S.A.W.W and Shahadat Imam Hasan A.S",
+      "titleArabic": "وفاة النبي محمد صلى الله عليه وآله وشهادة الإمام الحسن عليه السلام",
+      "titleUrdu": "وفات رسول اکرمؐ اور شہادت امام حسنؑ",
+      "titleFarsi": "رحلت پیامبر اکرم صلی الله علیه وآله و شهادت امام حسن علیه السلام",
+      "category": "wafat_events",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 28,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wafat",
+      "relatedPersonality": "Prophet Muhammad S.A.W.W; Imam Hasan A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_prophet_muhammad",
+        "ziyarat_imam_hasan"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_raza",
+      "title": "Shahadat Imam Raza A.S",
+      "titleArabic": "شهادة الإمام الرضا عليه السلام",
+      "titleUrdu": "شہادت امام رضاؑ",
+      "titleFarsi": "شهادت امام رضا علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 30,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Raza A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_raza"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

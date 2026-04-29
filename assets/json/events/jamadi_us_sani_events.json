@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Jamadi us Sani",
+  "hijriMonthNumber": 6,
+  "events": [
+    {
+      "id": "event_shahadat_fatima",
+      "title": "Shahadat Janab-e-Fatima Zahra S.A",
+      "titleArabic": "شهادة السيدة فاطمة الزهراء عليها السلام",
+      "titleUrdu": "شہادت جناب فاطمہ زہراؑ",
+      "titleFarsi": "شهادت حضرت فاطمه زهرا سلام الله علیها",
+      "category": "shahadat_events",
+      "hijriMonth": "Jamadi us Sani",
+      "hijriMonthNumber": 6,
+      "hijriDay": 3,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Janab-e-Fatima Zahra S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_fatima_zahra"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_fatima_zahra",
+      "title": "Wiladat Janab-e-Fatima Zahra S.A",
+      "titleArabic": "ولادة السيدة فاطمة الزهراء عليها السلام",
+      "titleUrdu": "ولادت جناب فاطمہ زہراؑ",
+      "titleFarsi": "ولادت حضرت فاطمه زهرا سلام الله علیها",
+      "category": "wiladat_events",
+      "hijriMonth": "Jamadi us Sani",
+      "hijriMonthNumber": 6,
+      "hijriDay": 20,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Janab-e-Fatima Zahra S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_fatima_zahra"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "totalSurahs": 114,
+  "totalAyahs": 6236,
+  "updatedAt": "2026-04-29",
+  "source": "Tanzil.net (Arabic) + Quran.com translations",
+  "files": {
+    "surahs": "quran_surahs.json",
+    "ayahsDir": "surahs/"
+  },
+  "juzCount": 30,
+  "hizbCount": 60,
+  "rubuCount": 240
+}

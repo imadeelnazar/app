@@ -1,0 +1,36 @@
+{
+  "id": "dua_adeela",
+  "title": "Dua Adeela",
+  "titleArabic": "دعاء العديلة",
+  "titleUrdu": "دعائے عدیلہ",
+  "titleFarsi": "دعای عدیله",
+  "category": "faith_duas",
+  "recommendedDays": [
+    "anytime"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "anytime",
+    "dua_adeela",
+    "faith_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua adeela دعاء العديلة دعائے عدیلہ دعای عدیله faith_duas anytime anytime dua_adeela faith_duas"
+}

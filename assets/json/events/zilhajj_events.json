@@ -1,0 +1,172 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Zilhajj",
+  "hijriMonthNumber": 12,
+  "events": [
+    {
+      "id": "event_shahadat_imam_baqir",
+      "title": "Shahadat Imam Baqir A.S",
+      "titleArabic": "شهادة الإمام الباقر عليه السلام",
+      "titleUrdu": "شہادت امام باقرؑ",
+      "titleFarsi": "شهادت امام باقر علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 7,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Baqir A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_baqir"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_yawm_e_tarwiyah",
+      "title": "Yawm-e-Tarwiyah",
+      "titleArabic": "يوم التروية",
+      "titleUrdu": "یوم ترویہ",
+      "titleFarsi": "روز ترویه",
+      "category": "hajj_zilhajj_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 8,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_aamaal",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "hajj_ziyarat_duas"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_arafah",
+      "title": "Arafah",
+      "titleArabic": "عرفة",
+      "titleUrdu": "عرفہ",
+      "titleFarsi": "عرفه",
+      "category": "hajj_zilhajj_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 9,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_aamaal",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "hajj_ziyarat_duas"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_eid_ul_adha",
+      "title": "Eid ul Adha",
+      "titleArabic": "عيد الأضحى",
+      "titleUrdu": "عید الاضحیٰ",
+      "titleFarsi": "عید قربان",
+      "category": "eid_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 10,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "eid",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "eid_duas"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_eid_e_ghadeer",
+      "title": "Eid-e-Ghadeer",
+      "titleArabic": "عيد الغدير",
+      "titleUrdu": "عید غدیر",
+      "titleFarsi": "عید غدیر",
+      "category": "eid_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 18,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "eid",
+      "relatedPersonality": "Imam Ali A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_ali"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_mubahila",
+      "title": "Mubahila",
+      "titleArabic": "المباهلة",
+      "titleUrdu": "مباہلہ",
+      "titleFarsi": "مباهله",
+      "category": "historical_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 24,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Ahlul Bayt A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

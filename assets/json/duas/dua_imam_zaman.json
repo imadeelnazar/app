@@ -1,0 +1,38 @@
+{
+  "id": "dua_imam_zaman",
+  "title": "Dua Imam Zaman A.S",
+  "titleArabic": "دعاء الإمام الزمان عليه السلام",
+  "titleUrdu": "دعائے امام زمانہ عجل اللہ فرجہ",
+  "titleFarsi": "دعای امام زمان عجل الله فرجه",
+  "category": "imam_mahdi_duas",
+  "recommendedDays": [
+    "friday",
+    "anytime"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "anytime",
+    "dua_imam_zaman_a.s",
+    "friday",
+    "imam_mahdi_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua imam zaman a.s دعاء الإمام الزمان عليه السلام دعائے امام زمانہ عجل اللہ فرجہ دعای امام زمان عجل الله فرجه imam_mahdi_duas friday anytime anytime dua_imam_zaman_a.s friday imam_mahdi_duas"
+}

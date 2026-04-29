@@ -1,0 +1,106 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../screens/splash_screen.dart';
+import '../screens/home_screen.dart';
+import '../screens/quran/quran_screen.dart';
+import '../screens/quran/surah_detail_screen.dart';
+import '../screens/duas/duas_screen.dart';
+import '../screens/duas/dua_detail_screen.dart';
+import '../screens/books/books_screen.dart';
+import '../screens/books/book_detail_screen.dart';
+import '../screens/ziyaraat/ziyaraat_screen.dart';
+import '../screens/ziyaraat/ziyarah_detail_screen.dart';
+import '../screens/prayer_times/prayer_times_screen.dart';
+import '../screens/qibla/qibla_screen.dart';
+import '../screens/tasbeeh/tasbeeh_screen.dart';
+import '../screens/bookmarks/bookmarks_screen.dart';
+import '../screens/settings/settings_screen.dart';
+import '../screens/audio_player/full_audio_player_screen.dart';
+
+final GoRouter appRouter = GoRouter(
+  initialLocation: '/',
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const SplashScreen(),
+    ),
+    GoRoute(
+      path: '/home',
+      builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/quran',
+      builder: (context, state) => const QuranScreen(),
+    ),
+    GoRoute(
+      path: '/surah/:surahId',
+      builder: (context, state) {
+        final surahId = int.parse(state.pathParameters['surahId']!);
+        return SurahDetailScreen(surahId: surahId);
+      },
+    ),
+    GoRoute(
+      path: '/duas',
+      builder: (context, state) => const DuasScreen(),
+    ),
+    GoRoute(
+      path: '/dua/:duaId',
+      builder: (context, state) {
+        final duaId = state.pathParameters['duaId']!;
+        return DuaDetailScreen(duaId: duaId);
+      },
+    ),
+    GoRoute(
+      path: '/books',
+      builder: (context, state) => const BooksScreen(),
+    ),
+    GoRoute(
+      path: '/book/:bookId',
+      builder: (context, state) {
+        final bookId = state.pathParameters['bookId']!;
+        return BookDetailScreen(bookId: bookId);
+      },
+    ),
+    GoRoute(
+      path: '/ziyaraat',
+      builder: (context, state) => const ZiyaaratScreen(),
+    ),
+    GoRoute(
+      path: '/ziyarah/:ziyarahId',
+      builder: (context, state) {
+        final ziyarahId = int.parse(state.pathParameters['ziyarahId']!);
+        return ZiyarahDetailScreen(ziyarahId: ziyarahId);
+      },
+    ),
+    GoRoute(
+      path: '/prayer-times',
+      builder: (context, state) => const PrayerTimesScreen(),
+    ),
+    GoRoute(
+      path: '/qibla',
+      builder: (context, state) => const QiblaScreen(),
+    ),
+    GoRoute(
+      path: '/tasbeeh',
+      builder: (context, state) => const TasbeehScreen(),
+    ),
+    GoRoute(
+      path: '/bookmarks',
+      builder: (context, state) => const BookmarksScreen(),
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: '/player',
+      builder: (context, state) => const FullAudioPlayerScreen(),
+    ),
+  ],
+  errorBuilder: (context, state) => Scaffold(
+    appBar: AppBar(title: const Text('Error')),
+    body: Center(
+      child: Text('Page not found: ${state.uri}'),
+    ),
+  ),
+);

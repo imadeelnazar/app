@@ -1,0 +1,36 @@
+{
+  "id": "dua_thursday_night",
+  "title": "Dua for Thursday Night",
+  "titleArabic": "دعاء ليلة الجمعة",
+  "titleUrdu": "شب جمعہ کی دعا",
+  "titleFarsi": "دعای شب جمعه",
+  "category": "weekly_duas",
+  "recommendedDays": [
+    "thursday_night"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "dua_for_thursday_night",
+    "thursday_night",
+    "weekly_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua for thursday night دعاء ليلة الجمعة شب جمعہ کی دعا دعای شب جمعه weekly_duas thursday_night dua_for_thursday_night thursday_night weekly_duas"
+}

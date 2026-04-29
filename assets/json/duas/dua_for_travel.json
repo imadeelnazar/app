@@ -1,0 +1,36 @@
+{
+  "id": "dua_for_travel",
+  "title": "Dua for Travel",
+  "titleArabic": "دعاء السفر",
+  "titleUrdu": "سفر کے لیے دعا",
+  "titleFarsi": "دعای سفر",
+  "category": "travel_duas",
+  "recommendedDays": [
+    "travel"
+  ],
+  "description": "",
+  "sourceBook": "",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "dua_for_travel",
+    "travel",
+    "travel_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua for travel دعاء السفر سفر کے لیے دعا دعای سفر travel_duas travel dua_for_travel travel travel_duas"
+}

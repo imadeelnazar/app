@@ -1,0 +1,215 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Rajab",
+  "hijriMonthNumber": 7,
+  "events": [
+    {
+      "id": "event_wiladat_imam_baqir",
+      "title": "Wiladat Imam Baqir A.S",
+      "titleArabic": "ولادة الإمام الباقر عليه السلام",
+      "titleUrdu": "ولادت امام باقرؑ",
+      "titleFarsi": "ولادت امام باقر علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Baqir A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_baqir"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_hadi",
+      "title": "Shahadat Imam Hadi A.S",
+      "titleArabic": "شهادة الإمام الهادي عليه السلام",
+      "titleUrdu": "شہادت امام ہادیؑ",
+      "titleFarsi": "شهادت امام هادی علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 3,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Hadi A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_naqi"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_jawad",
+      "title": "Wiladat Imam Jawad A.S",
+      "titleArabic": "ولادة الإمام الجواد عليه السلام",
+      "titleUrdu": "ولادت امام جوادؑ",
+      "titleFarsi": "ولادت امام جواد علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 10,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Jawad A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_taqi"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_ali",
+      "title": "Wiladat Imam Ali A.S",
+      "titleArabic": "ولادة الإمام علي عليه السلام",
+      "titleUrdu": "ولادت امام علیؑ",
+      "titleFarsi": "ولادت امام علی علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 13,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Ali A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_ali"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wafat_hazrat_zainab",
+      "title": "Wafat Hazrat Zainab S.A",
+      "titleArabic": "وفاة السيدة زينب عليها السلام",
+      "titleUrdu": "وفات حضرت زینبؑ",
+      "titleFarsi": "وفات حضرت زینب سلام الله علیها",
+      "category": "wafat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 15,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wafat",
+      "relatedPersonality": "Hazrat Zainab S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_hazrat_zainab"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_kazim",
+      "title": "Shahadat Imam Kazim A.S",
+      "titleArabic": "شهادة الإمام الكاظم عليه السلام",
+      "titleUrdu": "شہادت امام کاظمؑ",
+      "titleFarsi": "شهادت امام کاظم علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 25,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Kazim A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_kazim"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_mabath",
+      "title": "Mabath",
+      "titleArabic": "المبعث النبوي",
+      "titleUrdu": "مبعث",
+      "titleFarsi": "مبعث",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 27,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Prophet Muhammad S.A.W.W",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_prophet_muhammad"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "eid_duas",
+  "title": "Eid Duas",
+  "titleArabic": "أدعية العيد",
+  "titleUrdu": "عید کی دعائیں",
+  "titleFarsi": "دعاهای عید",
+  "category": "eid_duas",
+  "recommendedDays": [
+    "eid_fitr",
+    "eid_adha",
+    "eid_ghadeer"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "eid_adha",
+    "eid_duas",
+    "eid_fitr",
+    "eid_ghadeer"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "eid duas أدعية العيد عید کی دعائیں دعاهای عید eid_duas eid_fitr eid_adha eid_ghadeer eid_adha eid_duas eid_fitr eid_ghadeer"
+}

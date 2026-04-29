@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Quran",
+      "nameArabic": "القرآن",
+      "icon": "book",
+      "order": 1,
+      "type": "quran"
+    },
+    {
+      "id": 2,
+      "name": "Duas",
+      "nameArabic": "الدعاء",
+      "icon": "favorite",
+      "order": 2,
+      "type": "duas"
+    },
+    {
+      "id": 3,
+      "name": "Books",
+      "nameArabic": "الكتب",
+      "icon": "library_books",
+      "order": 3,
+      "type": "books"
+    },
+    {
+      "id": 4,
+      "name": "Ziyaraat",
+      "nameArabic": "الزيارات",
+      "icon": "location_on",
+      "order": 4,
+      "type": "ziyaraat"
+    }
+  ]
+}

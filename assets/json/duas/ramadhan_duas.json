@@ -1,0 +1,35 @@
+{
+  "id": "ramadhan_duas",
+  "title": "Ramadhan Duas",
+  "titleArabic": "أدعية شهر رمضان",
+  "titleUrdu": "رمضان کی دعائیں",
+  "titleFarsi": "دعاهای ماه رمضان",
+  "category": "ramadhan_duas",
+  "recommendedDays": [
+    "ramadhan"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "ramadhan",
+    "ramadhan_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "ramadhan duas أدعية شهر رمضان رمضان کی دعائیں دعاهای ماه رمضان ramadhan_duas ramadhan ramadhan ramadhan_duas"
+}

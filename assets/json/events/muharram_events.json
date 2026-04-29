@@ -1,0 +1,214 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Muharram",
+  "hijriMonthNumber": 1,
+  "events": [
+    {
+      "id": "event_islamic_new_year",
+      "title": "Beginning of Islamic Year",
+      "titleArabic": "رأس السنة الهجرية",
+      "titleUrdu": "اسلامی سال کا آغاز",
+      "titleFarsi": "آغاز سال هجری",
+      "category": "historical_events",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "weekly_aamaal"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_arrival_karbala",
+      "title": "Arrival of Imam Hussain A.S in Karbala",
+      "titleArabic": "وصول الإمام الحسين عليه السلام إلى كربلاء",
+      "titleUrdu": "امام حسینؑ کی کربلا آمد",
+      "titleFarsi": "ورود امام حسین علیه السلام به کربلا",
+      "category": "muharram_events",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 2,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Imam Hussain A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hussain"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_water_stopped_karbala",
+      "title": "Water Stopped in Karbala",
+      "titleArabic": "منع الماء في كربلاء",
+      "titleUrdu": "کربلا میں پانی بند کیا گیا",
+      "titleFarsi": "بستن آب در کربلا",
+      "category": "ayyame_aza",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 7,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Ahlul Bayt A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hussain"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shab_e_ashur",
+      "title": "Shab-e-Ashur",
+      "titleArabic": "ليلة عاشوراء",
+      "titleUrdu": "شب عاشور",
+      "titleFarsi": "شب عاشورا",
+      "category": "ayyame_aza",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 9,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_aamaal",
+      "relatedPersonality": "Imam Hussain A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_ashura"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_ashura",
+      "title": "Ashura",
+      "titleArabic": "عاشوراء",
+      "titleUrdu": "عاشورہ",
+      "titleFarsi": "عاشورا",
+      "category": "ayyame_aza",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 10,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Hussain A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [
+        "dua_alqama"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_ashura",
+        "ziyarat_warith"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_sham_e_ghareeban",
+      "title": "Sham-e-Ghareeban",
+      "titleArabic": "شام الغريبان",
+      "titleUrdu": "شام غریباں",
+      "titleFarsi": "شام غریبان",
+      "category": "ayyame_aza",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 11,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "ayyame_aza",
+      "relatedPersonality": "Ahlul Bayt A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_shohada_e_karbala"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_sajjad",
+      "title": "Shahadat Imam Sajjad A.S",
+      "titleArabic": "شهادة الإمام السجاد عليه السلام",
+      "titleUrdu": "شہادت امام سجادؑ",
+      "titleFarsi": "شهادت امام سجاد علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 25,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Sajjad A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_sajjad"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

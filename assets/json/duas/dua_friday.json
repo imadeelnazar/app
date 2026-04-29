@@ -1,0 +1,36 @@
+{
+  "id": "dua_friday",
+  "title": "Dua for Friday",
+  "titleArabic": "دعاء يوم الجمعة",
+  "titleUrdu": "جمعہ کے دن کی دعا",
+  "titleFarsi": "دعای روز جمعه",
+  "category": "weekly_duas",
+  "recommendedDays": [
+    "friday"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "dua_for_friday",
+    "friday",
+    "weekly_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua for friday دعاء يوم الجمعة جمعہ کے دن کی دعا دعای روز جمعه weekly_duas friday dua_for_friday friday weekly_duas"
+}

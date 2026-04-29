@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Rabi ul Awwal",
+  "hijriMonthNumber": 3,
+  "events": [
+    {
+      "id": "event_shahadat_imam_hasan_askari",
+      "title": "Shahadat Imam Hasan Askari A.S",
+      "titleArabic": "شهادة الإمام الحسن العسكري عليه السلام",
+      "titleUrdu": "شہادت امام حسن عسکریؑ",
+      "titleFarsi": "شهادت امام حسن عسکری علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Rabi ul Awwal",
+      "hijriMonthNumber": 3,
+      "hijriDay": 8,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Hasan Askari A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hasan_askari"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_prophet_imam_sadiq",
+      "title": "Wiladat Prophet Muhammad S.A.W.W and Imam Jafar Sadiq A.S",
+      "titleArabic": "ولادة النبي محمد صلى الله عليه وآله والإمام جعفر الصادق عليه السلام",
+      "titleUrdu": "ولادت رسول اکرمؐ و امام جعفر صادقؑ",
+      "titleFarsi": "ولادت پیامبر اکرم صلی الله علیه وآله و امام جعفر صادق علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Rabi ul Awwal",
+      "hijriMonthNumber": 3,
+      "hijriDay": 17,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Prophet Muhammad S.A.W.W; Imam Jafar Sadiq A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_prophet_muhammad",
+        "ziyarat_imam_sadiq"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

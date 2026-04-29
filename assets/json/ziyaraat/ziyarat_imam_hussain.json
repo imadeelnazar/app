@@ -1,0 +1,30 @@
+{
+  "id": "ziyarat_imam_hussain",
+  "title": "Ziyarat Imam Hussain A.S",
+  "titleArabic": "زيارة الإمام الحسين عليه السلام",
+  "titleUrdu": "زیارت امام حسینؑ",
+  "titleFarsi": "زیارت امام حسین علیه‌السلام",
+  "category": "imam_hussain_as",
+  "recommendedDays": [
+    "thursday",
+    "daily"
+  ],
+  "description": "",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only manually provided or license-cleared text should be inserted. Empty fields are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org All Ziyarats",
+      "url": "https://www.duas.org/ziyarat.html",
+      "usage": "Reference index and source pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan Arabic-English PDF",
+      "url": "https://duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference source pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": []
+}

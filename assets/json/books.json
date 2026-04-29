@@ -1,0 +1,164 @@
+{
+  "books": [
+    {
+      "title": "Holy Quran",
+      "titleArabic": "القرآن الكريم",
+      "author": "",
+      "description": "Complete Arabic Quran text from Tanzil Project; translations are intentionally empty until licensed translations are supplied.",
+      "category": "quran",
+      "sections": []
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "titleArabic": "مفاتيح الجنان",
+      "author": "Shaykh Abbas Qummi",
+      "description": "",
+      "category": "dua_book",
+      "sections": []
+    },
+    {
+      "title": "Sahifa Sajjadiya",
+      "titleArabic": "الصحيفة السجادية",
+      "author": "Imam Ali ibn Husayn Zayn al-Abidin A.S",
+      "description": "",
+      "category": "dua_book",
+      "sections": []
+    },
+    {
+      "title": "Sahifa Mahdiya",
+      "titleArabic": "الصحيفة المهدية",
+      "author": "",
+      "description": "",
+      "category": "dua_book",
+      "sections": []
+    },
+    {
+      "title": "Sahifa Fatemiyya",
+      "titleArabic": "الصحيفة الفاطمية",
+      "author": "",
+      "description": "",
+      "category": "dua_book",
+      "sections": []
+    },
+    {
+      "title": "Nahjul Balagha",
+      "titleArabic": "نهج البلاغة",
+      "author": "Sharif al-Radi",
+      "description": "",
+      "category": "sermons_letters_sayings",
+      "sections": []
+    },
+    {
+      "title": "Tohfatul Awam",
+      "titleArabic": "تحفة العوام",
+      "author": "",
+      "description": "",
+      "category": "fiqh_aamaal_book",
+      "sections": []
+    },
+    {
+      "title": "Mafateeh Naveen",
+      "titleArabic": "",
+      "author": "",
+      "description": "",
+      "category": "dua_book",
+      "sections": []
+    },
+    {
+      "title": "Hadiyat-us-Saleheen",
+      "titleArabic": "",
+      "author": "",
+      "description": "",
+      "category": "dua_book",
+      "sections": []
+    },
+    {
+      "title": "Taqeebat-e-Namaz",
+      "titleArabic": "تعقيبات الصلاة",
+      "author": "",
+      "description": "",
+      "category": "taqeebat",
+      "sections": []
+    },
+    {
+      "title": "Munajaat Collection",
+      "titleArabic": "مجموعة المناجاة",
+      "author": "",
+      "description": "",
+      "category": "munajaat",
+      "sections": []
+    },
+    {
+      "title": "Aamaal-e-Ramadhan",
+      "titleArabic": "أعمال شهر رمضان",
+      "author": "",
+      "description": "",
+      "category": "aamaal",
+      "sections": []
+    },
+    {
+      "title": "Aamaal-e-Rajab",
+      "titleArabic": "أعمال شهر رجب",
+      "author": "",
+      "description": "",
+      "category": "aamaal",
+      "sections": []
+    },
+    {
+      "title": "Aamaal-e-Shaban",
+      "titleArabic": "أعمال شهر شعبان",
+      "author": "",
+      "description": "",
+      "category": "aamaal",
+      "sections": []
+    },
+    {
+      "title": "Aamaal-e-Muharram",
+      "titleArabic": "أعمال شهر محرم",
+      "author": "",
+      "description": "",
+      "category": "aamaal",
+      "sections": []
+    },
+    {
+      "title": "Weekly Aamaal",
+      "titleArabic": "الأعمال الأسبوعية",
+      "author": "",
+      "description": "",
+      "category": "aamaal",
+      "sections": []
+    },
+    {
+      "title": "Daily Duas",
+      "titleArabic": "الأدعية اليومية",
+      "author": "",
+      "description": "",
+      "category": "daily_duas",
+      "sections": []
+    },
+    {
+      "title": "Ziyaraat Collection",
+      "titleArabic": "مجموعة الزيارات",
+      "author": "",
+      "description": "",
+      "category": "ziyaraat",
+      "sections": []
+    },
+    {
+      "title": "Masoomeen A.S Biographies",
+      "titleArabic": "سير المعصومين عليهم السلام",
+      "author": "",
+      "description": "",
+      "category": "biographies",
+      "sections": []
+    },
+    {
+      "title": "Islamic Calendar Events Book",
+      "titleArabic": "مناسبات التقويم الإسلامي",
+      "author": "",
+      "description": "",
+      "category": "calendar_events",
+      "sections": []
+    }
+  ]
+}

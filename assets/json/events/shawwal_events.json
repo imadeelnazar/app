@@ -1,0 +1,89 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Shawwal",
+  "hijriMonthNumber": 10,
+  "events": [
+    {
+      "id": "event_eid_ul_fitr",
+      "title": "Eid ul Fitr",
+      "titleArabic": "عيد الفطر",
+      "titleUrdu": "عید الفطر",
+      "titleFarsi": "عید فطر",
+      "category": "eid_events",
+      "hijriMonth": "Shawwal",
+      "hijriMonthNumber": 10,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "eid",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "eid_duas"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_jannat_ul_baqi_demolition",
+      "title": "Demolition of Jannat-ul-Baqi",
+      "titleArabic": "هدم جنة البقيع",
+      "titleUrdu": "انہدام جنت البقیع",
+      "titleFarsi": "تخریب بقیع",
+      "category": "ayyame_aza",
+      "hijriMonth": "Shawwal",
+      "hijriMonthNumber": 10,
+      "hijriDay": 8,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Aimmat-ul-Baqi A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_aimmat_ul_baqi"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_sadiq",
+      "title": "Shahadat Imam Sadiq A.S",
+      "titleArabic": "شهادة الإمام الصادق عليه السلام",
+      "titleUrdu": "شہادت امام صادقؑ",
+      "titleFarsi": "شهادت امام صادق علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Shawwal",
+      "hijriMonthNumber": 10,
+      "hijriDay": 25,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Sadiq A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_sadiq"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

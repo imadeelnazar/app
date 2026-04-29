@@ -1,0 +1,737 @@
+{
+  "id": "ziyaraat_collection",
+  "title": "Ziyaraat Collection",
+  "titleArabic": "مجموعة الزيارات",
+  "titleUrdu": "زیارات مجموعہ",
+  "titleFarsi": "مجموعه زیارات",
+  "author": "",
+  "category": "ziyaraat",
+  "languageAvailable": [
+    "arabic",
+    "english",
+    "urdu",
+    "farsi",
+    "transliteration"
+  ],
+  "description": "",
+  "coverImage": "",
+  "contentStatus": "partial_manual_or_license_cleared_content",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty chapters/fields are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Al-Islam.org",
+      "url": "https://www.al-islam.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    }
+  ],
+  "textDirection": {
+    "arabic": "rtl",
+    "urdu": "rtl",
+    "farsi": "rtl",
+    "english": "ltr",
+    "transliteration": "ltr"
+  },
+  "chapters": [
+    {
+      "id": "ziyarat_ashura",
+      "number": 1,
+      "title": "Ziyarat Ashura",
+      "titleArabic": "زيارة عاشوراء",
+      "titleUrdu": "زیارت عاشورہ",
+      "titleFarsi": "زیارت عاشورا",
+      "sections": [
+        {
+          "id": "ziyarat_ashura_section_1",
+          "number": 1,
+          "title": "Ziyarat Ashura",
+          "titleArabic": "زيارة عاشوراء",
+          "titleUrdu": "زیارت عاشورہ",
+          "titleFarsi": "زیارت عاشورا",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "السلام عليك يا أبا عبد الله",
+              "textEnglish": "Peace be upon you, O Father of Abdullah",
+              "textUrdu": "سلام ہو تم پر اے ابا عبداللہ",
+              "textFarsi": "السلام علیک یا ابا عبد الله",
+              "transliteration": "As-salāmu ʿalayka yā Abā ʿAbdillāh",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_warith",
+      "number": 2,
+      "title": "Ziyarat Warith",
+      "titleArabic": "زيارة وارث",
+      "titleUrdu": "زیارت وارث",
+      "titleFarsi": "زیارت وارث",
+      "sections": [
+        {
+          "id": "ziyarat_warith_section_1",
+          "number": 1,
+          "title": "Ziyarat Warith",
+          "titleArabic": "زيارة وارث",
+          "titleUrdu": "زیارت وارث",
+          "titleFarsi": "زیارت وارث",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_arbaeen",
+      "number": 3,
+      "title": "Ziyarat Arbaeen",
+      "titleArabic": "زيارة الأربعين",
+      "titleUrdu": "زیارت اربعین",
+      "titleFarsi": "زیارت اربعین",
+      "sections": [
+        {
+          "id": "ziyarat_arbaeen_section_1",
+          "number": 1,
+          "title": "Ziyarat Arbaeen",
+          "titleArabic": "زيارة الأربعين",
+          "titleUrdu": "زیارت اربعین",
+          "titleFarsi": "زیارت اربعین",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_ameenullah",
+      "number": 4,
+      "title": "Ziyarat Ameenullah",
+      "titleArabic": "زيارة أمين الله",
+      "titleUrdu": "زیارت امین اللہ",
+      "titleFarsi": "زیارت امین الله",
+      "sections": [
+        {
+          "id": "ziyarat_ameenullah_section_1",
+          "number": 1,
+          "title": "Ziyarat Ameenullah",
+          "titleArabic": "زيارة أمين الله",
+          "titleUrdu": "زیارت امین اللہ",
+          "titleFarsi": "زیارت امین الله",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_ale_yasin",
+      "number": 5,
+      "title": "Ziyarat Ale Yasin",
+      "titleArabic": "زيارة آل ياسين",
+      "titleUrdu": "زیارت آل یاسین",
+      "titleFarsi": "زیارت آل یاسین",
+      "sections": [
+        {
+          "id": "ziyarat_ale_yasin_section_1",
+          "number": 1,
+          "title": "Ziyarat Ale Yasin",
+          "titleArabic": "زيارة آل ياسين",
+          "titleUrdu": "زیارت آل یاسین",
+          "titleFarsi": "زیارت آل یاسین",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_jamia_kabira",
+      "number": 6,
+      "title": "Ziyarat Jamia Kabira",
+      "titleArabic": "الزيارة الجامعة الكبيرة",
+      "titleUrdu": "زیارت جامعہ کبیرہ",
+      "titleFarsi": "زیارت جامعه کبیره",
+      "sections": [
+        {
+          "id": "ziyarat_jamia_kabira_section_1",
+          "number": 1,
+          "title": "Ziyarat Jamia Kabira",
+          "titleArabic": "الزيارة الجامعة الكبيرة",
+          "titleUrdu": "زیارت جامعہ کبیرہ",
+          "titleFarsi": "زیارت جامعه کبیره",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_jamia_sagheera",
+      "number": 7,
+      "title": "Ziyarat Jamia Sagheera",
+      "titleArabic": "الزيارة الجامعة الصغيرة",
+      "titleUrdu": "زیارت جامعہ صغیرہ",
+      "titleFarsi": "زیارت جامعه صغیره",
+      "sections": [
+        {
+          "id": "ziyarat_jamia_sagheera_section_1",
+          "number": 1,
+          "title": "Ziyarat Jamia Sagheera",
+          "titleArabic": "الزيارة الجامعة الصغيرة",
+          "titleUrdu": "زیارت جامعہ صغیرہ",
+          "titleFarsi": "زیارت جامعه صغیره",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_nahiya",
+      "number": 8,
+      "title": "Ziyarat Nahiya Muqaddasa",
+      "titleArabic": "زيارة الناحية المقدسة",
+      "titleUrdu": "زیارت ناحیہ مقدسہ",
+      "titleFarsi": "زیارت ناحیه مقدسه",
+      "sections": [
+        {
+          "id": "ziyarat_nahiya_section_1",
+          "number": 1,
+          "title": "Ziyarat Nahiya Muqaddasa",
+          "titleArabic": "زيارة الناحية المقدسة",
+          "titleUrdu": "زیارت ناحیہ مقدسہ",
+          "titleFarsi": "زیارت ناحیه مقدسه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_rajabiyah",
+      "number": 9,
+      "title": "Ziyarat Rajabiyah",
+      "titleArabic": "الزيارة الرجبية",
+      "titleUrdu": "زیارت رجبیہ",
+      "titleFarsi": "زیارت رجبیه",
+      "sections": [
+        {
+          "id": "ziyarat_rajabiyah_section_1",
+          "number": 1,
+          "title": "Ziyarat Rajabiyah",
+          "titleArabic": "الزيارة الرجبية",
+          "titleUrdu": "زیارت رجبیہ",
+          "titleFarsi": "زیارت رجبیه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_hussain",
+      "number": 10,
+      "title": "Ziyarat Imam Hussain A.S",
+      "titleArabic": "زيارة الإمام الحسين عليه السلام",
+      "titleUrdu": "زیارت امام حسینؑ",
+      "titleFarsi": "زیارت امام حسین علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_hussain_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Hussain A.S",
+          "titleArabic": "زيارة الإمام الحسين عليه السلام",
+          "titleUrdu": "زیارت امام حسینؑ",
+          "titleFarsi": "زیارت امام حسین علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_ali",
+      "number": 11,
+      "title": "Ziyarat Imam Ali A.S",
+      "titleArabic": "زيارة الإمام علي عليه السلام",
+      "titleUrdu": "زیارت امام علیؑ",
+      "titleFarsi": "زیارت امام علی علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_ali_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Ali A.S",
+          "titleArabic": "زيارة الإمام علي عليه السلام",
+          "titleUrdu": "زیارت امام علیؑ",
+          "titleFarsi": "زیارت امام علی علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_prophet_muhammad",
+      "number": 12,
+      "title": "Ziyarat Prophet Muhammad S.A.W.W",
+      "titleArabic": "زيارة النبي محمد صلى الله عليه وآله",
+      "titleUrdu": "زیارت حضرت محمد مصطفیٰؐ",
+      "titleFarsi": "زیارت پیامبر اکرم صلی‌الله‌علیه‌وآله",
+      "sections": [
+        {
+          "id": "ziyarat_prophet_muhammad_section_1",
+          "number": 1,
+          "title": "Ziyarat Prophet Muhammad S.A.W.W",
+          "titleArabic": "زيارة النبي محمد صلى الله عليه وآله",
+          "titleUrdu": "زیارت حضرت محمد مصطفیٰؐ",
+          "titleFarsi": "زیارت پیامبر اکرم صلی‌الله‌علیه‌وآله",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_fatima_zahra",
+      "number": 13,
+      "title": "Ziyarat Janab-e-Fatima Zahra S.A",
+      "titleArabic": "زيارة السيدة فاطمة الزهراء عليها السلام",
+      "titleUrdu": "زیارت جناب فاطمہ زہرا سلام اللہ علیہا",
+      "titleFarsi": "زیارت حضرت فاطمه زهرا سلام‌الله‌علیها",
+      "sections": [
+        {
+          "id": "ziyarat_fatima_zahra_section_1",
+          "number": 1,
+          "title": "Ziyarat Janab-e-Fatima Zahra S.A",
+          "titleArabic": "زيارة السيدة فاطمة الزهراء عليها السلام",
+          "titleUrdu": "زیارت جناب فاطمہ زہرا سلام اللہ علیہا",
+          "titleFarsi": "زیارت حضرت فاطمه زهرا سلام‌الله‌علیها",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_hasan",
+      "number": 14,
+      "title": "Ziyarat Imam Hasan A.S",
+      "titleArabic": "زيارة الإمام الحسن عليه السلام",
+      "titleUrdu": "زیارت امام حسنؑ",
+      "titleFarsi": "زیارت امام حسن علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_hasan_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Hasan A.S",
+          "titleArabic": "زيارة الإمام الحسن عليه السلام",
+          "titleUrdu": "زیارت امام حسنؑ",
+          "titleFarsi": "زیارت امام حسن علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_sajjad",
+      "number": 15,
+      "title": "Ziyarat Imam Sajjad A.S",
+      "titleArabic": "زيارة الإمام السجاد عليه السلام",
+      "titleUrdu": "زیارت امام سجادؑ",
+      "titleFarsi": "زیارت امام سجاد علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_sajjad_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Sajjad A.S",
+          "titleArabic": "زيارة الإمام السجاد عليه السلام",
+          "titleUrdu": "زیارت امام سجادؑ",
+          "titleFarsi": "زیارت امام سجاد علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_baqir",
+      "number": 16,
+      "title": "Ziyarat Imam Baqir A.S",
+      "titleArabic": "زيارة الإمام الباقر عليه السلام",
+      "titleUrdu": "زیارت امام باقرؑ",
+      "titleFarsi": "زیارت امام باقر علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_baqir_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Baqir A.S",
+          "titleArabic": "زيارة الإمام الباقر عليه السلام",
+          "titleUrdu": "زیارت امام باقرؑ",
+          "titleFarsi": "زیارت امام باقر علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_sadiq",
+      "number": 17,
+      "title": "Ziyarat Imam Sadiq A.S",
+      "titleArabic": "زيارة الإمام الصادق عليه السلام",
+      "titleUrdu": "زیارت امام صادقؑ",
+      "titleFarsi": "زیارت امام صادق علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_sadiq_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Sadiq A.S",
+          "titleArabic": "زيارة الإمام الصادق عليه السلام",
+          "titleUrdu": "زیارت امام صادقؑ",
+          "titleFarsi": "زیارت امام صادق علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_kazim",
+      "number": 18,
+      "title": "Ziyarat Imam Kazim A.S",
+      "titleArabic": "زيارة الإمام الكاظم عليه السلام",
+      "titleUrdu": "زیارت امام کاظمؑ",
+      "titleFarsi": "زیارت امام کاظم علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_kazim_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Kazim A.S",
+          "titleArabic": "زيارة الإمام الكاظم عليه السلام",
+          "titleUrdu": "زیارت امام کاظمؑ",
+          "titleFarsi": "زیارت امام کاظم علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_raza",
+      "number": 19,
+      "title": "Ziyarat Imam Raza A.S",
+      "titleArabic": "زيارة الإمام الرضا عليه السلام",
+      "titleUrdu": "زیارت امام رضاؑ",
+      "titleFarsi": "زیارت امام رضا علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_raza_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Raza A.S",
+          "titleArabic": "زيارة الإمام الرضا عليه السلام",
+          "titleUrdu": "زیارت امام رضاؑ",
+          "titleFarsi": "زیارت امام رضا علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_taqi",
+      "number": 20,
+      "title": "Ziyarat Imam Taqi A.S",
+      "titleArabic": "زيارة الإمام التقي الجواد عليه السلام",
+      "titleUrdu": "زیارت امام تقی جوادؑ",
+      "titleFarsi": "زیارت امام تقی جواد علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_taqi_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Taqi A.S",
+          "titleArabic": "زيارة الإمام التقي الجواد عليه السلام",
+          "titleUrdu": "زیارت امام تقی جوادؑ",
+          "titleFarsi": "زیارت امام تقی جواد علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_naqi",
+      "number": 21,
+      "title": "Ziyarat Imam Naqi A.S",
+      "titleArabic": "زيارة الإمام النقي الهادي عليه السلام",
+      "titleUrdu": "زیارت امام نقی ہادیؑ",
+      "titleFarsi": "زیارت امام نقی هادی علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_naqi_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Naqi A.S",
+          "titleArabic": "زيارة الإمام النقي الهادي عليه السلام",
+          "titleUrdu": "زیارت امام نقی ہادیؑ",
+          "titleFarsi": "زیارت امام نقی هادی علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_hasan_askari",
+      "number": 22,
+      "title": "Ziyarat Imam Hasan Askari A.S",
+      "titleArabic": "زيارة الإمام الحسن العسكري عليه السلام",
+      "titleUrdu": "زیارت امام حسن عسکریؑ",
+      "titleFarsi": "زیارت امام حسن عسکری علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_imam_hasan_askari_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Hasan Askari A.S",
+          "titleArabic": "زيارة الإمام الحسن العسكري عليه السلام",
+          "titleUrdu": "زیارت امام حسن عسکریؑ",
+          "titleFarsi": "زیارت امام حسن عسکری علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_imam_mahdi",
+      "number": 23,
+      "title": "Ziyarat Imam Mahdi A.S",
+      "titleArabic": "زيارة الإمام المهدي عجل الله تعالى فرجه",
+      "titleUrdu": "زیارت امام مہدیؑ",
+      "titleFarsi": "زیارت امام مهدی عجل‌الله‌تعالی‌فرجه",
+      "sections": [
+        {
+          "id": "ziyarat_imam_mahdi_section_1",
+          "number": 1,
+          "title": "Ziyarat Imam Mahdi A.S",
+          "titleArabic": "زيارة الإمام المهدي عجل الله تعالى فرجه",
+          "titleUrdu": "زیارت امام مہدیؑ",
+          "titleFarsi": "زیارت امام مهدی عجل‌الله‌تعالی‌فرجه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_aimmat_ul_baqi",
+      "number": 24,
+      "title": "Ziyarat Aimmat-ul-Baqi A.S",
+      "titleArabic": "زيارة أئمة البقيع عليهم السلام",
+      "titleUrdu": "زیارت ائمہ بقیعؑ",
+      "titleFarsi": "زیارت ائمه بقیع علیهم‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_aimmat_ul_baqi_section_1",
+          "number": 1,
+          "title": "Ziyarat Aimmat-ul-Baqi A.S",
+          "titleArabic": "زيارة أئمة البقيع عليهم السلام",
+          "titleUrdu": "زیارت ائمہ بقیعؑ",
+          "titleFarsi": "زیارت ائمه بقیع علیهم‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_muslim_bin_aqeel",
+      "number": 25,
+      "title": "Ziyarat Muslim Bin Aqeel A.S",
+      "titleArabic": "زيارة مسلم بن عقيل عليه السلام",
+      "titleUrdu": "زیارت مسلم بن عقیلؑ",
+      "titleFarsi": "زیارت مسلم بن عقیل علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_muslim_bin_aqeel_section_1",
+          "number": 1,
+          "title": "Ziyarat Muslim Bin Aqeel A.S",
+          "titleArabic": "زيارة مسلم بن عقيل عليه السلام",
+          "titleUrdu": "زیارت مسلم بن عقیلؑ",
+          "titleFarsi": "زیارت مسلم بن عقیل علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_hazrat_abbas",
+      "number": 26,
+      "title": "Ziyarat Hazrat Abbas A.S",
+      "titleArabic": "زيارة أبي الفضل العباس عليه السلام",
+      "titleUrdu": "زیارت حضرت عباسؑ",
+      "titleFarsi": "زیارت حضرت عباس علیه‌السلام",
+      "sections": [
+        {
+          "id": "ziyarat_hazrat_abbas_section_1",
+          "number": 1,
+          "title": "Ziyarat Hazrat Abbas A.S",
+          "titleArabic": "زيارة أبي الفضل العباس عليه السلام",
+          "titleUrdu": "زیارت حضرت عباسؑ",
+          "titleFarsi": "زیارت حضرت عباس علیه‌السلام",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_shohada_e_karbala",
+      "number": 27,
+      "title": "Ziyarat Shohada-e-Karbala",
+      "titleArabic": "زيارة شهداء كربلاء",
+      "titleUrdu": "زیارت شہدائے کربلا",
+      "titleFarsi": "زیارت شهدای کربلا",
+      "sections": [
+        {
+          "id": "ziyarat_shohada_e_karbala_section_1",
+          "number": 1,
+          "title": "Ziyarat Shohada-e-Karbala",
+          "titleArabic": "زيارة شهداء كربلاء",
+          "titleUrdu": "زیارت شہدائے کربلا",
+          "titleFarsi": "زیارت شهدای کربلا",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_hazrat_zainab",
+      "number": 28,
+      "title": "Ziyarat Hazrat Zainab S.A",
+      "titleArabic": "زيارة السيدة زينب عليها السلام",
+      "titleUrdu": "زیارت حضرت زینب سلام اللہ علیہا",
+      "titleFarsi": "زیارت حضرت زینب سلام‌الله‌علیها",
+      "sections": [
+        {
+          "id": "ziyarat_hazrat_zainab_section_1",
+          "number": 1,
+          "title": "Ziyarat Hazrat Zainab S.A",
+          "titleArabic": "زيارة السيدة زينب عليها السلام",
+          "titleUrdu": "زیارت حضرت زینب سلام اللہ علیہا",
+          "titleFarsi": "زیارت حضرت زینب سلام‌الله‌علیها",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_umme_kulsoom",
+      "number": 29,
+      "title": "Ziyarat Umme Kulsoom S.A",
+      "titleArabic": "زيارة أم كلثوم عليها السلام",
+      "titleUrdu": "زیارت ام کلثوم سلام اللہ علیہا",
+      "titleFarsi": "زیارت ام کلثوم سلام‌الله‌علیها",
+      "sections": [
+        {
+          "id": "ziyarat_umme_kulsoom_section_1",
+          "number": 1,
+          "title": "Ziyarat Umme Kulsoom S.A",
+          "titleArabic": "زيارة أم كلثوم عليها السلام",
+          "titleUrdu": "زیارت ام کلثوم سلام اللہ علیہا",
+          "titleFarsi": "زیارت ام کلثوم سلام‌الله‌علیها",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_saturday",
+      "number": 30,
+      "title": "Saturday Ziyarat",
+      "titleArabic": "زيارة يوم السبت",
+      "titleUrdu": "ہفتہ کی زیارت",
+      "titleFarsi": "زیارت روز شنبه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_saturday_section_1",
+          "number": 1,
+          "title": "Saturday Ziyarat",
+          "titleArabic": "زيارة يوم السبت",
+          "titleUrdu": "ہفتہ کی زیارت",
+          "titleFarsi": "زیارت روز شنبه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_sunday",
+      "number": 31,
+      "title": "Sunday Ziyarat",
+      "titleArabic": "زيارة يوم الأحد",
+      "titleUrdu": "اتوار کی زیارت",
+      "titleFarsi": "زیارت روز یکشنبه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_sunday_section_1",
+          "number": 1,
+          "title": "Sunday Ziyarat",
+          "titleArabic": "زيارة يوم الأحد",
+          "titleUrdu": "اتوار کی زیارت",
+          "titleFarsi": "زیارت روز یکشنبه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_monday",
+      "number": 32,
+      "title": "Monday Ziyarat",
+      "titleArabic": "زيارة يوم الاثنين",
+      "titleUrdu": "پیر کی زیارت",
+      "titleFarsi": "زیارت روز دوشنبه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_monday_section_1",
+          "number": 1,
+          "title": "Monday Ziyarat",
+          "titleArabic": "زيارة يوم الاثنين",
+          "titleUrdu": "پیر کی زیارت",
+          "titleFarsi": "زیارت روز دوشنبه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_tuesday",
+      "number": 33,
+      "title": "Tuesday Ziyarat",
+      "titleArabic": "زيارة يوم الثلاثاء",
+      "titleUrdu": "منگل کی زیارت",
+      "titleFarsi": "زیارت روز سه‌شنبه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_tuesday_section_1",
+          "number": 1,
+          "title": "Tuesday Ziyarat",
+          "titleArabic": "زيارة يوم الثلاثاء",
+          "titleUrdu": "منگل کی زیارت",
+          "titleFarsi": "زیارت روز سه‌شنبه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_wednesday",
+      "number": 34,
+      "title": "Wednesday Ziyarat",
+      "titleArabic": "زيارة يوم الأربعاء",
+      "titleUrdu": "بدھ کی زیارت",
+      "titleFarsi": "زیارت روز چهارشنبه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_wednesday_section_1",
+          "number": 1,
+          "title": "Wednesday Ziyarat",
+          "titleArabic": "زيارة يوم الأربعاء",
+          "titleUrdu": "بدھ کی زیارت",
+          "titleFarsi": "زیارت روز چهارشنبه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_thursday",
+      "number": 35,
+      "title": "Thursday Ziyarat",
+      "titleArabic": "زيارة يوم الخميس",
+      "titleUrdu": "جمعرات کی زیارت",
+      "titleFarsi": "زیارت روز پنجشنبه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_thursday_section_1",
+          "number": 1,
+          "title": "Thursday Ziyarat",
+          "titleArabic": "زيارة يوم الخميس",
+          "titleUrdu": "جمعرات کی زیارت",
+          "titleFarsi": "زیارت روز پنجشنبه",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_weekly_friday",
+      "number": 36,
+      "title": "Friday Ziyarat",
+      "titleArabic": "زيارة يوم الجمعة",
+      "titleUrdu": "جمعہ کی زیارت",
+      "titleFarsi": "زیارت روز جمعه",
+      "sections": [
+        {
+          "id": "ziyarat_weekly_friday_section_1",
+          "number": 1,
+          "title": "Friday Ziyarat",
+          "titleArabic": "زيارة يوم الجمعة",
+          "titleUrdu": "جمعہ کی زیارت",
+          "titleFarsi": "زیارت روز جمعه",
+          "lines": []
+        }
+      ]
+    }
+  ]
+}

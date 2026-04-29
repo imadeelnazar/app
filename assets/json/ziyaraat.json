@@ -1,0 +1,340 @@
+{
+  "ziyaraat": [
+    {
+      "name": "Ziyarat Ashura",
+      "nameArabic": "زيارة عاشوراء",
+      "description": "Manually seeded with the sample line provided in the request.",
+      "category": "imam_hussain_as",
+      "occasion": "ashura, thursday, daily",
+      "audioUrl": "",
+      "lines": [
+        {
+          "number": 1,
+          "textArabic": "السلام عليك يا أبا عبد الله",
+          "textEnglish": "Peace be upon you, O Father of Abdullah",
+          "textUrdu": "سلام ہو تم پر اے ابا عبداللہ",
+          "textFarsi": "السلام علیک یا ابا عبد الله",
+          "transliteration": "As-salāmu ʿalayka yā Abā ʿAbdillāh",
+          "audioUrl": "",
+          "audioStartTime": null,
+          "audioEndTime": null
+        }
+      ]
+    },
+    {
+      "name": "Ziyarat Warith",
+      "nameArabic": "زيارة وارث",
+      "description": "",
+      "category": "imam_hussain_as",
+      "occasion": "thursday, arbaeen, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Arbaeen",
+      "nameArabic": "زيارة الأربعين",
+      "description": "",
+      "category": "imam_hussain_as",
+      "occasion": "arbaeen",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Ameenullah",
+      "nameArabic": "زيارة أمين الله",
+      "description": "",
+      "category": "general",
+      "occasion": "thursday, friday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Ale Yasin",
+      "nameArabic": "زيارة آل ياسين",
+      "description": "",
+      "category": "imam_mahdi_as",
+      "occasion": "friday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Jamia Kabira",
+      "nameArabic": "الزيارة الجامعة الكبيرة",
+      "description": "",
+      "category": "ahlulbayt_as",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Jamia Sagheera",
+      "nameArabic": "الزيارة الجامعة الصغيرة",
+      "description": "",
+      "category": "ahlulbayt_as",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Nahiya Muqaddasa",
+      "nameArabic": "زيارة الناحية المقدسة",
+      "description": "",
+      "category": "imam_hussain_as",
+      "occasion": "ashura",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Rajabiyah",
+      "nameArabic": "الزيارة الرجبية",
+      "description": "",
+      "category": "rajab",
+      "occasion": "rajab",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Hussain A.S",
+      "nameArabic": "زيارة الإمام الحسين عليه السلام",
+      "description": "",
+      "category": "imam_hussain_as",
+      "occasion": "thursday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Ali A.S",
+      "nameArabic": "زيارة الإمام علي عليه السلام",
+      "description": "",
+      "category": "imam_ali_as",
+      "occasion": "sunday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Prophet Muhammad S.A.W.W",
+      "nameArabic": "زيارة النبي محمد صلى الله عليه وآله",
+      "description": "",
+      "category": "prophet_saww",
+      "occasion": "saturday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Janab-e-Fatima Zahra S.A",
+      "nameArabic": "زيارة السيدة فاطمة الزهراء عليها السلام",
+      "description": "",
+      "category": "fatima_zahra_sa",
+      "occasion": "sunday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Hasan A.S",
+      "nameArabic": "زيارة الإمام الحسن عليه السلام",
+      "description": "",
+      "category": "imam_hasan_as",
+      "occasion": "monday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Sajjad A.S",
+      "nameArabic": "زيارة الإمام السجاد عليه السلام",
+      "description": "",
+      "category": "imam_sajjad_as",
+      "occasion": "tuesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Baqir A.S",
+      "nameArabic": "زيارة الإمام الباقر عليه السلام",
+      "description": "",
+      "category": "imam_baqir_as",
+      "occasion": "tuesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Sadiq A.S",
+      "nameArabic": "زيارة الإمام الصادق عليه السلام",
+      "description": "",
+      "category": "imam_sadiq_as",
+      "occasion": "tuesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Kazim A.S",
+      "nameArabic": "زيارة الإمام الكاظم عليه السلام",
+      "description": "",
+      "category": "imam_kazim_as",
+      "occasion": "wednesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Raza A.S",
+      "nameArabic": "زيارة الإمام الرضا عليه السلام",
+      "description": "",
+      "category": "imam_raza_as",
+      "occasion": "wednesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Taqi A.S",
+      "nameArabic": "زيارة الإمام التقي الجواد عليه السلام",
+      "description": "",
+      "category": "imam_taqi_as",
+      "occasion": "wednesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Naqi A.S",
+      "nameArabic": "زيارة الإمام النقي الهادي عليه السلام",
+      "description": "",
+      "category": "imam_naqi_as",
+      "occasion": "wednesday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Hasan Askari A.S",
+      "nameArabic": "زيارة الإمام الحسن العسكري عليه السلام",
+      "description": "",
+      "category": "imam_hasan_askari_as",
+      "occasion": "thursday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Imam Mahdi A.S",
+      "nameArabic": "زيارة الإمام المهدي عجل الله تعالى فرجه",
+      "description": "",
+      "category": "imam_mahdi_as",
+      "occasion": "friday, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Aimmat-ul-Baqi A.S",
+      "nameArabic": "زيارة أئمة البقيع عليهم السلام",
+      "description": "",
+      "category": "baqi_as",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Muslim Bin Aqeel A.S",
+      "nameArabic": "زيارة مسلم بن عقيل عليه السلام",
+      "description": "",
+      "category": "kufa",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Hazrat Abbas A.S",
+      "nameArabic": "زيارة أبي الفضل العباس عليه السلام",
+      "description": "",
+      "category": "hazrat_abbas_as",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Shohada-e-Karbala",
+      "nameArabic": "زيارة شهداء كربلاء",
+      "description": "",
+      "category": "karbala_martyrs",
+      "occasion": "ashura, arbaeen, daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Hazrat Zainab S.A",
+      "nameArabic": "زيارة السيدة زينب عليها السلام",
+      "description": "",
+      "category": "hazrat_zainab_sa",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Ziyarat Umme Kulsoom S.A",
+      "nameArabic": "زيارة أم كلثوم عليها السلام",
+      "description": "",
+      "category": "umme_kulsoom_sa",
+      "occasion": "daily",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Saturday Ziyarat",
+      "nameArabic": "زيارة يوم السبت",
+      "description": "Weekly Ziyarat associated with the Holy Prophet S.A.W.W.",
+      "category": "weekly",
+      "occasion": "saturday",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Sunday Ziyarat",
+      "nameArabic": "زيارة يوم الأحد",
+      "description": "Weekly Ziyarat associated with Imam Ali A.S and Lady Fatima Zahra S.A.",
+      "category": "weekly",
+      "occasion": "sunday",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Monday Ziyarat",
+      "nameArabic": "زيارة يوم الاثنين",
+      "description": "Weekly Ziyarat associated with Imam Hasan A.S and Imam Hussain A.S.",
+      "category": "weekly",
+      "occasion": "monday",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Tuesday Ziyarat",
+      "nameArabic": "زيارة يوم الثلاثاء",
+      "description": "Weekly Ziyarat associated with Imam Sajjad, Imam Baqir, and Imam Sadiq A.S.",
+      "category": "weekly",
+      "occasion": "tuesday",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Wednesday Ziyarat",
+      "nameArabic": "زيارة يوم الأربعاء",
+      "description": "Weekly Ziyarat associated with Imam Kazim, Imam Raza, Imam Taqi, and Imam Naqi A.S.",
+      "category": "weekly",
+      "occasion": "wednesday",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Thursday Ziyarat",
+      "nameArabic": "زيارة يوم الخميس",
+      "description": "Weekly Ziyarat associated with Imam Hasan Askari A.S.",
+      "category": "weekly",
+      "occasion": "thursday",
+      "audioUrl": "",
+      "lines": []
+    },
+    {
+      "name": "Friday Ziyarat",
+      "nameArabic": "زيارة يوم الجمعة",
+      "description": "Weekly Ziyarat associated with Imam Mahdi A.S.",
+      "category": "weekly",
+      "occasion": "friday",
+      "audioUrl": "",
+      "lines": []
+    }
+  ]
+}

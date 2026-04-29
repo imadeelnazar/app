@@ -1,0 +1,36 @@
+{
+  "id": "dua_for_protection",
+  "title": "Dua for Protection",
+  "titleArabic": "دعاء الحفظ",
+  "titleUrdu": "حفاظت کے لیے دعا",
+  "titleFarsi": "دعای حفاظت",
+  "category": "need_duas",
+  "recommendedDays": [
+    "anytime"
+  ],
+  "description": "",
+  "sourceBook": "",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "anytime",
+    "dua_for_protection",
+    "need_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua for protection دعاء الحفظ حفاظت کے لیے دعا دعای حفاظت need_duas anytime anytime dua_for_protection need_duas"
+}

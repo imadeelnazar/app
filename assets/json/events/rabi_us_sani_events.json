@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Rabi us Sani",
+  "hijriMonthNumber": 4,
+  "events": [
+    {
+      "id": "event_wafat_bibi_masooma",
+      "title": "Wafat Bibi Fatima Masooma S.A",
+      "titleArabic": "وفاة السيدة فاطمة المعصومة عليها السلام",
+      "titleUrdu": "وفات بی بی فاطمہ معصومہؑ",
+      "titleFarsi": "وفات حضرت فاطمه معصومه سلام الله علیها",
+      "category": "wafat_events",
+      "hijriMonth": "Rabi us Sani",
+      "hijriMonthNumber": 4,
+      "hijriDay": 10,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wafat",
+      "relatedPersonality": "Bibi Fatima Masooma S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_hasan_askari",
+      "title": "Wiladat Imam Hasan Askari A.S",
+      "titleArabic": "ولادة الإمام الحسن العسكري عليه السلام",
+      "titleUrdu": "ولادت امام حسن عسکریؑ",
+      "titleFarsi": "ولادت امام حسن عسکری علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Rabi us Sani",
+      "hijriMonthNumber": 4,
+      "hijriDay": 11,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hasan Askari A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hasan_askari"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

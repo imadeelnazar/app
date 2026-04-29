@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Zilqad",
+  "hijriMonthNumber": 11,
+  "events": [
+    {
+      "id": "event_wiladat_bibi_masooma",
+      "title": "Wiladat Bibi Fatima Masooma S.A",
+      "titleArabic": "ولادة السيدة فاطمة المعصومة عليها السلام",
+      "titleUrdu": "ولادت بی بی فاطمہ معصومہؑ",
+      "titleFarsi": "ولادت حضرت فاطمه معصومه سلام الله علیها",
+      "category": "wiladat_events",
+      "hijriMonth": "Zilqad",
+      "hijriMonthNumber": 11,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Bibi Fatima Masooma S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_raza",
+      "title": "Wiladat Imam Raza A.S",
+      "titleArabic": "ولادة الإمام الرضا عليه السلام",
+      "titleUrdu": "ولادت امام رضاؑ",
+      "titleFarsi": "ولادت امام رضا علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Zilqad",
+      "hijriMonthNumber": 11,
+      "hijriDay": 11,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Raza A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_raza"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_dahwul_arz",
+      "title": "Dahwul Arz",
+      "titleArabic": "دحو الأرض",
+      "titleUrdu": "دحو الارض",
+      "titleFarsi": "دحو الارض",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Zilqad",
+      "hijriMonthNumber": 11,
+      "hijriDay": 25,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_aamaal",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [
+        "dua_tawassul"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_jawad",
+      "title": "Shahadat Imam Jawad A.S",
+      "titleArabic": "شهادة الإمام الجواد عليه السلام",
+      "titleUrdu": "شہادت امام جوادؑ",
+      "titleFarsi": "شهادت امام جواد علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Zilqad",
+      "hijriMonthNumber": 11,
+      "hijriDay": 29,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Jawad A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_taqi"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

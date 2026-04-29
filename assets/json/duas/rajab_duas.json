@@ -1,0 +1,35 @@
+{
+  "id": "rajab_duas",
+  "title": "Rajab Duas",
+  "titleArabic": "أدعية شهر رجب",
+  "titleUrdu": "رجب کی دعائیں",
+  "titleFarsi": "دعاهای ماه رجب",
+  "category": "rajab_duas",
+  "recommendedDays": [
+    "rajab"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "rajab",
+    "rajab_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "rajab duas أدعية شهر رجب رجب کی دعائیں دعاهای ماه رجب rajab_duas rajab rajab rajab_duas"
+}

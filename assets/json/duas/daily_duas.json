@@ -1,0 +1,35 @@
+{
+  "id": "daily_duas",
+  "title": "Daily Duas",
+  "titleArabic": "الأدعية اليومية",
+  "titleUrdu": "روزانہ دعائیں",
+  "titleFarsi": "دعاهای روزانه",
+  "category": "daily_duas",
+  "recommendedDays": [
+    "daily"
+  ],
+  "description": "",
+  "sourceBook": "",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "daily",
+    "daily_duas"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "daily duas الأدعية اليومية روزانہ دعائیں دعاهای روزانه daily_duas daily daily daily_duas"
+}

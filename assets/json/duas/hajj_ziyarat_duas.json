@@ -1,0 +1,37 @@
+{
+  "id": "hajj_ziyarat_duas",
+  "title": "Hajj/Ziyarat Duas",
+  "titleArabic": "أدعية الحج والزيارة",
+  "titleUrdu": "حج/زیارت کی دعائیں",
+  "titleFarsi": "دعاهای حج و زیارت",
+  "category": "hajj_ziyarat_duas",
+  "recommendedDays": [
+    "hajj",
+    "ziyarat"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "hajj",
+    "hajj_ziyarat_duas",
+    "ziyarat"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "hajj/ziyarat duas أدعية الحج والزيارة حج/زیارت کی دعائیں دعاهای حج و زیارت hajj_ziyarat_duas hajj ziyarat hajj hajj_ziyarat_duas ziyarat"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "mafateeh_naveen",
+  "title": "Mafateeh Naveen",
+  "titleArabic": "",
+  "titleUrdu": "مفاتیح نوین",
+  "titleFarsi": "مفاتیح نوین",
+  "author": "",
+  "category": "dua_book",
+  "languageAvailable": [
+    "arabic",
+    "english",
+    "urdu",
+    "farsi",
+    "transliteration"
+  ],
+  "description": "",
+  "coverImage": "",
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty chapters/fields are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Al-Islam.org",
+      "url": "https://www.al-islam.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    }
+  ],
+  "textDirection": {
+    "arabic": "rtl",
+    "urdu": "rtl",
+    "farsi": "rtl",
+    "english": "ltr",
+    "transliteration": "ltr"
+  },
+  "chapters": []
+}

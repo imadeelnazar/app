@@ -1,0 +1,134 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-29",
+  "hijriMonth": "Ramadhan",
+  "hijriMonthNumber": 9,
+  "events": [
+    {
+      "id": "event_wiladat_imam_hasan",
+      "title": "Wiladat Imam Hasan A.S",
+      "titleArabic": "ولادة الإمام الحسن عليه السلام",
+      "titleUrdu": "ولادت امام حسنؑ",
+      "titleFarsi": "ولادت امام حسن علیه السلام",
+      "category": "wiladat_events",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 15,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hasan A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_iftitah"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hasan"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_zarbat_imam_ali",
+      "title": "Zarbat Imam Ali A.S",
+      "titleArabic": "ضربة الإمام علي عليه السلام",
+      "titleUrdu": "ضربت امام علیؑ",
+      "titleFarsi": "ضربت خوردن امام علی علیه السلام",
+      "category": "ayyame_aza",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 19,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Ali A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_jawshan_kabeer",
+        "dua_iftitah"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_ali"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_imam_ali",
+      "title": "Shahadat Imam Ali A.S",
+      "titleArabic": "شهادة الإمام علي عليه السلام",
+      "titleUrdu": "شہادت امام علیؑ",
+      "titleFarsi": "شهادت امام علی علیه السلام",
+      "category": "shahadat_events",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 21,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Imam Ali A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_jawshan_kabeer",
+        "dua_iftitah"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_ali"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_laylatul_qadr",
+      "title": "Laylatul Qadr",
+      "titleArabic": "ليلة القدر",
+      "titleUrdu": "شب قدر",
+      "titleFarsi": "شب قدر",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 23,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_night",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_jawshan_kabeer",
+        "dua_iftitah",
+        "dua_sahar"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    }
+  ]
+}

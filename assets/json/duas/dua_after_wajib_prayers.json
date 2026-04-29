@@ -1,0 +1,36 @@
+{
+  "id": "dua_after_wajib_prayers",
+  "title": "Dua After Each Wajib Prayer",
+  "titleArabic": "دعاء بعد كل صلاة واجبة",
+  "titleUrdu": "ہر واجب نماز کے بعد دعا",
+  "titleFarsi": "دعا پس از هر نماز واجب",
+  "category": "taqeebat",
+  "recommendedDays": [
+    "after_wajib_prayer"
+  ],
+  "description": "",
+  "sourceBook": "Mafatih al-Jinan",
+  "audioUrl": "",
+  "offlineAudioPath": "",
+  "tags": [
+    "after_wajib_prayer",
+    "dua_after_each_wajib_prayer",
+    "taqeebat"
+  ],
+  "contentStatus": "awaiting_licensed_or_manual_text",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty lines are intentional where reuse permission is not confirmed.",
+  "sourceRefs": [
+    {
+      "title": "Duas.org",
+      "url": "https://www.duas.org/",
+      "usage": "Reference pointer only unless reuse permission is confirmed."
+    },
+    {
+      "title": "Mafatih al-Jinan",
+      "url": "https://www.duas.org/downloads/mafatih_al_jinan.pdf",
+      "usage": "Reference pointer only; translations require license verification or manual permission."
+    }
+  ],
+  "lines": [],
+  "searchText": "dua after each wajib prayer دعاء بعد كل صلاة واجبة ہر واجب نماز کے بعد دعا دعا پس از هر نماز واجب taqeebat after_wajib_prayer after_wajib_prayer dua_after_each_wajib_prayer taqeebat"
+}
