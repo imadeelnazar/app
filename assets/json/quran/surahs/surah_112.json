@@ -1,0 +1,90 @@
+{
+  "surahNumber": 112,
+  "nameArabic": "الإخلاص",
+  "nameEnglish": "Al-Ikhlas",
+  "nameUrdu": "الاخلاص",
+  "nameFarsi": "الإخلاص",
+  "transliteration": "Al-Ikhlāṣ",
+  "revelationType": "meccan",
+  "totalAyahs": 4,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "112_1",
+      "surahNumber": 112,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 604,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ هُوَ اللَّهُ أَحَدٌ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "112_2",
+      "surahNumber": 112,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 604,
+      "textArabic": "اللَّهُ الصَّمَدُ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "112_3",
+      "surahNumber": 112,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 604,
+      "textArabic": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "112_4",
+      "surahNumber": 112,
+      "ayahNumber": 4,
+      "juz": 30,
+      "hizb": 60,
+      "page": 604,
+      "textArabic": "وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

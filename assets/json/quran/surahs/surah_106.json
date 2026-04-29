@@ -1,0 +1,90 @@
+{
+  "surahNumber": 106,
+  "nameArabic": "قريش",
+  "nameEnglish": "Quraysh",
+  "nameUrdu": "قریش",
+  "nameFarsi": "قریش",
+  "transliteration": "Quraysh",
+  "revelationType": "meccan",
+  "totalAyahs": 4,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "106_1",
+      "surahNumber": 106,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ لِإِيلَافِ قُرَيْشٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "106_2",
+      "surahNumber": 106,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "106_3",
+      "surahNumber": 106,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "106_4",
+      "surahNumber": 106,
+      "ayahNumber": 4,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "الَّذِي أَطْعَمَهُم مِّن جُوعٍ وَآمَنَهُم مِّنْ خَوْفٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

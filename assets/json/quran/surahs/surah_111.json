@@ -1,0 +1,106 @@
+{
+  "surahNumber": 111,
+  "nameArabic": "المسد",
+  "nameEnglish": "Al-Masad",
+  "nameUrdu": "المسد",
+  "nameFarsi": "المسد",
+  "transliteration": "Al-Masad",
+  "revelationType": "meccan",
+  "totalAyahs": 5,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "111_1",
+      "surahNumber": 111,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "111_2",
+      "surahNumber": 111,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "111_3",
+      "surahNumber": 111,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "111_4",
+      "surahNumber": 111,
+      "ayahNumber": 4,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "111_5",
+      "surahNumber": 111,
+      "ayahNumber": 5,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

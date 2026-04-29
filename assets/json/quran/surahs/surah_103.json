@@ -1,0 +1,74 @@
+{
+  "surahNumber": 103,
+  "nameArabic": "العصر",
+  "nameEnglish": "Al-Asr",
+  "nameUrdu": "العصر",
+  "nameFarsi": "العصر",
+  "transliteration": "Al-ʿAṣr",
+  "revelationType": "meccan",
+  "totalAyahs": 3,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "103_1",
+      "surahNumber": 103,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ وَالْعَصْرِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "103_2",
+      "surahNumber": 103,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "103_3",
+      "surahNumber": 103,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

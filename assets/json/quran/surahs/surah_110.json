@@ -1,0 +1,74 @@
+{
+  "surahNumber": 110,
+  "nameArabic": "النصر",
+  "nameEnglish": "An-Nasr",
+  "nameUrdu": "النصر",
+  "nameFarsi": "النصر",
+  "transliteration": "An-Naṣr",
+  "revelationType": "medinan",
+  "totalAyahs": 3,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "110_1",
+      "surahNumber": 110,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "110_2",
+      "surahNumber": 110,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "110_3",
+      "surahNumber": 110,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

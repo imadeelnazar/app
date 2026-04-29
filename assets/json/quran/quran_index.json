@@ -3,12 +3,40 @@
   "totalSurahs": 114,
   "totalAyahs": 6236,
   "updatedAt": "2026-04-29",
-  "source": "Tanzil.net (Arabic) + Quran.com translations",
   "files": {
     "surahs": "quran_surahs.json",
-    "ayahsDir": "surahs/"
+    "ayahs": "quran_ayahs.json",
+    "surahsDir": "surahs/"
   },
-  "juzCount": 30,
-  "hizbCount": 60,
-  "rubuCount": 240
+  "features": [
+    "surah_wise_reading",
+    "juz_wise_reading",
+    "search_arabic_english_urdu",
+    "audio_ready",
+    "timestamp_highlight_ready",
+    "bookmark_ready",
+    "continue_reading_ready",
+    "offline_first"
+  ],
+  "textDirection": {
+    "arabic": "rtl",
+    "urdu": "rtl",
+    "farsi": "rtl",
+    "english": "ltr",
+    "transliteration": "ltr"
+  },
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ]
 }

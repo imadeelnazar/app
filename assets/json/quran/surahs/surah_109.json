@@ -1,0 +1,122 @@
+{
+  "surahNumber": 109,
+  "nameArabic": "الكافرون",
+  "nameEnglish": "Al-Kafirun",
+  "nameUrdu": "الکافرون",
+  "nameFarsi": "الکافرون",
+  "transliteration": "Al-Kāfirūn",
+  "revelationType": "meccan",
+  "totalAyahs": 6,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "109_1",
+      "surahNumber": 109,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "109_2",
+      "surahNumber": 109,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "لَا أَعْبُدُ مَا تَعْبُدُونَ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "109_3",
+      "surahNumber": 109,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "109_4",
+      "surahNumber": 109,
+      "ayahNumber": 4,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "109_5",
+      "surahNumber": 109,
+      "ayahNumber": 5,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "109_6",
+      "surahNumber": 109,
+      "ayahNumber": 6,
+      "juz": 30,
+      "hizb": 60,
+      "page": 603,
+      "textArabic": "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

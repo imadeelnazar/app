@@ -69,6 +69,8 @@ flutter:
   
   assets:
     - assets/json/
+    - assets/json/quran/
+    - assets/json/quran/surahs/
     - assets/json/duas/
     - assets/json/books/
     - assets/json/events/

@@ -130,7 +130,8 @@ class _PrayerTimeCard extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(20),
@@ -247,9 +248,9 @@ class _QuickActionsSection extends StatelessWidget {
               onTap: () => context.go('/ziyaraat'),
             ),
             _FeatureButton(
-              icon: Icons.more_horiz,
-              label: 'More',
-              onTap: () {},
+              icon: Icons.event,
+              label: 'Events',
+              onTap: () => context.go('/events'),
             ),
           ],
         ),

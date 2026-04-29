@@ -1,0 +1,74 @@
+{
+  "surahNumber": 108,
+  "nameArabic": "الكوثر",
+  "nameEnglish": "Al-Kawthar",
+  "nameUrdu": "الکوثر",
+  "nameFarsi": "الکوثر",
+  "transliteration": "Al-Kawthar",
+  "revelationType": "meccan",
+  "totalAyahs": 3,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "108_1",
+      "surahNumber": 108,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "108_2",
+      "surahNumber": 108,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "108_3",
+      "surahNumber": 108,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 602,
+      "textArabic": "إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

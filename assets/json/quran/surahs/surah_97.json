@@ -1,0 +1,106 @@
+{
+  "surahNumber": 97,
+  "nameArabic": "القدر",
+  "nameEnglish": "Al-Qadr",
+  "nameUrdu": "القدر",
+  "nameFarsi": "القدر",
+  "transliteration": "Al-Qadr",
+  "revelationType": "meccan",
+  "totalAyahs": 5,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "97_1",
+      "surahNumber": 97,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 598,
+      "textArabic": "بِّسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "97_2",
+      "surahNumber": 97,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 598,
+      "textArabic": "وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "97_3",
+      "surahNumber": 97,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 598,
+      "textArabic": "لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "97_4",
+      "surahNumber": 97,
+      "ayahNumber": 4,
+      "juz": 30,
+      "hizb": 60,
+      "page": 598,
+      "textArabic": "تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "97_5",
+      "surahNumber": 97,
+      "ayahNumber": 5,
+      "juz": 30,
+      "hizb": 60,
+      "page": 598,
+      "textArabic": "سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

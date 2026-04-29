@@ -1,0 +1,106 @@
+{
+  "surahNumber": 105,
+  "nameArabic": "الفيل",
+  "nameEnglish": "Al-Fil",
+  "nameUrdu": "الفیل",
+  "nameFarsi": "الفیل",
+  "transliteration": "Al-Fīl",
+  "revelationType": "meccan",
+  "totalAyahs": 5,
+  "sourceRefs": [
+    {
+      "title": "Tanzil Quran Text",
+      "url": "https://tanzil.net/download",
+      "license": "Tanzil terms allow verbatim use in websites/apps with source attribution and link-back.",
+      "copyright": "Copyright (C) 2007-2026 Tanzil Project"
+    },
+    {
+      "title": "Tanzil Quran Metadata",
+      "url": "https://tanzil.net/docs/Quran_Metadata",
+      "license": "CC-BY metadata file from Tanzil.",
+      "copyright": "Copyright (C) 2008-2009 Tanzil.info"
+    }
+  ],
+  "ayahs": [
+    {
+      "id": "105_1",
+      "surahNumber": 105,
+      "ayahNumber": 1,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "105_2",
+      "surahNumber": 105,
+      "ayahNumber": 2,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "105_3",
+      "surahNumber": 105,
+      "ayahNumber": 3,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "105_4",
+      "surahNumber": 105,
+      "ayahNumber": 4,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    },
+    {
+      "id": "105_5",
+      "surahNumber": 105,
+      "ayahNumber": 5,
+      "juz": 30,
+      "hizb": 60,
+      "page": 601,
+      "textArabic": "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ",
+      "textEnglish": "",
+      "textUrdu": "",
+      "textFarsi": "",
+      "transliteration": "",
+      "audioUrl": "",
+      "audioStartTime": null,
+      "audioEndTime": null
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import '../screens/duas/duas_screen.dart';
 import '../screens/duas/dua_detail_screen.dart';
 import '../screens/books/books_screen.dart';
 import '../screens/books/book_detail_screen.dart';
+import '../screens/events/events_screen.dart';
 import '../screens/ziyaraat/ziyaraat_screen.dart';
 import '../screens/ziyaraat/ziyarah_detail_screen.dart';
 import '../screens/prayer_times/prayer_times_screen.dart';
@@ -64,6 +65,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/ziyaraat',
       builder: (context, state) => const ZiyaaratScreen(),
+    ),
+    GoRoute(
+      path: '/events',
+      builder: (context, state) => const EventsScreen(),
     ),
     GoRoute(
       path: '/ziyarah/:ziyarahId',

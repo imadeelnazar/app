@@ -1,88 +1,114 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SurahDetailScreen extends StatelessWidget {
   final int surahId;
 
-  const SurahDetailScreen({required this.surahId, Key? key}) : super(key: key);
+  const SurahDetailScreen({super.key, required this.surahId});
+
+  Future<Map<String, dynamic>> _loadSurah() async {
+    final jsonString = await rootBundle.loadString(
+      'assets/json/quran/surahs/surah_$surahId.json',
+    );
+    return json.decode(jsonString) as Map<String, dynamic>;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFFBF8F3),
-      appBar: AppBar(
-        title: const Text('Al-Fatiha'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        elevation: 0,
-        actions: [
-          IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
-        ],
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Card(
+    return FutureBuilder<Map<String, dynamic>>(
+      future: _loadSurah(),
+      builder: (context, snapshot) {
+        final title = snapshot.data?['nameEnglish'] as String? ?? 'Surah';
+
+        return Scaffold(
+          backgroundColor: const Color(0xFFFBF8F3),
+          appBar: AppBar(
+            title: Text(title),
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
             elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            color: Colors.white,
-            child: const Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Text(
-                    'السورة الفاتحة',
+          ),
+          body: _buildBody(context, snapshot),
+        );
+      },
+    );
+  }
+
+  Widget _buildBody(
+    BuildContext context,
+    AsyncSnapshot<Map<String, dynamic>> snapshot,
+  ) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (snapshot.hasError) {
+      return Center(child: Text('Unable to load Surah: ${snapshot.error}'));
+    }
+
+    final surah = snapshot.data ?? {};
+    final ayahs =
+        List<Map<String, dynamic>>.from(surah['ayahs'] as List? ?? []);
+
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        Card(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Text(
+                    surah['nameArabic'] as String? ?? '',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                       height: 1.8,
                     ),
                   ),
-                  SizedBox(height: 12),
-                  Text(
-                    'The Opener - 7 Ayahs',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${surah['nameEnglish']} - ${surah['totalAyahs']} ayahs',
+                  style: const TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 16),
-          ...[1, 2, 3, 4, 5, 6, 7].map((ayah) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: _AyahCard(
-                ayahNumber: ayah,
-                arabicText: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
-                transliteration: 'Bismillah ar-Rahman ar-Rahim',
-                englishTranslation:
-                    'In the name of Allah, the Most Gracious, the Most Merciful',
-              ),
-            );
-          }),
-        ],
-      ),
+        ),
+        const SizedBox(height: 16),
+        for (final ayah in ayahs)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: _AyahCard(ayah: ayah),
+          ),
+      ],
     );
   }
 }
 
 class _AyahCard extends StatelessWidget {
-  final int ayahNumber;
-  final String arabicText;
-  final String transliteration;
-  final String englishTranslation;
+  final Map<String, dynamic> ayah;
 
-  const _AyahCard({
-    required this.ayahNumber,
-    required this.arabicText,
-    required this.transliteration,
-    required this.englishTranslation,
-  });
+  const _AyahCard({required this.ayah});
 
   @override
   Widget build(BuildContext context) {
+    final arabic = ayah['textArabic'] as String? ?? '';
+    final english = ayah['textEnglish'] as String? ?? '';
+    final urdu = ayah['textUrdu'] as String? ?? '';
+    final farsi = ayah['textFarsi'] as String? ?? '';
+    final transliteration = ayah['transliteration'] as String? ?? '';
+
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -90,109 +116,72 @@ class _AyahCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: const Color(0xFFD4A574).withOpacity(0.1),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                'Ayah $ayahNumber',
-                style: const TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFD4A574),
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              arabicText,
-              textAlign: TextAlign.right,
-              style: const TextStyle(
-                fontSize: 20,
-                height: 2,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              transliteration,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              englishTranslation,
-              textAlign: TextAlign.left,
-              style: const TextStyle(
-                fontSize: 13,
-                height: 1.6,
-                color: Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 12),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _AyahActionButton(
-                  icon: Icons.play_circle_outlined,
-                  label: 'Listen',
-                  onTap: () {},
+                Chip(
+                  label: Text('Ayah ${ayah['ayahNumber']}'),
+                  visualDensity: VisualDensity.compact,
                 ),
-                _AyahActionButton(
-                  icon: Icons.bookmark_border,
-                  label: 'Bookmark',
-                  onTap: () {},
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.play_circle_outline),
+                  tooltip: 'Listen',
+                  onPressed: () {},
                 ),
-                _AyahActionButton(
-                  icon: Icons.share,
-                  label: 'Share',
-                  onTap: () {},
+                IconButton(
+                  icon: const Icon(Icons.bookmark_border),
+                  tooltip: 'Bookmark',
+                  onPressed: () {},
                 ),
               ],
             ),
+            const SizedBox(height: 10),
+            Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                arabic,
+                textAlign: TextAlign.right,
+                style: const TextStyle(
+                  fontSize: 24,
+                  height: 2,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            if (urdu.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: Text(urdu),
+              ),
+            ],
+            if (farsi.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: Text(farsi),
+              ),
+            ],
+            if (english.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              Text(english),
+            ],
+            if (transliteration.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              Text(
+                transliteration,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+            const SizedBox(height: 8),
+            Text(
+              'Juz ${ayah['juz']} - Hizb ${ayah['hizb']} - Page ${ayah['page']}',
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _AyahActionButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final VoidCallback onTap;
-
-  const _AyahActionButton({
-    required this.icon,
-    required this.label,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Icon(icon, color: const Color(0xFFD4A574), size: 24),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFFD4A574),
-            ),
-          ),
-        ],
       ),
     );
   }
