@@ -27,9 +27,13 @@ const List<String> sawabTickerNames = [
   'Syed Jaffar Abbas',
   'Syeda Fatima Shabbar',
   '',
-  'Gulam Hussain',
+  'Gulam ALi',
   'Nazar Ali',
-  'Ijaz Hussain'
+  'Ijaz Hussain',
+  'Fazal Ali',
+  'Akram Ali',
+  'Nimat Ali',
+  'Mohammad Aslam'
 ];
 
 String cleanSawabName(String name) {
