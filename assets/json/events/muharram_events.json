@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Muharram",
   "hijriMonthNumber": 1,
   "events": [
@@ -166,6 +166,35 @@
       "isRecurringYearly": true,
       "eventType": "ayyame_aza",
       "relatedPersonality": "Ahlul Bayt A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_muharram"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_shohada_e_karbala"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_burial_shohada_karbala",
+      "title": "Burial of Shohada-e-Karbala",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "ayyame_aza",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 12,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "ayyame_aza",
+      "relatedPersonality": "Shohada-e-Karbala",
       "shortDescription": "",
       "fullDescription": "",
       "recommendedAamaal": [

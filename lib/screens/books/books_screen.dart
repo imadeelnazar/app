@@ -87,15 +87,11 @@ class _BooksScreenState extends State<BooksScreen> {
           return Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+                child: HidayatSearchField(
                   controller: _searchController,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: 'Search books',
-                    border: OutlineInputBorder(),
-                  ),
                   onChanged: (value) => setState(() => _query = value.trim()),
+                  hintText: 'Search books',
                 ),
               ),
               Expanded(

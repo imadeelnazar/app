@@ -1,9 +1,38 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Rajab",
   "hijriMonthNumber": 7,
   "events": [
+    {
+      "id": "event_first_night_rajab",
+      "title": "First Night of Rajab",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_night",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [
+        "dua_rajab"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
     {
       "id": "event_wiladat_imam_baqir",
       "title": "Wiladat Imam Baqir A.S",
@@ -181,6 +210,33 @@
       }
     },
     {
+      "id": "event_wafat_abu_talib",
+      "title": "Wafat Hazrat Abu Talib A.S",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "wafat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 26,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wafat",
+      "relatedPersonality": "Hazrat Abu Talib A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
       "id": "event_mabath",
       "title": "Mabath",
       "titleArabic": "المبعث النبوي",
@@ -204,6 +260,35 @@
       ],
       "recommendedZiyaraat": [
         "ziyarat_prophet_muhammad"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_departure_imam_hussain_madina",
+      "title": "Imam Hussain A.S Departed from Madina",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "historical_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 28,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Imam Hussain A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_rajab"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hussain"
       ],
       "notification": {
         "enabled": true,

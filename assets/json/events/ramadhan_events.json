@@ -1,9 +1,67 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Ramadhan",
   "hijriMonthNumber": 9,
   "events": [
+    {
+      "id": "event_start_ramadhan",
+      "title": "Beginning of Mahe Ramadhan",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_iftitah"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wafat_bibi_khadija",
+      "title": "Wafat Bibi Khadija S.A",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "wafat_events",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 10,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wafat",
+      "relatedPersonality": "Bibi Khadija S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_iftitah"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
     {
       "id": "event_wiladat_imam_hasan",
       "title": "Wiladat Imam Hasan A.S",
@@ -36,6 +94,64 @@
       }
     },
     {
+      "id": "event_battle_of_badr",
+      "title": "Battle of Badr",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "historical_events",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 17,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Prophet Muhammad S.A.W.W",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_ramadhan"
+      ],
+      "recommendedDuas": [
+        "dua_iftitah"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_laylatul_qadr_19",
+      "title": "Laylatul Qadr - 19th Night",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 19,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_night",
+      "relatedPersonality": "",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_laylatul_qadr"
+      ],
+      "recommendedDuas": [
+        "dua_jawshan_kabeer"
+      ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "20:00"
+      }
+    },
+    {
       "id": "event_zarbat_imam_ali",
       "title": "Zarbat Imam Ali A.S",
       "titleArabic": "ضربة الإمام علي عليه السلام",
@@ -65,6 +181,37 @@
         "enabled": true,
         "daysBefore": 1,
         "time": "09:00"
+      }
+    },
+    {
+      "id": "event_laylatul_qadr_21",
+      "title": "Laylatul Qadr - 21st Night",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 21,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_night",
+      "relatedPersonality": "Imam Ali A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_laylatul_qadr"
+      ],
+      "recommendedDuas": [
+        "dua_jawshan_kabeer"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_ali"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "20:00"
       }
     },
     {

@@ -9,10 +9,10 @@ import 'notification_service.dart';
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   try {
     await Firebase.initializeApp();
-    await NotificationService().showNotification(
-      id: message.messageId?.hashCode ?? DateTime.now().millisecondsSinceEpoch,
-      title: message.notification?.title ?? 'Hidayat',
-      body: message.notification?.body ?? 'New notification',
+    await NotificationService().showAzanPushNotification(
+      id: _notificationIdFor(message),
+      title: _titleFor(message),
+      body: _bodyFor(message),
     );
   } catch (error, stackTrace) {
     developer.log(
@@ -73,12 +73,10 @@ class FirebaseNotificationService {
   }
 
   Future<void> _showForegroundMessage(RemoteMessage message) async {
-    await NotificationService().showNotification(
-      id: message.messageId?.hashCode ?? DateTime.now().millisecondsSinceEpoch,
-      title: message.notification?.title ?? message.data['title'] ?? 'Hidayat',
-      body: message.notification?.body ??
-          message.data['body'] ??
-          'New notification',
+    await NotificationService().showAzanPushNotification(
+      id: _notificationIdFor(message),
+      title: _titleFor(message),
+      body: _bodyFor(message),
     );
   }
 
@@ -88,4 +86,20 @@ class FirebaseNotificationService {
       name: 'FirebaseNotificationService',
     );
   }
+}
+
+int _notificationIdFor(RemoteMessage message) {
+  return (message.messageId?.hashCode ??
+          DateTime.now().millisecondsSinceEpoch) &
+      0x7fffffff;
+}
+
+String _titleFor(RemoteMessage message) {
+  return message.notification?.title ?? message.data['title'] ?? 'Hidayat';
+}
+
+String _bodyFor(RemoteMessage message) {
+  return message.notification?.body ??
+      message.data['body'] ??
+      'New notification';
 }

@@ -1,9 +1,65 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Safar",
   "hijriMonthNumber": 2,
   "events": [
+    {
+      "id": "event_wiladat_imam_musa_kazim",
+      "title": "Wiladat Imam Musa Kazim A.S",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "wiladat_events",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 7,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Musa Kazim A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_kazim"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_bibi_sakina",
+      "title": "Shahadat Bibi Sakina S.A",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "shahadat_events",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 13,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Bibi Sakina S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_safar"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_shohada_e_karbala"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
     {
       "id": "event_arbaeen",
       "title": "Arbaeen",

@@ -1,9 +1,34 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Zilhajj",
   "hijriMonthNumber": 12,
   "events": [
+    {
+      "id": "event_nikah_imam_ali_fatima",
+      "title": "Nikah Imam Ali A.S and Janab-e-Fatima Zahra S.A",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "historical_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 1,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Imam Ali A.S; Janab-e-Fatima Zahra S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
     {
       "id": "event_shahadat_imam_baqir",
       "title": "Shahadat Imam Baqir A.S",
@@ -86,6 +111,35 @@
       }
     },
     {
+      "id": "event_shahadat_muslim_ibn_aqeel",
+      "title": "Shahadat Muslim ibn Aqeel A.S and Hani ibn Urwa",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "shahadat_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 9,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Muslim ibn Aqeel A.S; Hani ibn Urwa",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_arafah"
+      ],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_muslim_ibn_aqeel"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
       "id": "event_eid_ul_adha",
       "title": "Eid ul Adha",
       "titleArabic": "عيد الأضحى",
@@ -106,6 +160,33 @@
         "eid_duas"
       ],
       "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wiladat_imam_hadi",
+      "title": "Wiladat Imam Hadi A.S",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "wiladat_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 15,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hadi A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hadi"
+      ],
       "notification": {
         "enabled": true,
         "daysBefore": 1,
@@ -161,6 +242,31 @@
       "recommendedDuas": [
         "dua_tawassul"
       ],
+      "recommendedZiyaraat": [],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_hal_ata",
+      "title": "Revelation of Surah Hal Ata",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "historical_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 25,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "historical",
+      "relatedPersonality": "Ahlul Bayt A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
       "recommendedZiyaraat": [],
       "notification": {
         "enabled": true,

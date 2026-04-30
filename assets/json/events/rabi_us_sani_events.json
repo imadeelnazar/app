@@ -1,9 +1,36 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Rabi us Sani",
   "hijriMonthNumber": 4,
   "events": [
+    {
+      "id": "event_wiladat_imam_hasan_askari_reported",
+      "title": "Wiladat Imam Hasan Askari A.S",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "wiladat_events",
+      "hijriMonth": "Rabi us Sani",
+      "hijriMonthNumber": 4,
+      "hijriDay": 8,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hasan Askari A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_hasan_askari"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
     {
       "id": "event_wafat_bibi_masooma",
       "title": "Wafat Bibi Fatima Masooma S.A",

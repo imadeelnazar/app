@@ -78,15 +78,11 @@ class _ZiyaaratScreenState extends State<ZiyaaratScreen> {
           return Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+                child: HidayatSearchField(
                   controller: _searchController,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: 'Search Ziyaraat',
-                    border: OutlineInputBorder(),
-                  ),
                   onChanged: (value) => setState(() => _query = value.trim()),
+                  hintText: 'Search Ziyaraat',
                 ),
               ),
               Expanded(

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Zilqad",
   "hijriMonthNumber": 11,
   "events": [
@@ -42,6 +42,33 @@
       "gregorianDate": "",
       "isRecurringYearly": true,
       "eventType": "wiladat",
+      "relatedPersonality": "Imam Raza A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_raza"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_ziyarat_imam_raza_day",
+      "title": "Special Ziyarat Day of Imam Raza A.S",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Zilqad",
+      "hijriMonthNumber": 11,
+      "hijriDay": 23,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_aamaal",
       "relatedPersonality": "Imam Raza A.S",
       "shortDescription": "",
       "fullDescription": "",

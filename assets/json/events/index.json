@@ -1,8 +1,8 @@
 {
-  "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "version": "1.1.0",
+  "updatedAt": "2026-04-30",
   "calendar": "hijri",
-  "gregorianDatePolicy": "calculate dynamically each year; JSON keeps gregorianDate empty by design",
+  "gregorianDatePolicy": "calculate dynamically each year in the device local timezone; JSON keeps gregorianDate empty by design",
   "items": [
     {
       "id": "event_islamic_new_year",
@@ -77,6 +77,18 @@
       "relatedPersonality": "Ahlul Bayt A.S"
     },
     {
+      "id": "event_burial_shohada_karbala",
+      "title": "Burial of Shohada-e-Karbala",
+      "titleUrdu": "",
+      "file": "muharram_events.json",
+      "category": "ayyame_aza",
+      "hijriMonth": "Muharram",
+      "hijriMonthNumber": 1,
+      "hijriDay": 12,
+      "eventType": "ayyame_aza",
+      "relatedPersonality": "Shohada-e-Karbala"
+    },
+    {
       "id": "event_shahadat_imam_sajjad",
       "title": "Shahadat Imam Sajjad A.S",
       "titleUrdu": "شہادت امام سجادؑ",
@@ -87,6 +99,30 @@
       "hijriDay": 25,
       "eventType": "shahadat",
       "relatedPersonality": "Imam Sajjad A.S"
+    },
+    {
+      "id": "event_wiladat_imam_musa_kazim",
+      "title": "Wiladat Imam Musa Kazim A.S",
+      "titleUrdu": "",
+      "file": "safar_events.json",
+      "category": "wiladat_events",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 7,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Musa Kazim A.S"
+    },
+    {
+      "id": "event_shahadat_bibi_sakina",
+      "title": "Shahadat Bibi Sakina S.A",
+      "titleUrdu": "",
+      "file": "safar_events.json",
+      "category": "shahadat_events",
+      "hijriMonth": "Safar",
+      "hijriMonthNumber": 2,
+      "hijriDay": 13,
+      "eventType": "shahadat",
+      "relatedPersonality": "Bibi Sakina S.A"
     },
     {
       "id": "event_arbaeen",
@@ -137,6 +173,18 @@
       "relatedPersonality": "Imam Hasan Askari A.S"
     },
     {
+      "id": "event_eid_e_zahra_imamat_mahdi",
+      "title": "Eid-e-Zahra and Beginning of Imamat Imam Mahdi A.S",
+      "titleUrdu": "",
+      "file": "rabi_ul_awwal_events.json",
+      "category": "eid_events",
+      "hijriMonth": "Rabi ul Awwal",
+      "hijriMonthNumber": 3,
+      "hijriDay": 9,
+      "eventType": "eid",
+      "relatedPersonality": "Imam Mahdi A.S"
+    },
+    {
       "id": "event_wiladat_prophet_imam_sadiq",
       "title": "Wiladat Prophet Muhammad S.A.W.W and Imam Jafar Sadiq A.S",
       "titleUrdu": "ولادت رسول اکرمؐ و امام جعفر صادقؑ",
@@ -147,6 +195,18 @@
       "hijriDay": 17,
       "eventType": "wiladat",
       "relatedPersonality": "Prophet Muhammad S.A.W.W; Imam Jafar Sadiq A.S"
+    },
+    {
+      "id": "event_wiladat_imam_hasan_askari_reported",
+      "title": "Wiladat Imam Hasan Askari A.S",
+      "titleUrdu": "",
+      "file": "rabi_us_sani_events.json",
+      "category": "wiladat_events",
+      "hijriMonth": "Rabi us Sani",
+      "hijriMonthNumber": 4,
+      "hijriDay": 8,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hasan Askari A.S"
     },
     {
       "id": "event_wafat_bibi_masooma",
@@ -209,6 +269,18 @@
       "relatedPersonality": "Janab-e-Fatima Zahra S.A"
     },
     {
+      "id": "event_wafat_ummul_baneen",
+      "title": "Wafat Ummul Baneen S.A",
+      "titleUrdu": "",
+      "file": "jamadi_us_sani_events.json",
+      "category": "wafat_events",
+      "hijriMonth": "Jamadi us Sani",
+      "hijriMonthNumber": 6,
+      "hijriDay": 13,
+      "eventType": "wafat",
+      "relatedPersonality": "Ummul Baneen S.A"
+    },
+    {
       "id": "event_wiladat_fatima_zahra",
       "title": "Wiladat Janab-e-Fatima Zahra S.A",
       "titleUrdu": "ولادت جناب فاطمہ زہراؑ",
@@ -219,6 +291,18 @@
       "hijriDay": 20,
       "eventType": "wiladat",
       "relatedPersonality": "Janab-e-Fatima Zahra S.A"
+    },
+    {
+      "id": "event_first_night_rajab",
+      "title": "First Night of Rajab",
+      "titleUrdu": "",
+      "file": "rajab_events.json",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 1,
+      "eventType": "special_night",
+      "relatedPersonality": ""
     },
     {
       "id": "event_wiladat_imam_baqir",
@@ -293,6 +377,18 @@
       "relatedPersonality": "Imam Kazim A.S"
     },
     {
+      "id": "event_wafat_abu_talib",
+      "title": "Wafat Hazrat Abu Talib A.S",
+      "titleUrdu": "",
+      "file": "rajab_events.json",
+      "category": "wafat_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 26,
+      "eventType": "wafat",
+      "relatedPersonality": "Hazrat Abu Talib A.S"
+    },
+    {
       "id": "event_mabath",
       "title": "Mabath",
       "titleUrdu": "مبعث",
@@ -303,6 +399,18 @@
       "hijriDay": 27,
       "eventType": "historical",
       "relatedPersonality": "Prophet Muhammad S.A.W.W"
+    },
+    {
+      "id": "event_departure_imam_hussain_madina",
+      "title": "Imam Hussain A.S Departed from Madina",
+      "titleUrdu": "",
+      "file": "rajab_events.json",
+      "category": "historical_events",
+      "hijriMonth": "Rajab",
+      "hijriMonthNumber": 7,
+      "hijriDay": 28,
+      "eventType": "historical",
+      "relatedPersonality": "Imam Hussain A.S"
     },
     {
       "id": "event_wiladat_imam_hussain",
@@ -353,6 +461,18 @@
       "relatedPersonality": "Ali Akbar A.S"
     },
     {
+      "id": "event_shab_e_barat",
+      "title": "Shab-e-Barat / Nime Shaban",
+      "titleUrdu": "",
+      "file": "shaban_events.json",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 15,
+      "eventType": "special_night",
+      "relatedPersonality": "Imam Mahdi A.S"
+    },
+    {
       "id": "event_wiladat_imam_mahdi",
       "title": "Wiladat Imam Mahdi A.S",
       "titleUrdu": "ولادت امام مہدیؑ",
@@ -363,6 +483,30 @@
       "hijriDay": 15,
       "eventType": "wiladat",
       "relatedPersonality": "Imam Mahdi A.S"
+    },
+    {
+      "id": "event_start_ramadhan",
+      "title": "Beginning of Mahe Ramadhan",
+      "titleUrdu": "",
+      "file": "ramadhan_events.json",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 1,
+      "eventType": "historical",
+      "relatedPersonality": ""
+    },
+    {
+      "id": "event_wafat_bibi_khadija",
+      "title": "Wafat Bibi Khadija S.A",
+      "titleUrdu": "",
+      "file": "ramadhan_events.json",
+      "category": "wafat_events",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 10,
+      "eventType": "wafat",
+      "relatedPersonality": "Bibi Khadija S.A"
     },
     {
       "id": "event_wiladat_imam_hasan",
@@ -377,6 +521,30 @@
       "relatedPersonality": "Imam Hasan A.S"
     },
     {
+      "id": "event_battle_of_badr",
+      "title": "Battle of Badr",
+      "titleUrdu": "",
+      "file": "ramadhan_events.json",
+      "category": "historical_events",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 17,
+      "eventType": "historical",
+      "relatedPersonality": "Prophet Muhammad S.A.W.W"
+    },
+    {
+      "id": "event_laylatul_qadr_19",
+      "title": "Laylatul Qadr - 19th Night",
+      "titleUrdu": "",
+      "file": "ramadhan_events.json",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 19,
+      "eventType": "special_night",
+      "relatedPersonality": ""
+    },
+    {
       "id": "event_zarbat_imam_ali",
       "title": "Zarbat Imam Ali A.S",
       "titleUrdu": "ضربت امام علیؑ",
@@ -386,6 +554,18 @@
       "hijriMonthNumber": 9,
       "hijriDay": 19,
       "eventType": "shahadat",
+      "relatedPersonality": "Imam Ali A.S"
+    },
+    {
+      "id": "event_laylatul_qadr_21",
+      "title": "Laylatul Qadr - 21st Night",
+      "titleUrdu": "",
+      "file": "ramadhan_events.json",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Ramadhan",
+      "hijriMonthNumber": 9,
+      "hijriDay": 21,
+      "eventType": "special_night",
       "relatedPersonality": "Imam Ali A.S"
     },
     {
@@ -437,6 +617,18 @@
       "relatedPersonality": "Aimmat-ul-Baqi A.S"
     },
     {
+      "id": "event_shahadat_hazrat_hamza",
+      "title": "Shahadat Hazrat Hamza A.S and Battle of Uhud",
+      "titleUrdu": "",
+      "file": "shawwal_events.json",
+      "category": "shahadat_events",
+      "hijriMonth": "Shawwal",
+      "hijriMonthNumber": 10,
+      "hijriDay": 15,
+      "eventType": "shahadat",
+      "relatedPersonality": "Hazrat Hamza A.S"
+    },
+    {
       "id": "event_shahadat_imam_sadiq",
       "title": "Shahadat Imam Sadiq A.S",
       "titleUrdu": "شہادت امام صادقؑ",
@@ -473,6 +665,18 @@
       "relatedPersonality": "Imam Raza A.S"
     },
     {
+      "id": "event_ziyarat_imam_raza_day",
+      "title": "Special Ziyarat Day of Imam Raza A.S",
+      "titleUrdu": "",
+      "file": "zilqad_events.json",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Zilqad",
+      "hijriMonthNumber": 11,
+      "hijriDay": 23,
+      "eventType": "special_aamaal",
+      "relatedPersonality": "Imam Raza A.S"
+    },
+    {
       "id": "event_dahwul_arz",
       "title": "Dahwul Arz",
       "titleUrdu": "دحو الارض",
@@ -495,6 +699,18 @@
       "hijriDay": 29,
       "eventType": "shahadat",
       "relatedPersonality": "Imam Jawad A.S"
+    },
+    {
+      "id": "event_nikah_imam_ali_fatima",
+      "title": "Nikah Imam Ali A.S and Janab-e-Fatima Zahra S.A",
+      "titleUrdu": "",
+      "file": "zilhajj_events.json",
+      "category": "historical_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 1,
+      "eventType": "historical",
+      "relatedPersonality": "Imam Ali A.S; Janab-e-Fatima Zahra S.A"
     },
     {
       "id": "event_shahadat_imam_baqir",
@@ -533,6 +749,18 @@
       "relatedPersonality": ""
     },
     {
+      "id": "event_shahadat_muslim_ibn_aqeel",
+      "title": "Shahadat Muslim ibn Aqeel A.S and Hani ibn Urwa",
+      "titleUrdu": "",
+      "file": "zilhajj_events.json",
+      "category": "shahadat_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 9,
+      "eventType": "shahadat",
+      "relatedPersonality": "Muslim ibn Aqeel A.S; Hani ibn Urwa"
+    },
+    {
       "id": "event_eid_ul_adha",
       "title": "Eid ul Adha",
       "titleUrdu": "عید الاضحیٰ",
@@ -543,6 +771,18 @@
       "hijriDay": 10,
       "eventType": "eid",
       "relatedPersonality": ""
+    },
+    {
+      "id": "event_wiladat_imam_hadi",
+      "title": "Wiladat Imam Hadi A.S",
+      "titleUrdu": "",
+      "file": "zilhajj_events.json",
+      "category": "wiladat_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 15,
+      "eventType": "wiladat",
+      "relatedPersonality": "Imam Hadi A.S"
     },
     {
       "id": "event_eid_e_ghadeer",
@@ -565,6 +805,18 @@
       "hijriMonth": "Zilhajj",
       "hijriMonthNumber": 12,
       "hijriDay": 24,
+      "eventType": "historical",
+      "relatedPersonality": "Ahlul Bayt A.S"
+    },
+    {
+      "id": "event_hal_ata",
+      "title": "Revelation of Surah Hal Ata",
+      "titleUrdu": "",
+      "file": "zilhajj_events.json",
+      "category": "historical_events",
+      "hijriMonth": "Zilhajj",
+      "hijriMonthNumber": 12,
+      "hijriDay": 25,
       "eventType": "historical",
       "relatedPersonality": "Ahlul Bayt A.S"
     }

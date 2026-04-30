@@ -35,6 +35,7 @@ class PrayerTimesService {
   static const String defaultLocation = 'Lahore, Pakistan';
   static const String urduPointShiaLahoreUrl =
       'https://www.urdupoint.com/islam/shia/lahore-prayer-timings.html';
+  static const int rollingNotificationDays = 14;
 
   Future<PrayerTimesViewData> fetchPrayerTimesView({
     double latitude = defaultLatitude,
@@ -48,6 +49,8 @@ class PrayerTimesService {
     try {
       return await _fetchUrduPointPrayerTimesView(
         today: today,
+        latitude: latitude,
+        longitude: longitude,
         location: location,
         resolvedTimeZone: resolvedTimeZone,
       );
@@ -64,6 +67,8 @@ class PrayerTimesService {
 
   Future<PrayerTimesViewData> _fetchUrduPointPrayerTimesView({
     required DateTime today,
+    required double latitude,
+    required double longitude,
     required String location,
     required String resolvedTimeZone,
   }) async {
@@ -89,7 +94,13 @@ class PrayerTimesService {
       ..lastUpdated = DateTime.now()
       ..dateIndex = DateTime(today.year, today.month, today.day);
 
-    await NotificationService().schedulePrayerNotifications(prayerTime);
+    await _scheduleRollingPrayerNotifications(
+      seedPrayerTime: prayerTime,
+      latitude: latitude,
+      longitude: longitude,
+      location: location,
+      resolvedTimeZone: resolvedTimeZone,
+    );
 
     final next = _findNextPrayer(prayerTime, today);
     final hijriDate = await _fetchHijriDate(today, resolvedTimeZone);
@@ -145,7 +156,13 @@ class PrayerTimesService {
       ..lastUpdated = DateTime.now()
       ..dateIndex = DateTime(today.year, today.month, today.day);
 
-    await NotificationService().schedulePrayerNotifications(prayerTime);
+    await _scheduleRollingPrayerNotifications(
+      seedPrayerTime: prayerTime,
+      latitude: latitude,
+      longitude: longitude,
+      location: location,
+      resolvedTimeZone: resolvedTimeZone,
+    );
 
     final next = _findNextPrayer(prayerTime, today);
 
@@ -228,6 +245,104 @@ class PrayerTimesService {
 
   String getIslamicDate(DateTime gregorianDate) {
     return _formatApiDate(gregorianDate);
+  }
+
+  Future<void> _scheduleRollingPrayerNotifications({
+    required PrayerTime seedPrayerTime,
+    required double latitude,
+    required double longitude,
+    required String location,
+    required String resolvedTimeZone,
+  }) async {
+    final prayerTimes = <PrayerTime>[seedPrayerTime];
+
+    try {
+      final startDate = DateTime(
+        seedPrayerTime.date.year,
+        seedPrayerTime.date.month,
+        seedPrayerTime.date.day,
+      ).add(const Duration(days: 1));
+      final endDate =
+          startDate.add(const Duration(days: rollingNotificationDays - 2));
+      final months = <_CalendarMonth>{};
+
+      var cursor = DateTime(startDate.year, startDate.month);
+      final lastMonth = DateTime(endDate.year, endDate.month);
+      while (!cursor.isAfter(lastMonth)) {
+        months.add(_CalendarMonth(cursor.year, cursor.month));
+        cursor = DateTime(cursor.year, cursor.month + 1);
+      }
+
+      for (final month in months) {
+        final response = await _dio.get<Map<String, dynamic>>(
+          'https://api.aladhan.com/v1/calendar/${month.year}/${month.month}',
+          queryParameters: {
+            'latitude': latitude,
+            'longitude': longitude,
+            'method': 1,
+            'school': 1,
+            'timezonestring': resolvedTimeZone,
+          },
+        );
+        final data = response.data?['data'] as List<dynamic>? ?? const [];
+        for (final item in data.whereType<Map<String, dynamic>>()) {
+          final prayerTime = _prayerTimeFromCalendarItem(
+            item,
+            location: location,
+          );
+          if (prayerTime == null) continue;
+
+          final date = DateTime(
+            prayerTime.date.year,
+            prayerTime.date.month,
+            prayerTime.date.day,
+          );
+          if (date.isBefore(startDate) || date.isAfter(endDate)) continue;
+          prayerTimes.add(prayerTime);
+        }
+      }
+    } catch (_) {
+      // Keep at least today's azan alerts scheduled when the rolling calendar
+      // cannot be refreshed because the phone is offline.
+    }
+
+    await NotificationService().schedulePrayerNotificationsForDays(prayerTimes);
+  }
+
+  PrayerTime? _prayerTimeFromCalendarItem(
+    Map<String, dynamic> item, {
+    required String location,
+  }) {
+    final timings = item['timings'] as Map<String, dynamic>? ?? {};
+    final date = item['date'] as Map<String, dynamic>? ?? {};
+    final gregorian = date['gregorian'] as Map<String, dynamic>? ?? {};
+    final rawDate = gregorian['date']?.toString() ?? '';
+    final parsedDate = _parseApiDate(rawDate);
+    if (parsedDate == null) return null;
+
+    return PrayerTime()
+      ..date = parsedDate
+      ..fajr = _displayTime(timings['Fajr']?.toString() ?? '')
+      ..sunrise = _displayTime(timings['Sunrise']?.toString() ?? '')
+      ..dhuhr = _displayTime(timings['Dhuhr']?.toString() ?? '')
+      ..asr = _displayTime(timings['Asr']?.toString() ?? '')
+      ..maghrib = _displayTime(timings['Maghrib']?.toString() ?? '')
+      ..isha = _displayTime(timings['Isha']?.toString() ?? '')
+      ..location = location
+      ..lastUpdated = DateTime.now()
+      ..dateIndex = DateTime(parsedDate.year, parsedDate.month, parsedDate.day);
+  }
+
+  DateTime? _parseApiDate(String raw) {
+    final parts = raw.split('-');
+    if (parts.length != 3) return null;
+
+    final day = int.tryParse(parts[0]);
+    final month = int.tryParse(parts[1]);
+    final year = int.tryParse(parts[2]);
+    if (day == null || month == null || year == null) return null;
+
+    return DateTime(year, month, day);
   }
 
   String _formatApiDate(DateTime date) {
@@ -446,4 +561,21 @@ class _NextPrayer {
   final Duration? remaining;
 
   const _NextPrayer(this.name, this.time, this.remaining);
+}
+
+class _CalendarMonth {
+  final int year;
+  final int month;
+
+  const _CalendarMonth(this.year, this.month);
+
+  @override
+  bool operator ==(Object other) {
+    return other is _CalendarMonth &&
+        other.year == year &&
+        other.month == month;
+  }
+
+  @override
+  int get hashCode => Object.hash(year, month);
 }

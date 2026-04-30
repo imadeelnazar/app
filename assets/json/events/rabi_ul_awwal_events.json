@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Rabi ul Awwal",
   "hijriMonthNumber": 3,
   "events": [
@@ -24,6 +24,33 @@
       "recommendedDuas": [],
       "recommendedZiyaraat": [
         "ziyarat_imam_hasan_askari"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_eid_e_zahra_imamat_mahdi",
+      "title": "Eid-e-Zahra and Beginning of Imamat Imam Mahdi A.S",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "eid_events",
+      "hijriMonth": "Rabi ul Awwal",
+      "hijriMonthNumber": 3,
+      "hijriDay": 9,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "eid",
+      "relatedPersonality": "Imam Mahdi A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_mahdi"
       ],
       "notification": {
         "enabled": true,

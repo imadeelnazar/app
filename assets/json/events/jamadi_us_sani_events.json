@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Jamadi us Sani",
   "hijriMonthNumber": 6,
   "events": [
@@ -24,6 +24,33 @@
       "recommendedDuas": [],
       "recommendedZiyaraat": [
         "ziyarat_fatima_zahra"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_wafat_ummul_baneen",
+      "title": "Wafat Ummul Baneen S.A",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "wafat_events",
+      "hijriMonth": "Jamadi us Sani",
+      "hijriMonthNumber": 6,
+      "hijriDay": 13,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "wafat",
+      "relatedPersonality": "Ummul Baneen S.A",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [
+        "ziyarat_hazrat_abbas"
       ],
       "notification": {
         "enabled": true,

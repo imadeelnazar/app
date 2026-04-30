@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../services/notification_service.dart';
 import '../../services/prayer_times_service.dart';
 import '../../widgets/app_chrome.dart';
 
@@ -458,6 +459,20 @@ class _MetaLine extends StatelessWidget {
 class _AzanAlertInfoCard extends StatelessWidget {
   const _AzanAlertInfoCard();
 
+  Future<void> _testAzanSound(BuildContext context) async {
+    await NotificationService().showAzanNow(
+      id: 2099,
+      prayerName: 'Test',
+    );
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content:
+            Text('Azan test alert sent. Phone volume/settings check karein.'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -467,15 +482,33 @@ class _AzanAlertInfoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: const Color(0xFFD8EFEB)),
       ),
-      child: const Row(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.notifications_active, color: hidayatTeal),
-          SizedBox(width: 12),
+          const Icon(Icons.notifications_active, color: hidayatTeal),
+          const SizedBox(width: 12),
           Expanded(
-            child: Text(
-              'Prayer alerts are scheduled for Fajr, Dhuhr, Asr, Maghrib, and Isha. A licensed Shia azan file can be added as the custom alert sound.',
-              style: TextStyle(fontSize: 13, height: 1.45),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Prayer alerts are scheduled for Fajr, Dhuhr, Asr, Maghrib, and Isha. Shia azan sound alert ke sath chalegi.',
+                  style: TextStyle(fontSize: 13, height: 1.45),
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton.icon(
+                  onPressed: () => _testAzanSound(context),
+                  icon: const Icon(Icons.volume_up_rounded, size: 18),
+                  label: const Text('Test Azan Sound'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: hidayatTeal,
+                    side: const BorderSide(color: hidayatTeal),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

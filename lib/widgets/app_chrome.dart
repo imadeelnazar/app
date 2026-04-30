@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 const Color hidayatGreen = Color(0xFF1B4D3E);
@@ -14,15 +15,27 @@ PreferredSizeWidget hidayatAppBar(
     title: Text(title),
     backgroundColor: hidayatGreen,
     foregroundColor: Colors.white,
+    surfaceTintColor: Colors.transparent,
+    scrolledUnderElevation: 0,
     iconTheme: const IconThemeData(color: Colors.white),
+    toolbarHeight: 56,
+    leadingWidth: showBack ? 52 : null,
+    titleSpacing: showBack ? 0 : 16,
+    centerTitle: false,
+    systemOverlayStyle: SystemUiOverlayStyle.light,
     titleTextStyle: const TextStyle(
       color: Colors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.w600,
+      fontSize: 19,
+      fontWeight: FontWeight.w700,
+      height: 1.1,
+      letterSpacing: 0,
     ),
     elevation: 0,
     leading: showBack
         ? IconButton(
+            tooltip: 'Back',
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints.tightFor(width: 44, height: 44),
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
               if (Navigator.of(context).canPop()) {
@@ -35,6 +48,81 @@ PreferredSizeWidget hidayatAppBar(
         : null,
     actions: actions,
   );
+}
+
+class HidayatSearchField extends StatelessWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final ValueChanged<String> onChanged;
+
+  const HidayatSearchField({
+    super.key,
+    required this.controller,
+    required this.hintText,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFFDDEBE6)),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF0F2F26).withValues(alpha: 0.08),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: ValueListenableBuilder<TextEditingValue>(
+        valueListenable: controller,
+        builder: (context, value, _) {
+          return TextField(
+            controller: controller,
+            textInputAction: TextInputAction.search,
+            cursorColor: hidayatTeal,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0,
+            ),
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyle(
+                color: Colors.grey.shade500,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0,
+              ),
+              prefixIcon: const Icon(Icons.search_rounded, color: hidayatTeal),
+              suffixIcon: value.text.isEmpty
+                  ? null
+                  : IconButton(
+                      tooltip: 'Clear search',
+                      onPressed: () {
+                        controller.clear();
+                        onChanged('');
+                      },
+                      icon: const Icon(Icons.close_rounded),
+                      color: Colors.grey.shade600,
+                    ),
+              border: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(color: hidayatTeal, width: 1.2),
+              ),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 14, vertical: 15),
+            ),
+            onChanged: onChanged,
+          );
+        },
+      ),
+    );
+  }
 }
 
 class HidayatBottomNav extends StatelessWidget {

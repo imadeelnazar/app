@@ -120,22 +120,11 @@ class _QuranScreenState extends State<QuranScreen> {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(14),
-                  child: TextField(
-                    controller: _searchController,
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      hintText: 'Search Surah',
-                      border: OutlineInputBorder(),
-                    ),
-                    onChanged: (value) => setState(() => _query = value.trim()),
-                  ),
+              HidayatSearchField(
+                controller: _searchController,
+                hintText: 'Search Surah or Ayah',
+                onChanged: (value) => setState(
+                  () => _query = value.trim(),
                 ),
               ),
               const SizedBox(height: 12),

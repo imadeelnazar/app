@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../data/masoomeen_shrines.dart';
+import '../services/ai_assistant_service.dart';
 import '../services/prayer_times_service.dart';
 import '../widgets/app_chrome.dart';
 import '../widgets/sawab_ticker_bar.dart';
@@ -53,6 +54,8 @@ class HomeScreen extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _PrayerTimeCard(),
+                        const SizedBox(height: 16),
+                        const _AiAskAnythingCard(),
                         const SizedBox(height: 24),
                         _QuickActionsSection(),
                         const SizedBox(height: 24),
@@ -263,6 +266,84 @@ class _PrayerTimeCardBody extends StatelessWidget {
   }
 }
 
+class _AiAskAnythingCard extends StatelessWidget {
+  const _AiAskAnythingCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(8),
+      child: InkWell(
+        onTap: () => context.go('/ai-assistant'),
+        borderRadius: BorderRadius.circular(8),
+        child: Ink(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: const Color(0xFFD5ECE8)),
+            gradient: const LinearGradient(
+              colors: [Color(0xFFEFFAF8), Color(0xFFFFFFFF)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 50,
+                height: 50,
+                child: ClipOval(
+                  child: Image.network(
+                    ayatollahKhameneiImageUrl,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Container(
+                      color: hidayatTeal,
+                      child: const Icon(
+                        Icons.person_rounded,
+                        color: Colors.white,
+                        size: 28,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 14),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Ask anything to Ayatollah Khamenei',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Fiqa Jafria sawalat, chat aur image attachment support',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Color(0xFF66736D),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios_rounded,
+                  size: 16, color: hidayatTeal),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _PrayerVisualTheme {
   final List<Color> colors;
   final IconData icon;
@@ -396,6 +477,13 @@ class _QuickActionsSection extends StatelessWidget {
         subtitle: 'Live ziyaraat',
         colors: const [Color(0xFF6D28D9), Color(0xFFA78BFA)],
         onTap: () => context.go('/live-ziyaraat'),
+      ),
+      _FeatureAction(
+        icon: Icons.psychology_alt_rounded,
+        label: 'Ayatollah Khamenei',
+        subtitle: 'Fiqa Jafria Q&A',
+        colors: const [Color(0xFF0E7490), Color(0xFF67E8F9)],
+        onTap: () => context.go('/ai-assistant'),
       ),
       _FeatureAction(
         icon: Icons.radio_button_checked_rounded,

@@ -13,7 +13,7 @@ class EventNotificationService {
   final NotificationService _notificationService;
 
   static const int _firstEventNotificationId = 3000;
-  static const int _maxScheduledEvents = 80;
+  static const int _maxScheduledEvents = 120;
 
   Future<void> scheduleUpcomingEventNotifications() async {
     final events = await _loadEvents();
@@ -40,9 +40,19 @@ class EventNotificationService {
 
     var notificationId = _firstEventNotificationId;
     for (final item in upcoming.take(_maxScheduledEvents)) {
-      final alertTime = _alertDateTime(item.event, item.eventDate);
+      var alertTime = _alertDateTime(item.event, item.eventDate);
       final title = 'Islamic Event - ${item.event.title}';
       final body = _eventNotificationBody(item.event, item.eventDate);
+
+      if (!alertTime.isAfter(now) && item.eventDate.isAfter(today)) {
+        final eventDayAlertTime = _eventDayAlertDateTime(
+          item.event,
+          item.eventDate,
+        );
+        if (eventDayAlertTime.isAfter(now)) {
+          alertTime = eventDayAlertTime;
+        }
+      }
 
       if (alertTime.isAfter(now)) {
         await _notificationService.scheduleEventNotification(
@@ -98,6 +108,14 @@ class EventNotificationService {
     _IslamicEventNotificationItem event,
     DateTime eventDate,
   ) {
+    return _eventDayAlertDateTime(event, eventDate)
+        .subtract(Duration(days: event.notificationDaysBefore));
+  }
+
+  DateTime _eventDayAlertDateTime(
+    _IslamicEventNotificationItem event,
+    DateTime eventDate,
+  ) {
     final notificationTime = _parseNotificationTime(event.notificationTime);
     return DateTime(
       eventDate.year,
@@ -105,7 +123,7 @@ class EventNotificationService {
       eventDate.day,
       notificationTime.hour,
       notificationTime.minute,
-    ).subtract(Duration(days: event.notificationDaysBefore));
+    );
   }
 
   _ClockTime _parseNotificationTime(String raw) {
@@ -129,6 +147,7 @@ class EventNotificationService {
     final parts = [
       '${event.hijriDay} ${_monthName(event.hijriMonthNumber)}',
       date,
+      DateTime.now().timeZoneName,
       if (event.relatedPersonality.isNotEmpty) event.relatedPersonality,
     ];
     return parts.join(' - ');

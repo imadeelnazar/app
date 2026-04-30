@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Shaban",
   "hijriMonthNumber": 8,
   "events": [
@@ -116,6 +116,37 @@
         "enabled": true,
         "daysBefore": 1,
         "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shab_e_barat",
+      "title": "Shab-e-Barat / Nime Shaban",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "special_aamaal_days",
+      "hijriMonth": "Shaban",
+      "hijriMonthNumber": 8,
+      "hijriDay": 15,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "special_night",
+      "relatedPersonality": "Imam Mahdi A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [
+        "aamaal_shaban"
+      ],
+      "recommendedDuas": [
+        "dua_kumail"
+      ],
+      "recommendedZiyaraat": [
+        "ziyarat_imam_mahdi"
+      ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "20:00"
       }
     },
     {

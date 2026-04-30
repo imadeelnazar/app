@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../widgets/app_chrome.dart';
 
@@ -12,6 +14,7 @@ class LiveZiyaraatScreen extends StatefulWidget {
 
 class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
   VideoPlayerController? _controller;
+  WebViewController? _webViewController;
   int _selectedIndex = 0;
   bool _isLoading = true;
   bool _isMuted = false;
@@ -38,12 +41,18 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
     setState(() {
       _selectedIndex = index;
       _controller = null;
+      _webViewController = null;
       _isLoading = true;
       _errorMessage = null;
     });
 
     await previousController?.pause();
     await previousController?.dispose();
+
+    if (stream.webPlayerUrl != null && stream.webPlayerUrl!.isNotEmpty) {
+      await _loadWebPlayer(stream);
+      return;
+    }
 
     if (stream.streamUrl == null || stream.streamUrl!.isEmpty) {
       if (!mounted) return;
@@ -60,7 +69,9 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
         Uri.parse(stream.streamUrl!),
         formatHint: VideoFormat.hls,
         httpHeaders: const {
-          'User-Agent': 'Hidayat Flutter App',
+          'User-Agent':
+              'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Hidayat',
+          'Referer': 'https://www.alharamlive.com/',
         },
       );
 
@@ -79,6 +90,10 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
         _isLoading = false;
       });
     } catch (_) {
+      if (stream.webPlayerUrl != null && stream.webPlayerUrl!.isNotEmpty) {
+        await _loadWebPlayer(stream);
+        return;
+      }
       if (!mounted) return;
       setState(() {
         _isLoading = false;
@@ -86,6 +101,59 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
             'Live stream is not responding right now. Please try refresh.';
       });
     }
+  }
+
+  Future<void> _loadWebPlayer(_LiveZiyaratStream stream) async {
+    final webPlayerUrl = stream.webPlayerUrl;
+    if (webPlayerUrl == null || webPlayerUrl.isEmpty) return;
+
+    final controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(Colors.black)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageStarted: (_) {
+            if (mounted) {
+              setState(() {
+                _isLoading = true;
+                _errorMessage = null;
+              });
+            }
+          },
+          onPageFinished: (_) {
+            if (mounted) setState(() => _isLoading = false);
+          },
+          onWebResourceError: (error) {
+            if (error.isForMainFrame == false) return;
+            if (!mounted) return;
+            setState(() {
+              _isLoading = false;
+              _errorMessage =
+                  'Live player is not responding right now. Please try refresh.';
+            });
+          },
+        ),
+      );
+
+    if (controller.platform is AndroidWebViewController) {
+      final androidController = controller.platform as AndroidWebViewController;
+      await androidController.setMediaPlaybackRequiresUserGesture(false);
+      await androidController.setMixedContentMode(MixedContentMode.alwaysAllow);
+    }
+
+    await controller.loadRequest(
+      Uri.parse(webPlayerUrl),
+      headers: const {
+        'User-Agent':
+            'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Hidayat',
+      },
+    );
+
+    if (!mounted) return;
+    setState(() {
+      _webViewController = controller;
+      _controller = null;
+    });
   }
 
   Future<void> _retryCurrentStream() => _loadStream(_selectedIndex);
@@ -138,6 +206,7 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
           Expanded(
             child: _NativeLivePlayer(
               controller: _controller,
+              webViewController: _webViewController,
               isLoading: _isLoading,
               errorMessage: _errorMessage,
               isMuted: _isMuted,
@@ -154,6 +223,7 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
 
 class _NativeLivePlayer extends StatelessWidget {
   final VideoPlayerController? controller;
+  final WebViewController? webViewController;
   final bool isLoading;
   final bool isMuted;
   final String? errorMessage;
@@ -163,6 +233,7 @@ class _NativeLivePlayer extends StatelessWidget {
 
   const _NativeLivePlayer({
     required this.controller,
+    required this.webViewController,
     required this.isLoading,
     required this.isMuted,
     required this.errorMessage,
@@ -174,7 +245,9 @@ class _NativeLivePlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final videoController = controller;
+    final webController = webViewController;
     final isReady = videoController?.value.isInitialized ?? false;
+    final isWebReady = webController != null;
 
     return Container(
       width: double.infinity,
@@ -188,6 +261,10 @@ class _NativeLivePlayer extends StatelessWidget {
                 aspectRatio: videoController!.value.aspectRatio,
                 child: VideoPlayer(videoController),
               ),
+            ),
+          if (isWebReady)
+            Positioned.fill(
+              child: WebViewWidget(controller: webController),
             ),
           if (isLoading)
             const Column(
@@ -225,6 +302,35 @@ class _NativeLivePlayer extends StatelessWidget {
                     label: const Text('Retry'),
                   ),
                 ],
+              ),
+            ),
+          if (isWebReady && !isLoading && errorMessage == null)
+            Positioned(
+              top: 14,
+              left: 14,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: 0.58),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const _LiveBadge(),
+                      const SizedBox(width: 8),
+                      IconButton(
+                        tooltip: 'Refresh',
+                        visualDensity: VisualDensity.compact,
+                        onPressed: onRetry,
+                        icon: const Icon(Icons.refresh, size: 20),
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           if (isReady)
@@ -344,7 +450,8 @@ class _LiveStreamSelector extends StatelessWidget {
         itemBuilder: (context, index) {
           final stream = streams[index];
           final selected = index == selectedIndex;
-          final isPlayable = stream.streamUrl != null;
+          final isPlayable =
+              stream.streamUrl != null || stream.webPlayerUrl != null;
 
           return ChoiceChip(
             selected: selected,
@@ -405,8 +512,8 @@ class _LiveStreamHeader extends StatelessWidget {
               children: [
                 Text(
                   stream.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  overflow: TextOverflow.visible,
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -434,6 +541,7 @@ class _LiveZiyaratStream {
   final String sourceLabel;
   final String note;
   final String? streamUrl;
+  final String? webPlayerUrl;
 
   const _LiveZiyaratStream({
     required this.shortTitle,
@@ -441,51 +549,73 @@ class _LiveZiyaratStream {
     required this.sourceLabel,
     required this.note,
     required this.streamUrl,
+    this.webPlayerUrl,
   });
 }
 
 const List<_LiveZiyaratStream> _streams = [
   _LiveZiyaratStream(
     shortTitle: 'Karbala',
-    title: 'Karbala Live Camera',
-    sourceLabel: 'Al Haram Live public HLS',
-    note: 'Native video player, no website page',
+    title: 'Imam Hussain (A.S) Karbala Live',
+    sourceLabel: 'Al Haram Live official player',
+    note: 'Active live camera',
     streamUrl: 'https://stream.alkafeel.net/live/alkafeel/playlist.m3u8',
-  ),
-  _LiveZiyaratStream(
-    shortTitle: 'Mashhad',
-    title: 'Imam Reza (A.S) Live',
-    sourceLabel: 'Al Haram Live public HLS',
-    note: 'Native video player, no website page',
-    streamUrl:
-        'https://newlive.nasimrezvan.com/hls/Rawzeh-ye-Monavvareh/720p/index.m3u8',
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=4&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
   ),
   _LiveZiyaratStream(
     shortTitle: 'Kadhimiya',
     title: 'Kadhimiya Live',
-    sourceLabel: 'Al Haram Live public HLS',
+    sourceLabel: 'Al Haram Live official player',
     note: 'Imam Kazim (A.S) and Imam Taqi (A.S)',
     streamUrl: 'https://live.aljawadain.org/live/aljawadaintv/playlist.m3u8',
-  ),
-  _LiveZiyaratStream(
-    shortTitle: 'Abbas',
-    title: 'Hazrat Abbas (A.S) Live',
-    sourceLabel: 'Al Haram Live public HLS',
-    note: 'Native video player, no website page',
-    streamUrl: 'https://stream.alkafeel.net/live/alkafeel/playlist.m3u8',
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=6&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
   ),
   _LiveZiyaratStream(
     shortTitle: 'Najaf',
-    title: 'Imam Ali (A.S) Live',
-    sourceLabel: 'Al Haram Live',
-    note: 'Source currently exposes YouTube embed, not direct HLS',
+    title: 'Imam Ali (A.S) Najaf Live',
+    sourceLabel: 'Al Haram Live embedded player',
+    note: 'Official web player inside app',
     streamUrl: null,
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=2&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
+  ),
+  _LiveZiyaratStream(
+    shortTitle: 'Mashhad',
+    title: 'Imam Reza (A.S) Mashhad Live',
+    sourceLabel: 'Al Haram Live official player',
+    note: 'Active live camera',
+    streamUrl:
+        'https://newlive.nasimrezvan.com/hls/Rawzeh-ye-Monavvareh/720p/index.m3u8',
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=5&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
   ),
   _LiveZiyaratStream(
     shortTitle: 'Samarra',
     title: 'Samarra Holy Shrines Live',
-    sourceLabel: 'Al Haram Live',
-    note: 'Source currently exposes YouTube embed, not direct HLS',
+    sourceLabel: 'Al Haram Live embedded player',
+    note: 'Imam Hadi (A.S) and Imam Askari (A.S)',
     streamUrl: null,
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=7&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
+  ),
+  _LiveZiyaratStream(
+    shortTitle: 'Abbas',
+    title: 'Hazrat Abbas (A.S) Live',
+    sourceLabel: 'Al Haram Live official player',
+    note: 'Active live camera',
+    streamUrl: 'https://stream.alkafeel.net/live/alkafeel/playlist.m3u8',
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=9&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
+  ),
+  _LiveZiyaratStream(
+    shortTitle: 'Qom',
+    title: 'Bibi Fatima Masumeh (S.A) Qom Live',
+    sourceLabel: 'Al Haram Live embedded player',
+    note: 'Official web player inside app',
+    streamUrl: null,
+    webPlayerUrl:
+        'https://www.alharamlive.com/index.php?option=com_yendifvideoshare&view=player&id=8&format=raw&autoplay=1&loop=0&volume=50&playbtn=1&controlbar=1&playpause=1&currenttime=0&progress=1&duration=0&volumebtn=1&fullscreen=1&embed=0&share=0',
   ),
 ];

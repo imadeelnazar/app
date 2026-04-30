@@ -69,15 +69,11 @@ class _DuasScreenState extends State<DuasScreen> {
           return Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+                child: HidayatSearchField(
                   controller: _searchController,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: 'Search duas',
-                    border: OutlineInputBorder(),
-                  ),
                   onChanged: (value) => setState(() => _query = value.trim()),
+                  hintText: 'Search duas',
                 ),
               ),
               Expanded(

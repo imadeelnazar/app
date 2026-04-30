@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-29",
+  "updatedAt": "2026-04-30",
   "hijriMonth": "Shawwal",
   "hijriMonthNumber": 10,
   "events": [
@@ -52,6 +52,31 @@
       "recommendedZiyaraat": [
         "ziyarat_aimmat_ul_baqi"
       ],
+      "notification": {
+        "enabled": true,
+        "daysBefore": 1,
+        "time": "09:00"
+      }
+    },
+    {
+      "id": "event_shahadat_hazrat_hamza",
+      "title": "Shahadat Hazrat Hamza A.S and Battle of Uhud",
+      "titleArabic": "",
+      "titleUrdu": "",
+      "titleFarsi": "",
+      "category": "shahadat_events",
+      "hijriMonth": "Shawwal",
+      "hijriMonthNumber": 10,
+      "hijriDay": 15,
+      "gregorianDate": "",
+      "isRecurringYearly": true,
+      "eventType": "shahadat",
+      "relatedPersonality": "Hazrat Hamza A.S",
+      "shortDescription": "",
+      "fullDescription": "",
+      "recommendedAamaal": [],
+      "recommendedDuas": [],
+      "recommendedZiyaraat": [],
       "notification": {
         "enabled": true,
         "daysBefore": 1,

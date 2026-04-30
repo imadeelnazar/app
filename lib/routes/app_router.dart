@@ -4,6 +4,7 @@ import '../screens/splash_screen.dart';
 import '../screens/onboarding/onboarding_screen.dart';
 import '../screens/opening_clip/opening_clip_screen.dart';
 import '../screens/home_screen.dart';
+import '../screens/ai_assistant/ai_assistant_screen.dart';
 import '../screens/isal_e_sawab/isal_e_sawab_screen.dart';
 import '../screens/quran/quran_screen.dart';
 import '../screens/quran/surah_detail_screen.dart';
@@ -96,6 +97,10 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/events',
           builder: (context, state) => const EventsScreen(),
+        ),
+        GoRoute(
+          path: '/ai-assistant',
+          builder: (context, state) => const AiAssistantScreen(),
         ),
         GoRoute(
           path: '/live-ziyaraat',
