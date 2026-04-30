@@ -1,70 +1,105 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../data/masoomeen_shrines.dart';
 import '../services/prayer_times_service.dart';
 import '../widgets/app_chrome.dart';
+import '../widgets/sawab_ticker_bar.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          const SliverAppBar(
-            expandedHeight: 240,
-            collapsedHeight: 0,
-            toolbarHeight: 0,
-            floating: false,
-            pinned: true,
-            backgroundColor: Color(0xFF1BA098),
-            flexibleSpace: FlexibleSpaceBar(
-              background: _MasoomeenHeroBackground(),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _PrayerTimeCard(),
-                  const SizedBox(height: 24),
-                  _QuickActionsSection(),
-                  const SizedBox(height: 24),
-                  _NextPrayerSection(),
-                  const SizedBox(height: 24),
-                  const Text(
-                    'Daily Dua',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  _DailyDuaCard(),
-                  const SizedBox(height: 24),
-                  const Text(
-                    'Continue Reading',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  _ContinueReadingCard(),
-                  const SizedBox(height: 32),
-                ],
-              ),
-            ),
-          ),
-        ],
+    final statusBarHeight = MediaQuery.viewPaddingOf(context).top;
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: hidayatGreen,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      child: Scaffold(
+        body: Stack(
+          children: [
+            CustomScrollView(
+              slivers: [
+                const SliverAppBar(
+                  expandedHeight: 240,
+                  collapsedHeight: 0,
+                  toolbarHeight: 0,
+                  floating: false,
+                  pinned: true,
+                  backgroundColor: hidayatGreen,
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: hidayatGreen,
+                    statusBarIconBrightness: Brightness.light,
+                    statusBarBrightness: Brightness.dark,
+                  ),
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: _MasoomeenHeroBackground(),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SawabTickerBar(),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _PrayerTimeCard(),
+                        const SizedBox(height: 24),
+                        _QuickActionsSection(),
+                        const SizedBox(height: 24),
+                        _NextPrayerSection(),
+                        const SizedBox(height: 24),
+                        const Text(
+                          'Daily Dua',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        _DailyDuaCard(),
+                        const SizedBox(height: 24),
+                        const Text(
+                          'Continue Reading',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        _ContinueReadingCard(),
+                        const SizedBox(height: 32),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (statusBarHeight > 0)
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: IgnorePointer(
+                  child: Container(
+                    height: statusBarHeight,
+                    color: hidayatGreen,
+                  ),
+                ),
+              ),
+          ],
+        ),
+        bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      ),
     );
   }
 }
@@ -326,58 +361,127 @@ class _PrayerMiniCard extends StatelessWidget {
 class _QuickActionsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final features = [
+      _FeatureAction(
+        icon: Icons.menu_book_rounded,
+        label: 'Quran',
+        subtitle: 'Tilawat & Surahs',
+        colors: const [Color(0xFF0F766E), Color(0xFF22C55E)],
+        onTap: () => context.go('/quran'),
+      ),
+      _FeatureAction(
+        icon: Icons.favorite_rounded,
+        label: 'Duas',
+        subtitle: 'Daily duas',
+        colors: const [Color(0xFF9D174D), Color(0xFFFB7185)],
+        onTap: () => context.go('/duas'),
+      ),
+      _FeatureAction(
+        icon: Icons.explore_rounded,
+        label: 'Qibla',
+        subtitle: 'Direction finder',
+        colors: const [Color(0xFF1D4ED8), Color(0xFF38BDF8)],
+        onTap: () => context.go('/qibla'),
+      ),
+      _FeatureAction(
+        icon: Icons.location_on_rounded,
+        label: 'Ziyaraat',
+        subtitle: 'Sacred readings',
+        colors: const [Color(0xFF7C2D12), Color(0xFFF59E0B)],
+        onTap: () => context.go('/ziyaraat'),
+      ),
+      _FeatureAction(
+        icon: Icons.live_tv_rounded,
+        label: 'Live',
+        subtitle: 'Live ziyaraat',
+        colors: const [Color(0xFF6D28D9), Color(0xFFA78BFA)],
+        onTap: () => context.go('/live-ziyaraat'),
+      ),
+      _FeatureAction(
+        icon: Icons.radio_button_checked_rounded,
+        label: 'Tasbeeh',
+        subtitle: 'Digital counter',
+        colors: const [Color(0xFF166534), Color(0xFF84CC16)],
+        onTap: () => context.go('/tasbeeh'),
+      ),
+      _FeatureAction(
+        icon: Icons.schedule_rounded,
+        label: 'Namaz',
+        subtitle: 'Prayer timings',
+        colors: const [Color(0xFF334155), Color(0xFF06B6D4)],
+        onTap: () => context.go('/prayer-times'),
+      ),
+      _FeatureAction(
+        icon: Icons.auto_stories_rounded,
+        label: 'Books',
+        subtitle: 'Islamic library',
+        colors: const [Color(0xFF92400E), Color(0xFFFBBF24)],
+        onTap: () => context.go('/books'),
+      ),
+      _FeatureAction(
+        icon: Icons.volunteer_activism_rounded,
+        label: 'Isal-e-Sawab',
+        subtitle: 'Marhoomeen names',
+        colors: const [Color(0xFF115E59), Color(0xFFD4A574)],
+        onTap: () => context.push('/isal-e-sawab'),
+      ),
+      _FeatureAction(
+        icon: Icons.event_available_rounded,
+        label: 'Events',
+        subtitle: 'Islamic dates',
+        colors: const [Color(0xFF7F1D1D), Color(0xFFF97316)],
+        onTap: () => context.go('/events'),
+      ),
+      _FeatureAction(
+        icon: Icons.bookmark_rounded,
+        label: 'Bookmarks',
+        subtitle: 'Saved items',
+        colors: const [Color(0xFF3730A3), Color(0xFF818CF8)],
+        onTap: () => context.go('/bookmarks'),
+      ),
+      _FeatureAction(
+        icon: Icons.admin_panel_settings_rounded,
+        label: 'Admin',
+        subtitle: 'Manage content',
+        colors: const [Color(0xFF1F2937), Color(0xFF64748B)],
+        onTap: () => context.go('/admin'),
+      ),
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'All Features',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 12),
-        GridView.count(
-          crossAxisCount: 3,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 1.08,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
+        const Row(
           children: [
-            _FeatureButton(
-              icon: Icons.menu_book,
-              label: 'Quran',
-              onTap: () => context.go('/quran'),
+            Text(
+              'All Features',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            _FeatureButton(
-              icon: Icons.favorite,
-              label: 'Duas',
-              onTap: () => context.go('/duas'),
-            ),
-            _FeatureButton(
-              icon: Icons.compass_calibration,
-              label: 'Qibla',
-              onTap: () => context.go('/qibla'),
-            ),
-            _FeatureButton(
-              icon: Icons.location_on,
-              label: 'Ziyaraat',
-              onTap: () => context.go('/ziyaraat'),
-            ),
-            _FeatureButton(
-              icon: Icons.live_tv,
-              label: 'Live',
-              onTap: () => context.go('/live-ziyaraat'),
-            ),
-            _FeatureButton(
-              icon: Icons.radio_button_checked,
-              label: 'Tasbeeh',
-              onTap: () => context.go('/tasbeeh'),
-            ),
-            _FeatureButton(
-              icon: Icons.event,
-              label: 'Events',
-              onTap: () => context.go('/events'),
+            Spacer(),
+            Text(
+              'Explore',
+              style: TextStyle(
+                color: Color(0xFF1BA098),
+                fontSize: 12,
+                fontWeight: FontWeight.w800,
+              ),
             ),
           ],
+        ),
+        const SizedBox(height: 12),
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: features.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisExtent: 112,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+          ),
+          itemBuilder: (context, index) {
+            return _FeatureButton(action: features[index]);
+          },
         ),
       ],
     );
@@ -585,43 +689,252 @@ class _HeroActionChip extends StatelessWidget {
   }
 }
 
-class _FeatureButton extends StatelessWidget {
+class _FeatureAction {
   final IconData icon;
   final String label;
+  final String subtitle;
+  final List<Color> colors;
   final VoidCallback onTap;
 
-  const _FeatureButton({
+  const _FeatureAction({
     required this.icon,
     required this.label,
+    required this.subtitle,
+    required this.colors,
     required this.onTap,
   });
+}
+
+class _FeatureButton extends StatelessWidget {
+  final _FeatureAction action;
+
+  const _FeatureButton({required this.action});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-              color: Color(0xFF1BA098),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(icon, color: Colors.white, size: 22),
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(8),
+      elevation: 0,
+      child: InkWell(
+        onTap: action.onTap,
+        borderRadius: BorderRadius.circular(8),
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border:
+                Border.all(color: action.colors.last.withValues(alpha: 0.2)),
+            boxShadow: [
+              BoxShadow(
+                color: action.colors.first.withValues(alpha: 0.08),
+                blurRadius: 16,
+                offset: const Offset(0, 8),
+              ),
+            ],
           ),
-          const SizedBox(height: 6),
-          Text(
-            label,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
-            textAlign: TextAlign.center,
+          child: Stack(
+            children: [
+              Positioned(
+                right: -24,
+                top: 12,
+                child: Transform.rotate(
+                  angle: -0.5,
+                  child: Container(
+                    width: 84,
+                    height: 18,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: action.colors.last.withValues(alpha: 0.08),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Row(
+                  children: [
+                    _AnimatedFeatureIcon(action: action),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            action.label,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: Color(0xFF172D27),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            action.subtitle,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.grey.shade600,
+                              fontSize: 11,
+                              height: 1.15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                right: 8,
+                bottom: 8,
+                child: Icon(
+                  Icons.arrow_forward_rounded,
+                  size: 15,
+                  color: action.colors.first.withValues(alpha: 0.7),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
+  }
+}
+
+class _AnimatedFeatureIcon extends StatefulWidget {
+  final _FeatureAction action;
+
+  const _AnimatedFeatureIcon({required this.action});
+
+  @override
+  State<_AnimatedFeatureIcon> createState() => _AnimatedFeatureIconState();
+}
+
+class _AnimatedFeatureIconState extends State<_AnimatedFeatureIcon>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 4),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 52,
+      height: 52,
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          final pulse = 0.92 +
+              (_controller.value < 0.5
+                  ? _controller.value * 0.16
+                  : (1 - _controller.value) * 0.16);
+
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              Transform.rotate(
+                angle: _controller.value * 6.28318,
+                child: CustomPaint(
+                  size: const Size(52, 52),
+                  painter: _FeatureOrbitPainter(colors: widget.action.colors),
+                ),
+              ),
+              Transform.scale(
+                scale: pulse,
+                child: Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    gradient: LinearGradient(
+                      colors: widget.action.colors,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color:
+                            widget.action.colors.last.withValues(alpha: 0.35),
+                        blurRadius: 14,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  child: Icon(
+                    widget.action.icon,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _FeatureOrbitPainter extends CustomPainter {
+  final List<Color> colors;
+
+  const _FeatureOrbitPainter({required this.colors});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = Offset.zero & size;
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2
+      ..strokeCap = StrokeCap.round
+      ..shader = SweepGradient(
+        colors: [
+          colors.first.withValues(alpha: 0),
+          colors.last.withValues(alpha: 0.52),
+          colors.first.withValues(alpha: 0),
+        ],
+      ).createShader(rect);
+
+    final arcRect = rect.deflate(4);
+    canvas.drawArc(arcRect, -0.5, 4.4, false, stroke);
+
+    final sparkPaint = Paint()
+      ..color = colors.last.withValues(alpha: 0.72)
+      ..strokeWidth = 2
+      ..strokeCap = StrokeCap.round;
+    final sparkCenter = Offset(size.width * 0.82, size.height * 0.2);
+    canvas.drawLine(
+      sparkCenter.translate(-3, 0),
+      sparkCenter.translate(3, 0),
+      sparkPaint,
+    );
+    canvas.drawLine(
+      sparkCenter.translate(0, -3),
+      sparkCenter.translate(0, 3),
+      sparkPaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _FeatureOrbitPainter oldDelegate) {
+    return oldDelegate.colors != colors;
   }
 }
 

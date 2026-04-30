@@ -287,12 +287,12 @@ class PrayerTimesService {
       final year = int.tryParse(match.group(3)!);
       if (day == date.day && month == date.month && year == date.year) {
         return _UrduPointTimings(
-          fajr: _formatTwentyFourHour(match.group(4)!),
-          sunrise: _formatTwentyFourHour(match.group(5)!),
-          dhuhr: _formatTwentyFourHour(match.group(6)!),
-          asr: _formatTwentyFourHour(match.group(7)!),
-          maghrib: _formatTwentyFourHour(match.group(8)!),
-          isha: _formatTwentyFourHour(match.group(9)!),
+          fajr: _formatUrduPointTime(match.group(4)!, _PrayerPeriod.am),
+          sunrise: _formatUrduPointTime(match.group(5)!, _PrayerPeriod.am),
+          dhuhr: _formatUrduPointTime(match.group(6)!, _PrayerPeriod.pm),
+          asr: _formatUrduPointTime(match.group(7)!, _PrayerPeriod.pm),
+          maghrib: _formatUrduPointTime(match.group(8)!, _PrayerPeriod.pm),
+          isha: _formatUrduPointTime(match.group(9)!, _PrayerPeriod.pm),
         );
       }
     }
@@ -307,12 +307,12 @@ class PrayerTimesService {
     if (summary == null) return null;
 
     return _UrduPointTimings(
-      fajr: _formatTwentyFourHour(summary.group(1)!),
-      sunrise: _formatTwentyFourHour(summary.group(2)!),
-      dhuhr: _formatTwentyFourHour(summary.group(3)!),
-      asr: _formatTwentyFourHour(summary.group(4)!),
-      maghrib: _formatTwentyFourHour(summary.group(5)!),
-      isha: _formatTwentyFourHour(summary.group(6)!),
+      fajr: _formatUrduPointTime(summary.group(1)!, _PrayerPeriod.am),
+      sunrise: _formatUrduPointTime(summary.group(2)!, _PrayerPeriod.am),
+      dhuhr: _formatUrduPointTime(summary.group(3)!, _PrayerPeriod.pm),
+      asr: _formatUrduPointTime(summary.group(4)!, _PrayerPeriod.pm),
+      maghrib: _formatUrduPointTime(summary.group(5)!, _PrayerPeriod.pm),
+      isha: _formatUrduPointTime(summary.group(6)!, _PrayerPeriod.pm),
     );
   }
 
@@ -346,10 +346,18 @@ class PrayerTimesService {
     return null;
   }
 
-  String _formatTwentyFourHour(String raw) {
+  String _formatUrduPointTime(String raw, _PrayerPeriod period) {
     final parts = raw.trim().split(':');
-    final hour = int.tryParse(parts.first) ?? 0;
+    var hour = int.tryParse(parts.first) ?? 0;
     final minute = parts.length > 1 ? int.tryParse(parts[1]) ?? 0 : 0;
+
+    if (period == _PrayerPeriod.pm && hour < 12) {
+      hour += 12;
+    }
+    if (period == _PrayerPeriod.am && hour == 12) {
+      hour = 0;
+    }
+
     return '${hour.toString().padLeft(2, '0')}:'
         '${minute.toString().padLeft(2, '0')}';
   }
@@ -404,6 +412,8 @@ class PrayerTimesService {
     return parts.isEmpty ? '' : '${parts.join(' ')} H';
   }
 }
+
+enum _PrayerPeriod { am, pm }
 
 class _PrayerCandidate {
   final String name;

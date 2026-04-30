@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
+  Timer? _navigationTimer;
 
   @override
   void initState() {
@@ -30,20 +33,22 @@ class _SplashScreenState extends State<SplashScreen>
         Tween<double>(begin: 0, end: 1).animate(_animationController);
 
     _animationController.forward();
-    _navigateAfterIntro();
+    _navigationTimer = Timer(splashHoldDuration, _navigateAfterIntro);
   }
 
   Future<void> _navigateAfterIntro() async {
-    await Future.delayed(splashHoldDuration);
-    final prefs = await SharedPreferences.getInstance();
-    final onboardingSeen = prefs.getBool(onboardingSeenKey) ?? false;
     if (!mounted) return;
 
-    context.go(onboardingSeen ? '/home' : '/onboarding');
+    final prefs = await SharedPreferences.getInstance();
+    final hasSeenOnboarding = prefs.getBool(onboardingSeenKey) ?? false;
+    if (!mounted) return;
+
+    context.go(hasSeenOnboarding ? '/opening' : '/onboarding');
   }
 
   @override
   void dispose() {
+    _navigationTimer?.cancel();
     _animationController.dispose();
     super.dispose();
   }

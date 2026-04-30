@@ -4,9 +4,11 @@ import 'routes/app_router.dart';
 import 'services/database/database_service.dart';
 import 'services/audio_player_service.dart';
 import 'services/event_notification_service.dart';
+import 'services/firebase_notification_service.dart';
 import 'services/notification_service.dart';
 import 'services/prayer_times_service.dart';
 import 'constants/app_colors.dart';
+import 'widgets/exit_confirmation_scope.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +21,9 @@ void main() async {
   } catch (_) {}
   try {
     await NotificationService().initialize();
+  } catch (_) {}
+  try {
+    await FirebaseNotificationService.instance.initialize();
   } catch (_) {}
   try {
     await PrayerTimesService().fetchPrayerTimesView();
@@ -55,6 +60,12 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.system,
       routerConfig: appRouter,
+      builder: (context, child) {
+        return ExitConfirmationScope(
+          router: appRouter,
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
       debugShowCheckedModeBanner: false,
     );
   }

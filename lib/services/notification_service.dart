@@ -77,6 +77,8 @@ class NotificationService {
   }
 
   Future<void> schedulePrayerNotifications(PrayerTime prayerTime) async {
+    await initialize();
+
     final prayers = <String, String>{
       'Fajr': prayerTime.fajr,
       'Dhuhr': prayerTime.dhuhr,
@@ -88,18 +90,25 @@ class NotificationService {
     var id = 2100;
     for (final entry in prayers.entries) {
       await cancelNotification(id);
-      final scheduledTime = _dateTimeForPrayer(prayerTime.date, entry.value);
+      var scheduledTime = _dateTimeForPrayer(prayerTime.date, entry.value);
       final now = DateTime.now();
-      if (scheduledTime != null && scheduledTime.isAfter(now)) {
+      if (scheduledTime == null) {
+        id += 1;
+        continue;
+      }
+
+      final minutesSincePrayer = now.difference(scheduledTime).inMinutes;
+      if (minutesSincePrayer >= 0 && minutesSincePrayer <= 2) {
+        await showAzanNow(id: id, prayerName: entry.key);
+      } else {
+        if (!scheduledTime.isAfter(now)) {
+          scheduledTime = scheduledTime.add(const Duration(days: 1));
+        }
         await scheduleAzanNotification(
           id: id,
           prayerName: entry.key,
           scheduledTime: scheduledTime,
         );
-      } else if (scheduledTime != null &&
-          now.difference(scheduledTime).inMinutes >= 0 &&
-          now.difference(scheduledTime).inMinutes <= 2) {
-        await showAzanNow(id: id, prayerName: entry.key);
       }
       id += 1;
     }

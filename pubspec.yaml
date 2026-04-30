@@ -29,6 +29,9 @@ dependencies:
   json_annotation: ^4.8.1
   json_serializable: ^6.7.0
   
+  # File picking (for admin upload)
+  file_picker: 11.0.2
+
   # HTTP & File Management
   dio: ^5.3.1
   http: ^1.1.0
@@ -58,6 +61,8 @@ dependencies:
   flutter_compass: ^0.8.1
   flutter_tts: ^4.2.5
   video_player: ^2.11.1
+  firebase_core: ^4.7.0
+  firebase_messaging: ^16.2.0
   
 dev_dependencies:
   flutter_test:
@@ -84,4 +89,6 @@ flutter:
     - assets/images/masoomeen/
     - assets/audio/
     - assets/icons/
+    - assets/json/imported/
+    - assets/audio/imported/
   
