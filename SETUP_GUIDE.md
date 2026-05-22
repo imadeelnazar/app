@@ -1,8 +1,8 @@
-# 🚀 Hidayat - Complete Setup & Getting Started Guide
+# 🚀 Haqaiq - Complete Setup & Getting Started Guide
 
 ## ✅ Everything is Ready - Let's Build!
 
-This document contains **everything you need** to build and run the **Hidayat Islamic App**.
+This document contains **everything you need** to build and run the **Haqaiq Islamic App**.
 
 ---
 
@@ -26,10 +26,10 @@ This document contains **everything you need** to build and run the **Hidayat Is
 ### Step 1: Create Flutter Project
 ```bash
 # Create empty Flutter project
-flutter create hidayat
+flutter create haqaiq
 
 # Navigate to project
-cd hidayat
+cd haqaiq
 ```
 
 ### Step 2: Copy pubspec.yaml
@@ -60,7 +60,7 @@ flutter run
 Create this exact structure:
 
 ```
-hidayat/
+haqaiq/
 ├── lib/
 │   ├── main.dart
 │   ├── constants/
@@ -226,7 +226,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const ProviderScope(child: HidayatApp()));
+  runApp(const ProviderScope(child: HaqaiqApp()));
 }
 ```
 

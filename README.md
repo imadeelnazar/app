@@ -1,6 +1,6 @@
-# Hidayat - Islamic Mobile App
+# Haqaiq - Islamic Mobile App
 
-**Hidayat** is a complete, production-ready Islamic mobile application featuring Quran, Duas, Books, Ziyaraat, Prayer Times, Tasbeeh Counter, Qibla Compass, and much more.
+**Haqaiq** is a complete, production-ready Islamic mobile application featuring Quran, Duas, Books, Ziyaraat, Prayer Times, Tasbeeh Counter, Qibla Compass, and much more.
 
 ## Features
 
@@ -90,8 +90,8 @@ All Islamic content is stored in JSON files under `assets/json/`:
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/hidayat.git
-cd hidayat_app
+git clone https://github.com/yourusername/haqaiq.git
+cd haqaiq_app
 ```
 
 2. **Install dependencies:**
@@ -342,4 +342,4 @@ For issues and feature requests, please open an issue on GitHub.
 
 **Made with ❤️ for the Islamic Community**
 
-*Hidayat - Your Islamic Digital Companion*
+*Haqaiq - Your Islamic Digital Companion*

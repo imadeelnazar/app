@@ -1,4 +1,4 @@
-# Hidayat - Complete Flutter Islamic App
+# Haqaiq - Complete Flutter Islamic App
 ## Implementation Summary & File Structure
 
 ### ✅ COMPLETED DELIVERABLES
@@ -92,8 +92,8 @@
 1. **Create Project:**
 ```bash
 cd /path/to/projects
-mkdir hidayat_app
-cd hidayat_app
+mkdir haqaiq_app
+cd haqaiq_app
 ```
 
 2. **Copy Files:**
@@ -120,7 +120,7 @@ flutter run
 ## 📁 COMPLETE FILE STRUCTURE
 
 ```
-hidayat_app/
+haqaiq_app/
 ├── pubspec.yaml
 ├── README.md
 ├── analysis_options.yaml

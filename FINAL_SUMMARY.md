@@ -1,4 +1,4 @@
-# ✅ Hidayat App - COMPLETE & READY!
+# ✅ Haqaiq App - COMPLETE & READY!
 
 ## 🎉 WHAT'S BEEN DELIVERED
 
@@ -46,10 +46,10 @@ You now have:
 ### Step 1: Set Up Flutter Project (5 minutes)
 ```bash
 # Create project
-flutter create hidayat
+flutter create haqaiq
 
 # Navigate to it
-cd hidayat
+cd haqaiq
 
 # Delete old pubspec.yaml
 rm pubspec.yaml
@@ -96,7 +96,7 @@ All files are in `/mnt/user-data/outputs/`:
 4. **SETUP_GUIDE.md** - How to set up
 5. **FILE_INDEX.md** - All files explained
 
-Plus all source code files in the `/home/claude/hidayat_app/` directory!
+Plus all source code files in the `/home/claude/haqaiq_app/` directory!
 
 ---
 
@@ -420,7 +420,7 @@ You have everything needed to launch a professional Islamic mobile app.
 
 ---
 
-**App Name:** Hidayat
+**App Name:** Haqaiq
 **Status:** ✅ Complete & Ready
 **Version:** 1.0.0
 **Build Date:** 2024

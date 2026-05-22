@@ -69,7 +69,7 @@ SOURCES: dict[str, dict] = {
 
 CONTENT_TYPES = ["dua", "ziyarat", "book", "article", "event", "amaal", "biography"]
 RATE_LIMIT_SEC = 3.0  # polite delay between HTTP requests
-USER_AGENT = "HidayatApp/1.0 (metadata-only collector; contact: app-admin)"
+USER_AGENT = "HaqaiqApp/1.0 (metadata-only collector; contact: app-admin)"
 
 
 # ---------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Process uploaded Islamic content files into structured JSON for the Hidayat app.
+Process uploaded Islamic content files into structured JSON for the Haqaiq app.
 
 Supported input formats
 -----------------------
@@ -280,7 +280,7 @@ def list_content(output_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Process Islamic content files into JSON for the Hidayat app."
+        description="Process Islamic content files into JSON for the Haqaiq app."
     )
     sub = parser.add_subparsers(dest="cmd")
 
