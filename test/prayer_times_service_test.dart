@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hidayat/services/prayer_times_service.dart';
+import 'package:haqaiq/services/prayer_times_service.dart';
 
 void main() {
   test('matches attached HTML calculator for Lahore on 22 May 2026', () async {

@@ -60,16 +60,17 @@ class _SplashScreenState extends State<SplashScreen>
       body: Center(
         child: FadeTransition(
           opacity: _fadeAnimation,
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.book,
-                size: 100,
-                color: Color(0xFF1B4D3E),
+              Image.asset(
+                'assets/images/haqaiq_logo_full.png',
+                width: 230,
+                fit: BoxFit.contain,
+                filterQuality: FilterQuality.high,
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 18),
+              const Text(
                 'Haqaiq',
                 style: TextStyle(
                   fontSize: 32,
@@ -77,16 +78,16 @@ class _SplashScreenState extends State<SplashScreen>
                   color: Color(0xFF1B4D3E),
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Islamic Knowledge',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 40),
-              CircularProgressIndicator(
+              const SizedBox(height: 40),
+              const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1B4D3E)),
               ),
             ],

@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../services/audio_player_service.dart';
 
-const String onboardingSeenKey = 'hidayat_onboarding_seen';
+const String onboardingSeenKey = 'haqaiq_onboarding_seen';
 const String onboardingTrackAsset = 'assets/audio/splash_hussain_nijaat.mp3';
 
 class OnboardingScreen extends StatefulWidget {

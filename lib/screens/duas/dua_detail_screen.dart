@@ -34,8 +34,8 @@ class DuaDetailScreen extends StatelessWidget {
         final title = snapshot.data?['title'] as String? ?? 'Dua';
 
         return Scaffold(
-          appBar: hidayatAppBar(context, title: title),
-          bottomNavigationBar: const HidayatBottomNav(currentIndex: 2),
+          appBar: haqaiqAppBar(context, title: title),
+          bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 2),
           body: _buildBody(context, snapshot),
         );
       },

@@ -11,15 +11,15 @@ class FullAudioPlayerScreen extends StatelessWidget {
     final service = ReaderAudioService.instance;
 
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Audio Player'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      appBar: haqaiqAppBar(context, title: 'Audio Player'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Container(
             height: 260,
             decoration: BoxDecoration(
-              color: hidayatGreen,
+              color: haqaiqGreen,
               borderRadius: BorderRadius.circular(24),
             ),
             child: const Center(
@@ -62,7 +62,7 @@ class FullAudioPlayerScreen extends StatelessWidget {
                   child: IconButton.filled(
                     key: ValueKey(playing),
                     style: IconButton.styleFrom(
-                      backgroundColor: playing ? hidayatTeal : Colors.grey,
+                      backgroundColor: playing ? haqaiqTeal : Colors.grey,
                       fixedSize: const Size(76, 76),
                     ),
                     onPressed: playing ? service.stop : null,
@@ -88,7 +88,7 @@ class FullAudioPlayerScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
-                  const Icon(Icons.language, color: hidayatTeal),
+                  const Icon(Icons.language, color: haqaiqTeal),
                   const SizedBox(width: 12),
                   const Expanded(
                     child: Text(

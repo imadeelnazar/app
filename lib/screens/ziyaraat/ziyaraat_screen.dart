@@ -49,8 +49,8 @@ class _ZiyaaratScreenState extends State<ZiyaaratScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Ziyaraat'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 4),
+      appBar: haqaiqAppBar(context, title: 'Ziyaraat'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 4),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: _loadZiyaraat(),
         builder: (context, snapshot) {
@@ -79,7 +79,7 @@ class _ZiyaaratScreenState extends State<ZiyaaratScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
-                child: HidayatSearchField(
+                child: HaqaiqSearchField(
                   controller: _searchController,
                   onChanged: (value) => setState(() => _query = value.trim()),
                   hintText: 'Search Ziyaraat',

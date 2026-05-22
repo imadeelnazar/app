@@ -12,14 +12,14 @@ class AppStrings {
     'tasbeeh': 'Tasbeeh',
     'bookmarks': 'Bookmarks',
     'settings': 'Settings',
-    
+
     // Home Screen
     'greeting': 'Assalamu Alaikum',
     'next_prayer': 'Next Prayer',
     'daily_dua': 'Daily Dua',
     'quick_tools': 'Quick Tools',
     'search': 'Search Quran, Duas...',
-    
+
     // Quran
     'surah': 'Surah',
     'ayah': 'Ayah',
@@ -29,7 +29,7 @@ class AppStrings {
     'urdu': 'Urdu',
     'farsi': 'Farsi',
     'transliteration': 'Transliteration',
-    
+
     // Prayer Times
     'fajr': 'Fajr',
     'sunrise': 'Sunrise',
@@ -39,14 +39,14 @@ class AppStrings {
     'isha': 'Isha',
     'location': 'Location',
     'update_location': 'Update Location',
-    
+
     // Tasbeeh
     'subhan_allah': 'Subhan Allah',
     'alhamdulillah': 'Alhamdulillah',
     'allahu_akbar': 'Allahu Akbar',
     'la_illaha_illallah': 'La Illaha Illallah',
     'reset': 'Reset',
-    
+
     // Player
     'play': 'Play',
     'pause': 'Pause',
@@ -54,7 +54,7 @@ class AppStrings {
     'volume': 'Volume',
     'skip_next': 'Skip Next',
     'skip_previous': 'Skip Previous',
-    
+
     // Common
     'bookmark': 'Bookmark',
     'bookmarked': 'Bookmarked',
@@ -84,14 +84,14 @@ class AppStrings {
     'tasbeeh': 'تسبیح',
     'bookmarks': 'نشانیاں',
     'settings': 'ترتیبات',
-    
+
     // Home Screen
     'greeting': 'السلام علیکم ورحمة الله',
     'next_prayer': 'اگلی نماز',
     'daily_dua': 'روزانہ کی دعا',
     'quick_tools': 'فوری ٹولز',
     'search': 'قرآن میں تلاش کریں...',
-    
+
     // Quran
     'surah': 'سورت',
     'ayah': 'آیت',
@@ -101,7 +101,7 @@ class AppStrings {
     'urdu': 'اردو',
     'farsi': 'فارسی',
     'transliteration': 'ترجمہ',
-    
+
     // Prayer Times
     'fajr': 'فجر',
     'sunrise': 'سورج طلوع',
@@ -111,14 +111,14 @@ class AppStrings {
     'isha': 'عشاء',
     'location': 'مقام',
     'update_location': 'مقام اپ ڈیٹ کریں',
-    
+
     // Tasbeeh
     'subhan_allah': 'سبحان اللہ',
     'alhamdulillah': 'الحمد للہ',
     'allahu_akbar': 'اللہ اکبر',
     'la_illaha_illallah': 'لا اله الا اللہ',
     'reset': 'دوبارہ شروع',
-    
+
     // Player
     'play': 'چلائیں',
     'pause': 'روکیں',
@@ -126,7 +126,7 @@ class AppStrings {
     'volume': 'آواز',
     'skip_next': 'اگلا چھوڑیں',
     'skip_previous': 'پچھلا چھوڑیں',
-    
+
     // Common
     'bookmark': 'نشان زد کریں',
     'bookmarked': 'نشان زد',
@@ -156,14 +156,14 @@ class AppStrings {
     'tasbeeh': 'تسبيح',
     'bookmarks': 'نشانها',
     'settings': 'تنظيمات',
-    
+
     // Home Screen
     'greeting': 'السلام عليکم ورحمة الله',
     'next_prayer': 'نماز بعدي',
     'daily_dua': 'دعاي روزانه',
     'quick_tools': 'ابزارهاي سريع',
     'search': 'جستجو در قرآن...',
-    
+
     // Quran
     'surah': 'سوره',
     'ayah': 'آيه',
@@ -173,7 +173,7 @@ class AppStrings {
     'urdu': 'اردو',
     'farsi': 'فارسي',
     'transliteration': 'ترجمه',
-    
+
     // Prayer Times
     'fajr': 'فجر',
     'sunrise': 'طلوع آفتاب',
@@ -183,14 +183,14 @@ class AppStrings {
     'isha': 'عشاء',
     'location': 'مکان',
     'update_location': 'بروزرساني مکان',
-    
+
     // Tasbeeh
     'subhan_allah': 'سبحان الله',
     'alhamdulillah': 'الحمد لله',
     'allahu_akbar': 'الله اکبر',
     'la_illaha_illallah': 'لا اله الا الله',
     'reset': 'بازنشانی',
-    
+
     // Player
     'play': 'پخش',
     'pause': 'توقف',
@@ -198,7 +198,7 @@ class AppStrings {
     'volume': 'صدا',
     'skip_next': 'رفتن به بعدي',
     'skip_previous': 'رفتن به قبلي',
-    
+
     // Common
     'bookmark': 'نشانگذاري',
     'bookmarked': 'نشانگذاري شده',

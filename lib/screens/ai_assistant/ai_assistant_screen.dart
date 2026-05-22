@@ -150,7 +150,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F8F6),
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Ayatollah Khamenei',
         actions: [
@@ -161,7 +161,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: Column(
         children: [
           const _AssistantIntro(),
@@ -254,7 +254,7 @@ class _KhameneiAvatar extends StatelessWidget {
         errorBuilder: (_, __, ___) => Container(
           width: size,
           height: size,
-          color: hidayatTeal,
+          color: haqaiqTeal,
           child: const Icon(Icons.person_rounded, color: Colors.white),
         ),
       ),
@@ -298,7 +298,7 @@ class _SuggestionList extends StatelessWidget {
                   child: Row(
                     children: [
                       const Icon(Icons.chat_bubble_outline_rounded,
-                          color: hidayatTeal, size: 20),
+                          color: haqaiqTeal, size: 20),
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
@@ -337,7 +337,7 @@ class _MessageBubble extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         decoration: BoxDecoration(
-          color: isUser ? hidayatTeal : Colors.white,
+          color: isUser ? haqaiqTeal : Colors.white,
           borderRadius: BorderRadius.circular(8),
           border: isUser ? null : Border.all(color: const Color(0xFFDDEBE6)),
         ),
@@ -412,7 +412,7 @@ class _Composer extends StatelessWidget {
             tooltip: 'Attach image',
             onPressed: isSending ? null : onAttach,
             icon: const Icon(Icons.attach_file_rounded),
-            color: hidayatTeal,
+            color: haqaiqTeal,
           ),
           Expanded(
             child: Column(
@@ -432,7 +432,7 @@ class _Composer extends StatelessWidget {
                     child: Row(
                       children: [
                         const Icon(Icons.image_rounded,
-                            size: 18, color: hidayatTeal),
+                            size: 18, color: haqaiqTeal),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
@@ -478,7 +478,7 @@ class _Composer extends StatelessWidget {
           FilledButton(
             onPressed: isSending ? null : onSend,
             style: FilledButton.styleFrom(
-              backgroundColor: hidayatTeal,
+              backgroundColor: haqaiqTeal,
               minimumSize: const Size(48, 48),
               padding: EdgeInsets.zero,
               shape: RoundedRectangleBorder(

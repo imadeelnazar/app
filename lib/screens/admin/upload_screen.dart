@@ -112,7 +112,7 @@ class _UploadScreenState extends State<UploadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Upload Content'),
+      appBar: haqaiqAppBar(context, title: 'Upload Content'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Form(
@@ -305,7 +305,7 @@ class _UploadScreenState extends State<UploadScreen> {
                   label:
                       Text(_processing ? 'Processing...' : 'Process & Preview'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: hidayatTeal,
+                    backgroundColor: haqaiqTeal,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -377,8 +377,8 @@ class _ContentTypeSelector extends StatelessWidget {
             ],
           ),
           selected: isSelected,
-          selectedColor: hidayatTeal.withValues(alpha: 0.2),
-          checkmarkColor: hidayatTeal,
+          selectedColor: haqaiqTeal.withValues(alpha: 0.2),
+          checkmarkColor: haqaiqTeal,
           onSelected: (_) => onChanged(t.$1),
         );
       }).toList(),
@@ -401,19 +401,19 @@ class _FilePicker extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.all(
-            color: hasPicked ? hidayatTeal : Colors.grey.shade400,
+            color: hasPicked ? haqaiqTeal : Colors.grey.shade400,
             width: hasPicked ? 2 : 1,
           ),
           borderRadius: BorderRadius.circular(10),
           color: hasPicked
-              ? hidayatTeal.withValues(alpha: 0.05)
+              ? haqaiqTeal.withValues(alpha: 0.05)
               : Colors.grey.shade50,
         ),
         child: Row(
           children: [
             Icon(
               hasPicked ? Icons.insert_drive_file : Icons.upload_file,
-              color: hasPicked ? hidayatTeal : Colors.grey,
+              color: hasPicked ? haqaiqTeal : Colors.grey,
               size: 32,
             ),
             const SizedBox(width: 12),
@@ -425,7 +425,7 @@ class _FilePicker extends StatelessWidget {
                     hasPicked ? picked!.name : 'Tap to select file',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: hasPicked ? hidayatTeal : Colors.grey.shade700,
+                      color: hasPicked ? haqaiqTeal : Colors.grey.shade700,
                     ),
                   ),
                   if (hasPicked && picked!.size > 0)
@@ -445,7 +445,7 @@ class _FilePicker extends StatelessWidget {
               ),
             ),
             if (hasPicked)
-              Icon(Icons.check_circle, color: hidayatTeal)
+              Icon(Icons.check_circle, color: haqaiqTeal)
             else
               Icon(Icons.add_circle_outline, color: Colors.grey.shade400),
           ],

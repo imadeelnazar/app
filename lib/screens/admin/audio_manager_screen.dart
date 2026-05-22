@@ -66,7 +66,7 @@ class _AudioManagerScreenState extends State<AudioManagerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Audio Manager'),
+      appBar: haqaiqAppBar(context, title: 'Audio Manager'),
       body: FutureBuilder<List<UploadedContent>>(
         future: _itemsFuture,
         builder: (context, snapshot) {
@@ -124,7 +124,7 @@ class _AudioManagerScreenState extends State<AudioManagerScreen> {
                       : const Icon(Icons.audiotrack),
                   label: Text(_busy ? 'Adding audio...' : 'Add MP3 Files'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: hidayatTeal,
+                    backgroundColor: haqaiqTeal,
                     foregroundColor: Colors.white,
                   ),
                 ),
@@ -146,7 +146,7 @@ class _AudioManagerScreenState extends State<AudioManagerScreen> {
                       side: BorderSide(color: Colors.grey.shade200),
                     ),
                     child: ListTile(
-                      leading: const Icon(Icons.music_note, color: hidayatTeal),
+                      leading: const Icon(Icons.music_note, color: haqaiqTeal),
                       title: Text(audio.file),
                       subtitle: Text(
                         audio.localPath,

@@ -59,8 +59,8 @@ class _BooksScreenState extends State<BooksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Books'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 3),
+      appBar: haqaiqAppBar(context, title: 'Books'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 3),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: _loadBooks(),
         builder: (context, snapshot) {
@@ -88,7 +88,7 @@ class _BooksScreenState extends State<BooksScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
-                child: HidayatSearchField(
+                child: HaqaiqSearchField(
                   controller: _searchController,
                   onChanged: (value) => setState(() => _query = value.trim()),
                   hintText: 'Search books',

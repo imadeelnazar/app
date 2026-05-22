@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../data/masoomeen_shrines.dart';
 import '../services/ai_assistant_service.dart';
+import '../services/current_weather_service.dart';
 import '../services/prayer_times_service.dart';
 import '../widgets/app_chrome.dart';
 import '../widgets/sawab_ticker_bar.dart';
@@ -19,7 +20,7 @@ class HomeScreen extends ConsumerWidget {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: hidayatGreen,
+        statusBarColor: haqaiqGreen,
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.dark,
       ),
@@ -34,9 +35,9 @@ class HomeScreen extends ConsumerWidget {
                   toolbarHeight: 0,
                   floating: false,
                   pinned: true,
-                  backgroundColor: hidayatGreen,
+                  backgroundColor: haqaiqGreen,
                   systemOverlayStyle: SystemUiOverlayStyle(
-                    statusBarColor: hidayatGreen,
+                    statusBarColor: haqaiqGreen,
                     statusBarIconBrightness: Brightness.light,
                     statusBarBrightness: Brightness.dark,
                   ),
@@ -95,13 +96,13 @@ class HomeScreen extends ConsumerWidget {
                 child: IgnorePointer(
                   child: Container(
                     height: statusBarHeight,
-                    color: hidayatGreen,
+                    color: haqaiqGreen,
                   ),
                 ),
               ),
           ],
         ),
-        bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+        bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       ),
     );
   }
@@ -110,32 +111,60 @@ class HomeScreen extends ConsumerWidget {
 class _PrayerTimeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<PrayerTimesViewData>(
-      future: PrayerTimesService().fetchPrayerTimesView(),
+    return FutureBuilder<_PrayerBoxData>(
+      future: _loadPrayerBoxData(),
       builder: (context, snapshot) {
         final data = snapshot.data;
+        final prayerData = data?.prayerData;
+        final weather = data?.weather;
         final isLoading = snapshot.connectionState == ConnectionState.waiting;
 
         return _PrayerTimeCardBody(
-          nextPrayer: data?.nextPrayerName ?? (isLoading ? 'Loading' : 'Open'),
-          nextTime:
-              data?.nextPrayerTime ?? (isLoading ? '--:--' : 'Prayer Times'),
-          remaining: data?.nextPrayerRemaining,
-          fajr: data?.prayerTime.fajr ?? '--:--',
-          dhuhr: data?.prayerTime.dhuhr ?? '--:--',
-          asr: data?.prayerTime.asr ?? '--:--',
-          maghrib: data?.prayerTime.maghrib ?? '--:--',
-          isha: data?.prayerTime.isha ?? '--:--',
+          nextPrayer:
+              prayerData?.nextPrayerName ?? (isLoading ? 'Loading' : 'Open'),
+          nextTime: prayerData?.nextPrayerTime ??
+              (isLoading ? '--:--' : 'Prayer Times'),
+          remaining: prayerData?.nextPrayerRemaining,
+          temperature: weather?.displayTemperature,
+          fajr: prayerData?.prayerTime.fajr ?? '--:--',
+          dhuhr: prayerData?.prayerTime.dhuhr ?? '--:--',
+          asr: prayerData?.prayerTime.asr ?? '--:--',
+          maghrib: prayerData?.prayerTime.maghrib ?? '--:--',
+          isha: prayerData?.prayerTime.isha ?? '--:--',
         );
       },
     );
   }
+
+  Future<_PrayerBoxData> _loadPrayerBoxData() async {
+    final prayerData = await PrayerTimesService().fetchPrayerTimesView();
+    final weather = await CurrentWeatherService().fetchCurrentWeather(
+      latitude: prayerData.latitude,
+      longitude: prayerData.longitude,
+    );
+
+    return _PrayerBoxData(
+      prayerData: prayerData,
+      weather: weather,
+    );
+  }
+}
+
+class _PrayerBoxData {
+  final PrayerTimesViewData prayerData;
+  final CurrentWeather? weather;
+
+  const _PrayerBoxData({
+    required this.prayerData,
+    required this.weather,
+  });
 }
 
 class _PrayerTimeCardBody extends StatelessWidget {
   final String nextPrayer;
   final String nextTime;
   final Duration? remaining;
+  final String? temperature;
   final String fajr;
   final String dhuhr;
   final String asr;
@@ -146,6 +175,7 @@ class _PrayerTimeCardBody extends StatelessWidget {
     required this.nextPrayer,
     required this.nextTime,
     required this.remaining,
+    required this.temperature,
     required this.fajr,
     required this.dhuhr,
     required this.asr,
@@ -200,23 +230,20 @@ class _PrayerTimeCardBody extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        _formatRemaining(remaining),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (temperature != null) ...[
+                          _PrayerInfoChip(
+                            icon: Icons.thermostat_rounded,
+                            label: temperature!,
+                          ),
+                          const SizedBox(width: 8),
+                        ],
+                        _PrayerInfoChip(
+                          label: _formatRemaining(remaining),
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
@@ -298,7 +325,7 @@ class _AiAskAnythingCard extends StatelessWidget {
                     ayatollahKhameneiImageUrl,
                     fit: BoxFit.cover,
                     errorBuilder: (_, __, ___) => Container(
-                      color: hidayatTeal,
+                      color: haqaiqTeal,
                       child: const Icon(
                         Icons.person_rounded,
                         color: Colors.white,
@@ -335,7 +362,7 @@ class _AiAskAnythingCard extends StatelessWidget {
                 ),
               ),
               const Icon(Icons.arrow_forward_ios_rounded,
-                  size: 16, color: hidayatTeal),
+                  size: 16, color: haqaiqTeal),
             ],
           ),
         ),
@@ -403,6 +430,47 @@ class _PrayerVisualTheme {
       colors: [Color(0xFF1BA098), Color(0xFFD4A574)],
       icon: Icons.mosque,
       caption: 'Prayer time',
+    );
+  }
+}
+
+class _PrayerInfoChip extends StatelessWidget {
+  final IconData? icon;
+  final String label;
+
+  const _PrayerInfoChip({
+    this.icon,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 6,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.2),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            Icon(icon, color: Colors.white, size: 14),
+            const SizedBox(width: 4),
+          ],
+          Text(
+            label,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -650,7 +718,7 @@ class _MasoomeenHeroBackgroundState extends State<_MasoomeenHeroBackground> {
                 height: double.infinity,
                 filterQuality: FilterQuality.high,
                 errorBuilder: (_, __, ___) => Container(
-                  color: hidayatGreen,
+                  color: haqaiqGreen,
                   child: const Icon(
                     Icons.mosque,
                     color: Colors.white,
@@ -749,7 +817,7 @@ class _HeroActionChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: hidayatTeal,
+      color: haqaiqTeal,
       borderRadius: BorderRadius.circular(18),
       child: InkWell(
         onTap: onTap,

@@ -114,11 +114,12 @@
     },
     {
       "title": "Aamaal-e-Muharram",
-      "titleArabic": "أعمال شهر محرم",
-      "author": "",
-      "description": "",
-      "category": "aamaal",
-      "sections": []
+      "titleArabic": "أعمال شهر محرّم",
+      "author": "Traditional / Mafatih al-Jinan references",
+      "description": "Structured app-ready JSON for Aamaal-e-Muharram: common Muharram acts, first day, first nine days, Tasua, Shab-e-Ashur, Roz-e-Ashur, Ziyarat references, condolence phrases, and placeholders for long duas/ziyarat texts where reuse permission must be verified.",
+      "category": "amaal",
+      "sections": [],
+      "id": "aamaal_muharram"
     },
     {
       "title": "Weekly Aamaal",

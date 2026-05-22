@@ -1,11 +1,11 @@
 {
   "id": "aamaal_muharram",
   "title": "Aamaal-e-Muharram",
-  "titleArabic": "أعمال شهر محرم",
-  "titleUrdu": "اعمال ماہ محرم",
+  "titleArabic": "أعمال شهر محرّم",
+  "titleUrdu": "اعمالِ ماہِ محرم",
   "titleFarsi": "اعمال ماه محرم",
-  "author": "",
-  "category": "aamaal",
+  "author": "Traditional / Mafatih al-Jinan references",
+  "category": "amaal",
   "languageAvailable": [
     "arabic",
     "english",
@@ -13,20 +13,38 @@
     "farsi",
     "transliteration"
   ],
-  "description": "",
+  "description": "Structured app-ready JSON for Aamaal-e-Muharram: common Muharram acts, first day, first nine days, Tasua, Shab-e-Ashur, Roz-e-Ashur, Ziyarat references, condolence phrases, and placeholders for long duas/ziyarat texts where reuse permission must be verified.",
   "coverImage": "",
-  "contentStatus": "awaiting_licensed_or_manual_text",
-  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided text should be inserted. Empty chapters/fields are intentional where reuse permission is not confirmed.",
+  "contentStatus": "complete_structure_public_short_invocations_only_long_text_pending_verified_source",
+  "reuseNote": "Only public-domain, open-source, explicitly licensed, or manually provided verified text should be inserted. Long duas, ziyarats, translations, and transliterations are intentionally left as placeholders where reuse permission is not confirmed.",
   "sourceRefs": [
     {
-      "title": "Duas.org",
-      "url": "https://www.duas.org/",
-      "usage": "Reference pointer only unless reuse permission is confirmed."
+      "title": "Duas.org - Muharram / Mafatih section",
+      "url": "https://www.duas.org/muharrummafatih.htm",
+      "license": "Reuse license not clearly confirmed; verify before copying verbatim long text.",
+      "usage": "Used for structure: first day acts, first nine days, third day, Tasua, Shab-e-Ashur, and Roz-e-Ashur guidance. Long text not copied verbatim.",
+      "copyright": "Source website rights/license should be checked before reuse."
     },
     {
-      "title": "Al-Islam.org",
-      "url": "https://www.al-islam.org/",
-      "usage": "Reference pointer only unless reuse permission is confirmed."
+      "title": "Duas.org - Ashura 10th Muharram",
+      "url": "https://www.duas.org/ashura.htm",
+      "license": "Reuse license not clearly confirmed; verify before copying verbatim long text.",
+      "usage": "Used for Ashura-day action structure: Ziyarat Ashura, Dua Alqama, Ziyarat Nahiya, Ta'ziyah, four-rak'at salat, l'an phrases, condolence phrase, and eating-time deed.",
+      "copyright": "Source website rights/license should be checked before reuse."
+    },
+    {
+      "title": "Ziaraat.com - Aamal Shab-e-Ashoor / Roz-e-Ashoor",
+      "url": "https://www.ziaraat.com/aamal/ashoor.php",
+      "license": "Reuse license not clearly confirmed; verify before copying verbatim long text.",
+      "usage": "Cross-reference for Shab-e-Ashoor and Roz-e-Ashoor outline. Long text not copied verbatim.",
+      "copyright": "Source website rights/license should be checked before reuse."
+    },
+    {
+      "title": "WikiShia - First Ten Days of Muharram",
+      "url": "https://en.wikishia.net/view/First_Ten_Days_of_Muharram",
+      "license": "Check page license before reuse.",
+      "usage": "Used only for contextual note that daily mourning themes vary by region and do not have a single fixed religious origin.",
+      "copyright": "Check source page terms."
     }
   ],
   "textDirection": {
@@ -36,5 +54,1598 @@
     "english": "ltr",
     "transliteration": "ltr"
   },
-  "chapters": []
+  "chapters": [
+    {
+      "id": "muharram_overview",
+      "number": 1,
+      "title": "Muharram Overview",
+      "titleArabic": "نظرة عامة على شهر محرّم",
+      "titleUrdu": "محرم کا تعارف",
+      "titleFarsi": "معرفی ماه محرم",
+      "sections": [
+        {
+          "id": "muharram_overview_importance",
+          "number": 1,
+          "title": "Importance",
+          "titleArabic": "الأهمية",
+          "titleUrdu": "اہمیت",
+          "titleFarsi": "اهمیت",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Muharram is the first month of the Islamic lunar calendar and one of the sacred months.",
+              "textUrdu": "محرم اسلامی قمری سال کا پہلا مہینہ ہے اور حرمت والے مہینوں میں شمار ہوتا ہے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "In the Shia devotional tradition, the first ten days are especially associated with mourning for Imam Husayn (a) and the martyrs of Karbala.",
+              "textUrdu": "شیعہ devotional روایت میں پہلے دس دن خاص طور پر امام حسینؑ اور شہدائے کربلا کی عزاداری سے وابستہ ہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Use this JSON as an app structure. Verify exact fiqh details with your marja'/scholar before publishing as a religious ruling.",
+              "textUrdu": "اس JSON کو app structure کے طور پر استعمال کریں۔ مذہبی حکم کے طور پر publish کرنے سے پہلے exact fiqh details اپنے مرجع/عالم سے verify کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "muharram_overview_daily_mourning",
+          "number": 2,
+          "title": "General Mourning Conduct",
+          "titleArabic": "آداب العزاء العامة",
+          "titleUrdu": "عمومی آدابِ عزا",
+          "titleFarsi": "آداب عمومی عزاداری",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Hold or attend majalis, remember the tragedy of Karbala, and offer condolences to the Prophet (s), Ahl al-Bayt (a), and believers.",
+              "textUrdu": "مجالس میں شرکت کریں، کربلا کے مصائب کو یاد کریں، اور رسولؐ، اہل بیتؑ اور مومنین کو پرسہ پیش کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Avoid treating Ashura as a day of celebration. Keep the tone of the first ten days respectful and mournful.",
+              "textUrdu": "عاشورا کو خوشی یا جشن کے دن کے طور پر نہ منائیں۔ پہلے دس دنوں کا ماحول ادب اور عزا کے ساتھ رکھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Regional majlis themes for the first ten days may vary; they should not be treated as one universal fixed rule.",
+              "textUrdu": "پہلے دس دنوں کے majlis themes مختلف علاقوں میں مختلف ہو سکتے ہیں؛ انہیں ایک universal fixed rule نہ سمجھا جائے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_daily_amaal",
+      "number": 2,
+      "title": "Common Daily A'maal of Muharram",
+      "titleArabic": "الأعمال اليومية المشتركة في محرّم",
+      "titleUrdu": "محرم کے عمومی روزانہ اعمال",
+      "titleFarsi": "اعمال روزانه مشترک محرم",
+      "sections": [
+        {
+          "id": "common_daily_amaal_mourning",
+          "number": 1,
+          "title": "Mourning and Majalis",
+          "titleArabic": "العزاء والمجالس",
+          "titleUrdu": "عزاداری اور مجالس",
+          "titleFarsi": "عزاداری و مجالس",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Remember Imam Husayn (a), his family, and his companions with grief and respect.",
+              "textUrdu": "امام حسینؑ، آپؑ کے اہل و عیال اور اصحاب کو غم و احترام کے ساتھ یاد کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Recite salawat and dedicate reward to the martyrs of Karbala.",
+              "textUrdu": "صلوات پڑھیں اور اس کا ثواب شہدائے کربلا کو ہدیہ کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Give charity, help mourners, serve water/food where appropriate, and keep intentions sincere.",
+              "textUrdu": "صدقہ دیں، عزاداروں کی مدد کریں، مناسب جگہ پانی/طعام کی خدمت کریں، اور نیت خالص رکھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "common_daily_amaal_ziyarat",
+          "number": 2,
+          "title": "Recommended Ziyarat References",
+          "titleArabic": "مراجع الزيارات المستحبة",
+          "titleUrdu": "مستحب زیارات کے references",
+          "titleFarsi": "منابع زیارت‌های مستحب",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Recite Ziyarat Ashura where possible, especially during the first ten days and on the day of Ashura.",
+              "textUrdu": "ممکن ہو تو زیارتِ عاشورا پڑھیں، خاص طور پر پہلے دس دنوں میں اور روزِ عاشورا پر۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Recite Ziyarat Warith and Ziyarat Nahiya if your practice includes them.",
+              "textUrdu": "اگر آپ کے معمول میں شامل ہو تو زیارتِ وارث اور زیارتِ ناحیہ بھی پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "common_daily_amaal_short_phrases",
+          "number": 3,
+          "title": "Short Phrases",
+          "titleArabic": "عبارات قصيرة",
+          "titleUrdu": "مختصر اذکار",
+          "titleFarsi": "عبارات کوتاه",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَآلِ مُحَمَّدٍ",
+              "textEnglish": "O Allah, send blessings upon Muhammad and the family of Muhammad.",
+              "textUrdu": "اے اللہ! محمدؐ اور آلِ محمدؑ پر درود نازل فرما۔",
+              "textFarsi": "",
+              "transliteration": "Allahumma salli 'ala Muhammadin wa Aali Muhammad",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "يَا حُسَيْنُ",
+              "textEnglish": "O Husayn.",
+              "textUrdu": "یا حسینؑ۔",
+              "textFarsi": "",
+              "transliteration": "Ya Husayn",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "السَّلَامُ عَلَيْكَ يَا أَبَا عَبْدِ اللَّهِ",
+              "textEnglish": "Peace be upon you, O Aba Abdillah.",
+              "textUrdu": "السلام علیک یا ابا عبداللہؑ۔",
+              "textFarsi": "",
+              "transliteration": "As-salamu 'alayka ya Aba 'Abdillah",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muharram_01_first_night",
+      "number": 3,
+      "title": "First Night of Muharram",
+      "titleArabic": "ليلة الأول من محرّم",
+      "titleUrdu": "یکم محرم کی رات",
+      "titleFarsi": "شب اول محرم",
+      "sections": [
+        {
+          "id": "muharram_01_first_night_moon",
+          "number": 1,
+          "title": "Moon Sighting",
+          "titleArabic": "رؤية الهلال",
+          "titleUrdu": "چاند دیکھنے کا عمل",
+          "titleFarsi": "دیدن هلال",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Upon sighting the crescent, recite the recommended moon-sighting supplication if you have the verified text.",
+              "textUrdu": "چاند دیکھتے وقت recommended moon-sighting دعا پڑھیں، اگر آپ کے پاس verified متن موجود ہو۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "muharram_01_first_night_prayers",
+          "number": 2,
+          "title": "Prayers of the First Night",
+          "titleArabic": "صلوات ليلة الأول",
+          "titleUrdu": "پہلی رات کی نمازیں",
+          "titleFarsi": "نمازهای شب اول",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Offer devotional prayers according to your tradition and ability; some manuals mention long optional prayers for this night.",
+              "textUrdu": "اپنی روایت اور استطاعت کے مطابق نفلی/مستحب نمازیں پڑھیں؛ بعض اعمالی کتب اس رات کے لیے طویل نمازیں ذکر کرتی ہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Keep the night with remembrance, salawat, grief for Karbala, and preparation for the first ten days.",
+              "textUrdu": "رات کو ذکر، صلوات، غمِ کربلا اور پہلے دس دنوں کی تیاری کے ساتھ گزاریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muharram_01_day",
+      "number": 4,
+      "title": "First Day of Muharram",
+      "titleArabic": "اليوم الأول من محرّم",
+      "titleUrdu": "یکم محرم کا دن",
+      "titleFarsi": "روز اول محرم",
+      "sections": [
+        {
+          "id": "muharram_01_day_fast",
+          "number": 1,
+          "title": "Fasting",
+          "titleArabic": "الصوم",
+          "titleUrdu": "روزہ",
+          "titleFarsi": "روزه",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "It is recommended in Mafatih-style devotional manuals to fast on the first day of Muharram.",
+              "textUrdu": "اعمالی روایات میں یکم محرم کے دن روزہ رکھنے کی سفارش ملتی ہے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Intention and exact ruling should be checked according to your own juristic practice.",
+              "textUrdu": "نیت اور exact شرعی حکم اپنے فقہی عمل کے مطابق verify کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "muharram_01_day_two_rakat",
+          "number": 2,
+          "title": "Two-Rak'at Prayer",
+          "titleArabic": "صلاة ركعتين",
+          "titleUrdu": "دو رکعت نماز",
+          "titleFarsi": "نماز دو رکعتی",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Offer a two-rak'at prayer, then raise the hands and recite the new-year supplication three times if using the Mafatih practice.",
+              "textUrdu": "دو رکعت نماز پڑھیں، پھر ہاتھ بلند کر کے نئے سال کی دعا تین مرتبہ پڑھیں اگر آپ Mafatih والی practice استعمال کر رہے ہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "اللَّهُمَّ أَنْتَ الْإِلٰهُ الْقَدِيمُ، وَهٰذِهِ سَنَةٌ جَدِيدَةٌ",
+              "textEnglish": "O Allah, You are the Eternal God, and this is a new year.",
+              "textUrdu": "اے اللہ! تو ہمیشہ رہنے والا معبود ہے، اور یہ نیا سال ہے۔",
+              "textFarsi": "",
+              "transliteration": "Allahumma anta al-ilahu al-qadim, wa hadhihi sanatun jadidah",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first_nine_days",
+      "number": 5,
+      "title": "First Nine Days of Muharram",
+      "titleArabic": "الأيام التسعة الأولى من محرّم",
+      "titleUrdu": "محرم کے پہلے نو دن",
+      "titleFarsi": "نه روز اول محرم",
+      "sections": [
+        {
+          "id": "first_nine_days_fast",
+          "number": 1,
+          "title": "Fasting of the First Nine Days",
+          "titleArabic": "صيام الأيام التسعة",
+          "titleUrdu": "پہلے نو دنوں کا روزہ",
+          "titleFarsi": "روزه نه روز اول",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Some devotional manuals recommend fasting during the first nine days of Muharram.",
+              "textUrdu": "بعض اعمالی کتب محرم کے پہلے نو دن روزہ رکھنے کی سفارش کرتی ہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Do not treat Ashura-day abstention as an ordinary celebratory fast; verify the ruling with your scholar/marja'.",
+              "textUrdu": "روزِ عاشورا کے امساک کو عام خوشی والے روزے کی طرح نہ سمجھیں؛ حکم اپنے عالم/مرجع سے verify کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "first_nine_days_mourning",
+          "number": 2,
+          "title": "Daily Mourning",
+          "titleArabic": "العزاء اليومي",
+          "titleUrdu": "روزانہ عزا",
+          "titleFarsi": "عزاداری روزانه",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Attend or arrange majalis and remember the events leading to Karbala.",
+              "textUrdu": "مجالس میں شریک ہوں یا مجلس کا اہتمام کریں، اور کربلا تک کے واقعات کو یاد کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Recite elegies/nohas/marthiyas according to local custom and scholarly guidance.",
+              "textUrdu": "مقامی رسم و scholarly guidance کے مطابق نوحہ، مرثیہ یا مصائب پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muharram_03_day",
+      "number": 6,
+      "title": "Third Day of Muharram",
+      "titleArabic": "اليوم الثالث من محرّم",
+      "titleUrdu": "تین محرم کا دن",
+      "titleFarsi": "روز سوم محرم",
+      "sections": [
+        {
+          "id": "muharram_03_day_fast",
+          "number": 1,
+          "title": "Recommended Fast",
+          "titleArabic": "الصوم المستحب",
+          "titleUrdu": "مستحب روزہ",
+          "titleFarsi": "روزه مستحب",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Devotional manuals mention a recommended fast on the third day of Muharram.",
+              "textUrdu": "اعمالی کتب میں تین محرم کے دن روزہ رکھنے کی سفارش ملتی ہے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Use this as a reminder entry; exact wording of narrations should be inserted only from verified/licensed sources.",
+              "textUrdu": "اسے reminder entry کے طور پر استعمال کریں؛ روایات کا exact متن صرف verified/licensed source سے شامل کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muharram_09_tasua",
+      "number": 7,
+      "title": "Ninth Day of Muharram - Tasua",
+      "titleArabic": "اليوم التاسع من محرّم - تاسوعاء",
+      "titleUrdu": "نو محرم - تاسوعا",
+      "titleFarsi": "نهم محرم - تاسوعا",
+      "sections": [
+        {
+          "id": "muharram_09_context",
+          "number": 1,
+          "title": "Context",
+          "titleArabic": "السياق",
+          "titleUrdu": "پس منظر",
+          "titleFarsi": "زمینه",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "The ninth of Muharram is known as Tasua and is associated with the siege and final night before Ashura.",
+              "textUrdu": "نو محرم کو تاسوعا کہا جاتا ہے اور یہ عاشورا سے پہلے محاصرہ اور آخری رات کے پس منظر سے وابستہ ہے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Increase mourning, salawat, remembrance of Imam Husayn (a), Hazrat Abbas (a), and the companions of Karbala.",
+              "textUrdu": "عزاداری، صلوات، امام حسینؑ، حضرت عباسؑ اور اصحابِ کربلا کی یاد میں اضافہ کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "muharram_09_preparation",
+          "number": 2,
+          "title": "Preparation for Shab-e-Ashur",
+          "titleArabic": "الاستعداد لليلة عاشوراء",
+          "titleUrdu": "شبِ عاشور کی تیاری",
+          "titleFarsi": "آمادگی برای شب عاشورا",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Prepare for worship, majlis, ziyarah, and supplications on the night of Ashura.",
+              "textUrdu": "شبِ عاشور میں عبادت، مجلس، زیارت اور دعاؤں کی تیاری کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "If you use a printed amal book, mark Ziyarat Ashura, Dua Alqama, Ziyarat Nahiya, and related prayers in advance.",
+              "textUrdu": "اگر printed amal book استعمال کرتے ہیں تو زیارتِ عاشورا، دعائے علقمہ، زیارتِ ناحیہ اور متعلقہ نمازیں پہلے سے نشان زد کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muharram_10_night_shab_e_ashur",
+      "number": 8,
+      "title": "Night of Ashura - Shab-e-Ashur",
+      "titleArabic": "ليلة عاشوراء",
+      "titleUrdu": "شبِ عاشور",
+      "titleFarsi": "شب عاشورا",
+      "sections": [
+        {
+          "id": "shab_e_ashur_vigil",
+          "number": 1,
+          "title": "Stay Awake in Worship",
+          "titleArabic": "إحياء الليل بالعبادة",
+          "titleUrdu": "شب بیداری",
+          "titleFarsi": "احیای شب",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Spend the night in worship, majlis, mourning, salawat, and remembrance of Karbala.",
+              "textUrdu": "رات عبادت، مجلس، عزاداری، صلوات اور یادِ کربلا میں گزاریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Where possible, recite Ziyarat of Imam Husayn (a).",
+              "textUrdu": "ممکن ہو تو امام حسینؑ کی زیارت پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "shab_e_ashur_hundred_rakat",
+          "number": 2,
+          "title": "One Hundred Rak'at Prayer",
+          "titleArabic": "صلاة مئة ركعة",
+          "titleUrdu": "سو رکعت نماز",
+          "titleFarsi": "نماز صد رکعتی",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Some manuals mention a one-hundred-rak'at prayer, reciting Surah al-Fatihah once and Surah al-Tawhid three times in each rak'at.",
+              "textUrdu": "بعض اعمالی کتب سو رکعت نماز ذکر کرتی ہیں، ہر رکعت میں سورۂ فاتحہ ایک مرتبہ اور سورۂ توحید تین مرتبہ۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "سُبْحَانَ اللَّهِ",
+              "textEnglish": "Glory be to Allah.",
+              "textUrdu": "اللہ پاک و منزہ ہے۔",
+              "textFarsi": "",
+              "transliteration": "Subhanallah",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "وَالْحَمْدُ لِلَّهِ",
+              "textEnglish": "All praise belongs to Allah.",
+              "textUrdu": "تمام تعریف اللہ کے لیے ہے۔",
+              "textFarsi": "",
+              "transliteration": "Walhamdu lillah",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 4,
+              "textArabic": "وَلَا إِلٰهَ إِلَّا اللَّهُ",
+              "textEnglish": "There is no god but Allah.",
+              "textUrdu": "اللہ کے سوا کوئی معبود نہیں۔",
+              "textFarsi": "",
+              "transliteration": "Wa la ilaha illa Allah",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 5,
+              "textArabic": "وَاللَّهُ أَكْبَرُ",
+              "textEnglish": "Allah is the Greatest.",
+              "textUrdu": "اللہ سب سے بڑا ہے۔",
+              "textFarsi": "",
+              "transliteration": "Wallahu akbar",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 6,
+              "textArabic": "وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ",
+              "textEnglish": "There is no power and no strength except with Allah, the Most High, the Most Great.",
+              "textUrdu": "نہ کوئی قوت ہے نہ طاقت مگر اللہ بلند و عظیم کے ذریعے۔",
+              "textFarsi": "",
+              "transliteration": "Wa la hawla wa la quwwata illa billahil-'aliyyil-'azim",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 7,
+              "textArabic": "",
+              "textEnglish": "After the prayer, repeat the above dhikr seventy times, according to this practice.",
+              "textUrdu": "اس practice کے مطابق نماز کے بعد اوپر والا ذکر ستر مرتبہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "shab_e_ashur_four_rakat_last_part",
+          "number": 3,
+          "title": "Four-Rak'at Prayer at the End of the Night",
+          "titleArabic": "صلاة أربع ركعات في آخر الليل",
+          "titleUrdu": "آخرِ شب کی چار رکعت نماز",
+          "titleFarsi": "نماز چهار رکعتی آخر شب",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Offer four rak'at near the end of the night.",
+              "textUrdu": "آخرِ شب کے قریب چار رکعت نماز پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "In each rak'at, recite Surah al-Fatihah once; then Ayat al-Kursi, Surah al-Tawhid, Surah al-Falaq, and Surah al-Nas ten times each.",
+              "textUrdu": "ہر رکعت میں سورۂ فاتحہ ایک مرتبہ، پھر آیت الکرسی، سورۂ توحید، سورۂ فلق اور سورۂ ناس دس دس مرتبہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "After completion, recite Surah al-Tawhid one hundred times.",
+              "textUrdu": "نماز کے بعد سورۂ توحید سو مرتبہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "shab_e_ashur_four_rakat_alternative",
+          "number": 4,
+          "title": "Alternative Four-Rak'at Prayer",
+          "titleArabic": "صلاة أربع ركعات أخرى",
+          "titleUrdu": "چار رکعت نماز کا دوسرا طریقہ",
+          "titleFarsi": "روش دیگر نماز چهار رکعتی",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Another practice mentions four rak'at with Surah al-Fatihah once and Surah al-Tawhid fifty times in each rak'at.",
+              "textUrdu": "ایک اور practice میں چار رکعت ذکر ہے: ہر رکعت میں سورۂ فاتحہ ایک مرتبہ اور سورۂ توحید پچاس مرتبہ۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "After completion, remember Allah, send blessings upon Muhammad and Aali Muhammad, and dissociate from the enemies of Ahl al-Bayt according to your devotional tradition.",
+              "textUrdu": "نماز کے بعد ذکرِ الٰہی، محمدؐ و آلِ محمدؑ پر صلوات، اور اپنی devotional روایت کے مطابق دشمنانِ اہل بیت سے بیزاری کا اظہار کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muharram_10_day_ashura",
+      "number": 9,
+      "title": "Tenth Day of Muharram - Ashura",
+      "titleArabic": "اليوم العاشر من محرّم - عاشوراء",
+      "titleUrdu": "دس محرم - عاشورا",
+      "titleFarsi": "دهم محرم - عاشورا",
+      "sections": [
+        {
+          "id": "ashura_day_general",
+          "number": 1,
+          "title": "General Conduct",
+          "titleArabic": "الآداب العامة",
+          "titleUrdu": "عمومی آداب",
+          "titleFarsi": "آداب عمومی",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Devote the day to mourning Imam Husayn (a), avoiding worldly enjoyment and festive behavior.",
+              "textUrdu": "اس دن کو امام حسینؑ کی عزاداری کے لیے مخصوص کریں، دنیاوی لذتوں اور جشن والے انداز سے پرہیز کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Hold or attend majalis and remember the calamities of Karbala.",
+              "textUrdu": "مجلس کا اہتمام کریں یا مجلس میں شریک ہوں اور مصائبِ کربلا کو یاد کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Many Shia devotional manuals recommend avoiding food and drink until late afternoon without the intention of a regular fast.",
+              "textUrdu": "بہت سی شیعہ اعمالی کتب late afternoon تک کھانے پینے سے پرہیز کی سفارش کرتی ہیں، مگر اسے عام روزے کی نیت سے نہ رکھا جائے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_before_noon",
+          "number": 2,
+          "title": "Before Noon",
+          "titleArabic": "قبل الظهر",
+          "titleUrdu": "دوپہر سے پہلے",
+          "titleFarsi": "پیش از ظهر",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Before noon, recite salutations to Imam Husayn (a), curse his killers, and pray two rak'at according to the devotional practice you follow.",
+              "textUrdu": "دوپہر سے پہلے امام حسینؑ پر سلام پڑھیں، قاتلوں پر لعنت کریں، اور اپنی devotional practice کے مطابق دو رکعت نماز پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "اللَّهُمَّ الْعَنْ قَتَلَةَ الْحُسَيْنِ عَلَيْهِ السَّلَامُ",
+              "textEnglish": "O Allah, curse the killers of al-Husayn, peace be upon him.",
+              "textUrdu": "اے اللہ! امام حسینؑ کے قاتلوں پر لعنت فرما۔",
+              "textFarsi": "",
+              "transliteration": "Allahumma il'an qatalata al-Husayni 'alayhi as-salam",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Repeat the above phrase one thousand times if following this practice.",
+              "textUrdu": "اگر آپ یہ practice کرتے ہیں تو اوپر والا جملہ ایک ہزار مرتبہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_ziyarat",
+          "number": 3,
+          "title": "Ziyarats and Duas",
+          "titleArabic": "الزيارات والأدعية",
+          "titleUrdu": "زیارات اور دعائیں",
+          "titleFarsi": "زیارت‌ها و دعاها",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Recite Ziyarat Ashura.",
+              "textUrdu": "زیارتِ عاشورا پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Recite Dua Alqama/Safwan after Ziyarat Ashura if this is part of your practice.",
+              "textUrdu": "اگر آپ کے معمول میں ہے تو زیارتِ عاشورا کے بعد دعائے علقمہ/صفوان پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Recite Ziyarat Nahiya Muqaddasa, especially where your local practice includes it.",
+              "textUrdu": "خاص طور پر اگر local practice میں شامل ہو تو زیارتِ ناحیہ مقدسہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 4,
+              "textArabic": "",
+              "textEnglish": "Recite Ziyarat Ta'ziyah/condolence after Asr on Ashura.",
+              "textUrdu": "عاشورا کے بعد عصر زیارتِ تعزیہ/پرسہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 5,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_four_rakat",
+          "number": 4,
+          "title": "Four-Rak'at Prayer Between Fajr and Dhuhr",
+          "titleArabic": "صلاة أربع ركعات بين الفجر والظهر",
+          "titleUrdu": "فجر اور ظہر کے درمیان چار رکعت نماز",
+          "titleFarsi": "نماز چهار رکعتی بین فجر و ظهر",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Offer four rak'at as two separate two-rak'at prayers between Fajr and Dhuhr.",
+              "textUrdu": "فجر اور ظہر کے درمیان چار رکعت نماز دو دو رکعت کی صورت میں پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "First prayer, first rak'at: after Surah al-Fatihah recite Surah al-Kafirun (109).",
+              "textUrdu": "پہلی نماز، پہلی رکعت: سورۂ فاتحہ کے بعد سورۂ کافرون (109) پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "First prayer, second rak'at: after Surah al-Fatihah recite Surah al-Ikhlas (112).",
+              "textUrdu": "پہلی نماز، دوسری رکعت: سورۂ فاتحہ کے بعد سورۂ اخلاص (112) پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 4,
+              "textArabic": "",
+              "textEnglish": "Second prayer, first rak'at: after Surah al-Fatihah recite Surah al-Ahzab (33).",
+              "textUrdu": "دوسری نماز، پہلی رکعت: سورۂ فاتحہ کے بعد سورۂ احزاب (33) پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 5,
+              "textArabic": "",
+              "textEnglish": "Second prayer, second rak'at: after Surah al-Fatihah recite Surah al-Munafiqun (63).",
+              "textUrdu": "دوسری نماز، دوسری رکعت: سورۂ فاتحہ کے بعد سورۂ منافقون (63) پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_lan_and_wish",
+          "number": 5,
+          "title": "L'an and Wish to Be With the Martyrs",
+          "titleArabic": "اللّعن والتمني",
+          "titleUrdu": "لعن اور شہداء کے ساتھ ہونے کی تمنا",
+          "titleFarsi": "لعن و آرزوی همراهی با شهدا",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "اللَّهُمَّ الْعَنْ قَتَلَةَ الْحُسَيْنِ وَأَوْلَادِهِ وَأَصْحَابِهِ",
+              "textEnglish": "O Allah, curse the killers of Husayn, his children, and his companions.",
+              "textUrdu": "اے اللہ! امام حسینؑ، آپؑ کے فرزندان اور اصحاب کے قاتلوں پر لعنت فرما۔",
+              "textFarsi": "",
+              "transliteration": "Allahumma il'an qatalata al-Husayni wa awladihi wa ashabihi",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "فَيَا لَيْتَنِي كُنْتُ مَعَكُمْ فَأَفُوزَ مَعَكُمْ فَوْزًا عَظِيمًا",
+              "textEnglish": "Would that I had been with you, so I could have attained a great success with you.",
+              "textUrdu": "کاش میں آپ کے ساتھ ہوتا، پس آپ کے ساتھ عظیم کامیابی حاصل کرتا۔",
+              "textFarsi": "",
+              "transliteration": "Fa ya laytani kuntu ma'akum fa afuza ma'akum fawzan 'azima",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Repeat these phrases as often as possible according to your devotional capacity.",
+              "textUrdu": "اپنی devotional capacity کے مطابق ان جملوں کو زیادہ سے زیادہ پڑھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_condolence_phrase",
+          "number": 6,
+          "title": "Condolence Phrase",
+          "titleArabic": "عبارة التعزية",
+          "titleUrdu": "پرسہ/تعزیت کا جملہ",
+          "titleFarsi": "عبارت تسلیت",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "أَعْظَمَ اللَّهُ أُجُورَنَا وَأُجُورَكُمْ بِمُصَابِنَا بِالْحُسَيْنِ عَلَيْهِ السَّلَامُ",
+              "textEnglish": "May Allah make our rewards and your rewards great for our grief over al-Husayn, peace be upon him.",
+              "textUrdu": "اللہ ہمارے اور آپ کے اجر کو امام حسینؑ کے مصاب پر عظیم قرار دے۔",
+              "textFarsi": "",
+              "transliteration": "A'zamallahu ujurana wa ujurakum bimusabina bil-Husayni 'alayhi as-salam",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "وَجَعَلَنَا وَإِيَّاكُمْ مِنَ الطَّالِبِينَ بِثَأْرِهِ",
+              "textEnglish": "And may He make us and you among those who seek his retribution.",
+              "textUrdu": "اور اللہ ہمیں اور آپ کو امام حسینؑ کے خون کا انتقام لینے والوں میں قرار دے۔",
+              "textFarsi": "",
+              "transliteration": "Wa ja'alana wa iyyakum minat-talibina bitha'rihi",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "مَعَ وَلِيِّهِ الْإِمَامِ الْمَهْدِيِّ مِنْ آلِ مُحَمَّدٍ عَلَيْهِمُ السَّلَامُ",
+              "textEnglish": "With his wali, Imam al-Mahdi, from the family of Muhammad, peace be upon them.",
+              "textUrdu": "ان کے ولی امام مہدیؑ، آلِ محمدؑ کے ساتھ۔",
+              "textFarsi": "",
+              "transliteration": "Ma'a waliyyihil-imamil-Mahdiyyi min Aali Muhammadin 'alayhimus-salam",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_ali_asghar_remembrance",
+          "number": 7,
+          "title": "Remembrance of Ali Asghar (a)",
+          "titleArabic": "ذكرى علي الأصغر عليه السلام",
+          "titleUrdu": "علی اصغرؑ کی یاد",
+          "titleFarsi": "یاد علی‌اصغر علیه‌السلام",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Some Ashura amal guides mention taking seven steps forward and back while remembering Imam Husayn (a) carrying Ali Asghar (a).",
+              "textUrdu": "بعض عاشورا اعمال میں علی اصغرؑ کو اٹھائے ہوئے امام حسینؑ کی یاد میں سات قدم آگے پیچھے چلنے کا ذکر ہے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، رِضًا بِقَضَائِهِ وَتَسْلِيمًا لِأَمْرِهِ",
+              "textEnglish": "Surely we belong to Allah and to Him we return; content with His decree and submitted to His command.",
+              "textUrdu": "بے شک ہم اللہ ہی کے ہیں اور اسی کی طرف پلٹنے والے ہیں؛ اس کے فیصلے پر راضی اور اس کے حکم کے تابع ہیں۔",
+              "textFarsi": "",
+              "transliteration": "Inna lillahi wa inna ilayhi raji'un, ridan biqada'ihi wa tasliman li-amrihi",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ashura_day_eating_time",
+          "number": 8,
+          "title": "At the Time of Eating After Abstention",
+          "titleArabic": "عند تناول الطعام بعد الإمساك",
+          "titleUrdu": "امساک کے بعد کھانے کے وقت",
+          "titleFarsi": "هنگام خوردن پس از امساک",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "When ending the Ashura-day abstention in the late afternoon, some manuals include a special supplication connected to the martyrdom and the Qur'anic verses about martyrs.",
+              "textUrdu": "late afternoon میں عاشورا کے امساک کو ختم کرتے وقت بعض اعمالی کتب شہادت اور شہداء سے متعلق قرآنی آیات کے ساتھ ایک خاص دعا ذکر کرتی ہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ziyarat_reference_pack",
+      "number": 10,
+      "title": "Ziyarat Reference Pack",
+      "titleArabic": "مجموعة مراجع الزيارات",
+      "titleUrdu": "زیارات reference pack",
+      "titleFarsi": "بسته منابع زیارت",
+      "sections": [
+        {
+          "id": "ziyarat_pack_ashura",
+          "number": 1,
+          "title": "Ziyarat Ashura",
+          "titleArabic": "زيارة عاشوراء",
+          "titleUrdu": "زیارتِ عاشورا",
+          "titleFarsi": "زیارت عاشورا",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Title entry for Ziyarat Ashura. Add full verified Arabic text, translation, and transliteration in your app's separate ziyarat content file or within this section once permission is confirmed.",
+              "textUrdu": "زیارتِ عاشورا کے لیے title entry۔ مکمل verified عربی متن، ترجمہ اور transliteration permission confirm ہونے کے بعد app کی separate ziyarat file میں یا اسی section میں شامل کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ziyarat_pack_dua_alqama",
+          "number": 2,
+          "title": "Dua Alqama / Dua Safwan",
+          "titleArabic": "دعاء علقمة / دعاء صفوان",
+          "titleUrdu": "دعائے علقمہ / صفوان",
+          "titleFarsi": "دعای علقمه / صفوان",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Title entry for the supplication commonly recited after Ziyarat Ashura.",
+              "textUrdu": "زیارتِ عاشورا کے بعد پڑھی جانے والی دعا کے لیے title entry۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ziyarat_pack_nahiya",
+          "number": 3,
+          "title": "Ziyarat Nahiya Muqaddasa",
+          "titleArabic": "زيارة الناحية المقدسة",
+          "titleUrdu": "زیارتِ ناحیہ مقدسہ",
+          "titleFarsi": "زیارت ناحیه مقدسه",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Title entry for Ziyarat Nahiya Muqaddasa, often recited for the martyrs of Karbala.",
+              "textUrdu": "زیارتِ ناحیہ مقدسہ کی title entry، جو شہدائے کربلا کے لیے پڑھی جاتی ہے۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ziyarat_pack_taziyah",
+          "number": 4,
+          "title": "Ziyarat of Ta'ziyah after Asr",
+          "titleArabic": "زيارة التعزية بعد العصر",
+          "titleUrdu": "بعد عصر زیارتِ تعزیہ",
+          "titleFarsi": "زیارت تعزیه بعد از عصر",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Title entry for the condolence ziyarah after Asr on Ashura.",
+              "textUrdu": "عاشورا کے بعد عصر پڑھی جانے والی زیارتِ تعزیہ کی title entry۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "ziyarat_pack_warith",
+          "number": 5,
+          "title": "Ziyarat Warith",
+          "titleArabic": "زيارة وارث",
+          "titleUrdu": "زیارتِ وارث",
+          "titleFarsi": "زیارت وارث",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Title entry for Ziyarat Warith.",
+              "textUrdu": "زیارتِ وارث کی title entry۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Full Arabic/translation text not inserted here; add only public-domain, explicitly licensed, or manually provided verified text.",
+              "textUrdu": "مکمل عربی/ترجمہ یہاں شامل نہیں کیا گیا؛ صرف public-domain، واضح اجازت یافتہ، یا manually provided verified متن شامل کریں۔",
+              "textFarsi": "متن کامل عربی/ترجمه در اینجا وارد نشده؛ فقط متن public-domain، دارای مجوز روشن، یا متن تأییدشدهٔ ارائه‌شده را اضافه کنید.",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first_ten_days_mourning_themes",
+      "number": 11,
+      "title": "Common Mourning Themes of First Ten Days",
+      "titleArabic": "موضوعات العزاء في الأيام العشرة الأولى",
+      "titleUrdu": "پہلے دس دنوں کے عام عزاداری themes",
+      "titleFarsi": "موضوعات رایج عزاداری دهه اول",
+      "sections": [
+        {
+          "id": "themes_note",
+          "number": 1,
+          "title": "Important Note",
+          "titleArabic": "ملاحظة مهمة",
+          "titleUrdu": "اہم نوٹ",
+          "titleFarsi": "نکته مهم",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "These themes are common in many communities but may vary by country, city, family, or community tradition.",
+              "textUrdu": "یہ themes بہت سی communities میں عام ہیں مگر ملک، شہر، خاندان یا community tradition کے لحاظ سے بدل سکتے ہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "They are included for app navigation and majlis planning, not as a fixed universal religious obligation.",
+              "textUrdu": "یہ app navigation اور majlis planning کے لیے ہیں، universal fixed religious obligation کے طور پر نہیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "themes_days",
+          "number": 2,
+          "title": "Day-by-Day Theme Suggestions",
+          "titleArabic": "اقتراحات موضوعية يومية",
+          "titleUrdu": "روزانہ theme suggestions",
+          "titleFarsi": "پیشنهاد موضوعی روزانه",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "1 Muharram: Muslim ibn Aqil (a) / beginning of mourning.",
+              "textUrdu": "یکم محرم: مسلم بن عقیلؑ / آغازِ عزا۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "2 Muharram: Arrival in Karbala.",
+              "textUrdu": "دو محرم: کربلا آمد۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "3 Muharram: Ruqayya/Sakina (a) or children of Karbala, according to local custom.",
+              "textUrdu": "تین محرم: مقامی رسم کے مطابق رقیہ/سکینہؑ یا اطفالِ کربلا۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 4,
+              "textArabic": "",
+              "textEnglish": "4 Muharram: Hurr ibn Yazid al-Riyahi (a), the sons of Zaynab (a), or companions.",
+              "textUrdu": "چار محرم: حر بن یزید ریاحیؑ، فرزندانِ زینبؑ یا اصحاب۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 5,
+              "textArabic": "",
+              "textEnglish": "5 Muharram: Abdullah ibn Hasan (a) or the companions.",
+              "textUrdu": "پانچ محرم: عبداللہ بن حسنؑ یا اصحاب۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 6,
+              "textArabic": "",
+              "textEnglish": "6 Muharram: Qasim ibn Hasan (a).",
+              "textUrdu": "چھ محرم: قاسم بن حسنؑ۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 7,
+              "textArabic": "",
+              "textEnglish": "7 Muharram: Ali Asghar (a) or Abbas (a), depending on local custom.",
+              "textUrdu": "سات محرم: علی اصغرؑ یا عباسؑ، مقامی رسم کے مطابق۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 8,
+              "textArabic": "",
+              "textEnglish": "8 Muharram: Ali Akbar (a).",
+              "textUrdu": "آٹھ محرم: علی اکبرؑ۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 9,
+              "textArabic": "",
+              "textEnglish": "9 Muharram / Tasua: Abbas ibn Ali (a).",
+              "textUrdu": "نو محرم / تاسوعا: عباس بن علیؑ۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 10,
+              "textArabic": "",
+              "textEnglish": "10 Muharram / Ashura: Imam Husayn (a), the martyrs, and the tragedy of Karbala.",
+              "textUrdu": "دس محرم / عاشورا: امام حسینؑ، شہداء اور سانحۂ کربلا۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 11,
+              "textArabic": "",
+              "textEnglish": "Night of 11 Muharram / Sham-e-Ghariban: Zaynab (a), the captives, and the aftermath of Ashura.",
+              "textUrdu": "گیارہویں محرم کی رات / شامِ غریباں: زینبؑ، اسیرانِ کربلا اور عاشورا کے بعد کے مصائب۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "publishing_notes",
+      "number": 12,
+      "title": "Publishing Notes",
+      "titleArabic": "ملاحظات النشر",
+      "titleUrdu": "Publishing Notes",
+      "titleFarsi": "یادداشت‌های انتشار",
+      "sections": [
+        {
+          "id": "publishing_notes_text_policy",
+          "number": 1,
+          "title": "Text and Copyright Policy",
+          "titleArabic": "سياسة النص وحقوق النشر",
+          "titleUrdu": "Text اور copyright policy",
+          "titleFarsi": "سیاست متن و حق نشر",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "Do not copy long translations from websites unless the license clearly allows reuse.",
+              "textUrdu": "جب تک license واضح طور پر اجازت نہ دے، websites سے طویل translations copy نہ کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "Arabic devotional texts should be verified against a reliable printed or licensed digital source before release.",
+              "textUrdu": "Arabic devotional texts کو release سے پہلے reliable printed یا licensed digital source سے verify کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 3,
+              "textArabic": "",
+              "textEnglish": "Keep source attribution with the app data, especially when importing any licensed Arabic, Urdu, Farsi, or English text.",
+              "textUrdu": "جب بھی licensed Arabic, Urdu, Farsi یا English text import کریں تو app data کے ساتھ source attribution ضرور رکھیں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        },
+        {
+          "id": "publishing_notes_audio",
+          "number": 2,
+          "title": "Audio Fields",
+          "titleArabic": "حقول الصوت",
+          "titleUrdu": "Audio fields",
+          "titleFarsi": "فیلدهای صوت",
+          "lines": [
+            {
+              "number": 1,
+              "textArabic": "",
+              "textEnglish": "audioUrl, audioStartTime, and audioEndTime are blank by default. Fill them only after you attach recitation audio with permission.",
+              "textUrdu": "audioUrl, audioStartTime اور audioEndTime default blank ہیں۔ recitation audio permission کے ساتھ attach کرنے کے بعد ہی fill کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            },
+            {
+              "number": 2,
+              "textArabic": "",
+              "textEnglish": "If one long audio file is used, set audioStartTime/audioEndTime per line or per section in seconds.",
+              "textUrdu": "اگر ایک long audio file استعمال ہو تو ہر line یا section کے لیے audioStartTime/audioEndTime seconds میں set کریں۔",
+              "textFarsi": "",
+              "transliteration": "",
+              "audioUrl": "",
+              "audioStartTime": null,
+              "audioEndTime": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

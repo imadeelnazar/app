@@ -10,8 +10,8 @@ class IsalESawabScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F8F6),
-      appBar: hidayatAppBar(context, title: 'Isal-e-Sawab'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      appBar: haqaiqAppBar(context, title: 'Isal-e-Sawab'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

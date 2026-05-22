@@ -7,7 +7,7 @@ part 'models.g.dart';
 @collection
 class Quran {
   Id id = Isar.autoIncrement;
-  
+
   late int surahNumber;
   late String surahName;
   late String surahNameArabic;
@@ -15,7 +15,7 @@ class Quran {
   late int ayahCount;
   late String revelationType; // Makki or Madani
   late String bismillah;
-  
+
   @Index()
   late int index;
 }
@@ -23,7 +23,7 @@ class Quran {
 @collection
 class QuranAyah {
   Id id = Isar.autoIncrement;
-  
+
   late int surahNumber;
   late int ayahNumber;
   late String textArabic;
@@ -32,7 +32,7 @@ class QuranAyah {
   late String textFarsi;
   late String transliteration;
   late List<String> audioUrls; // Different reciters
-  
+
   @Index()
   late int surahNumberIndex;
 }
@@ -42,14 +42,14 @@ class QuranAyah {
 @collection
 class Dua {
   Id id = Isar.autoIncrement;
-  
+
   late String name;
   late String nameArabic;
   late String description;
   late String category;
   late int duaNumber;
   late String audioUrl;
-  
+
   @Index()
   late int index;
 }
@@ -57,7 +57,7 @@ class Dua {
 @collection
 class DuaLine {
   Id id = Isar.autoIncrement;
-  
+
   late int duaId;
   late int lineNumber;
   late String textArabic;
@@ -68,7 +68,7 @@ class DuaLine {
   late String? audioUrl;
   late int? audioStartTime;
   late int? audioEndTime;
-  
+
   @Index()
   late int duaIdIndex;
 }
@@ -78,14 +78,14 @@ class DuaLine {
 @collection
 class Book {
   Id id = Isar.autoIncrement;
-  
+
   late String title;
   late String titleArabic;
   late String author;
   late String description;
   late String category;
   late int sectionCount;
-  
+
   @Index()
   late int index;
 }
@@ -93,7 +93,7 @@ class Book {
 @collection
 class BookSection {
   Id id = Isar.autoIncrement;
-  
+
   late int bookId;
   late int sectionNumber;
   late String title;
@@ -101,7 +101,7 @@ class BookSection {
   late String contentArabic;
   late String? contentUrdu;
   late String? contentFarsi;
-  
+
   @Index()
   late int bookIdIndex;
 }
@@ -111,14 +111,14 @@ class BookSection {
 @collection
 class Ziyarah {
   Id id = Isar.autoIncrement;
-  
+
   late String name;
   late String nameArabic;
   late String description;
   late String category;
   late String occasion;
   late String audioUrl;
-  
+
   @Index()
   late int index;
 }
@@ -126,7 +126,7 @@ class Ziyarah {
 @collection
 class ZiyarahLine {
   Id id = Isar.autoIncrement;
-  
+
   late int ziyarahId;
   late int lineNumber;
   late String textArabic;
@@ -136,7 +136,7 @@ class ZiyarahLine {
   late String? audioUrl;
   late int? audioStartTime;
   late int? audioEndTime;
-  
+
   @Index()
   late int ziyarahIdIndex;
 }
@@ -146,14 +146,14 @@ class ZiyarahLine {
 @collection
 class AudioTrack {
   Id id = Isar.autoIncrement;
-  
+
   late String title;
   late String artist;
   late String url;
   late int duration;
   late String contentType; // quran, dua, ziyarah
   late int contentId;
-  
+
   @Index()
   late String urlIndex;
 }
@@ -161,12 +161,12 @@ class AudioTrack {
 @collection
 class AudioTimestamp {
   Id id = Isar.autoIncrement;
-  
+
   late int audioId;
   late int lineNumber;
   late int startTime;
   late int endTime;
-  
+
   @Index()
   late int audioIdIndex;
 }
@@ -176,7 +176,7 @@ class AudioTimestamp {
 @collection
 class Bookmark {
   Id id = Isar.autoIncrement;
-  
+
   late DateTime createdAt;
   late DateTime lastUpdated;
   late String contentType; // quran, dua, book, ziyarah
@@ -184,7 +184,7 @@ class Bookmark {
   late int? lineNumber;
   late String title;
   late String preview;
-  
+
   @Index()
   late DateTime createdAtIndex;
 }
@@ -194,12 +194,12 @@ class Bookmark {
 @collection
 class Favorite {
   Id id = Isar.autoIncrement;
-  
+
   late DateTime createdAt;
   late String contentType;
   late int contentId;
   late String title;
-  
+
   @Index()
   late DateTime createdAtIndex;
 }
@@ -209,13 +209,13 @@ class Favorite {
 @collection
 class ReadingProgress {
   Id id = Isar.autoIncrement;
-  
+
   late String contentType;
   late int contentId;
   late int lastReadLine;
   late DateTime lastReadAt;
   late int totalReadCount;
-  
+
   @Index()
   late String contentTypeIndex;
 }
@@ -225,7 +225,7 @@ class ReadingProgress {
 @collection
 class AppSettings {
   Id id = Isar.autoIncrement;
-  
+
   late String locale; // en, ur, fa
   late bool darkMode;
   late double fontSize;
@@ -245,7 +245,7 @@ class AppSettings {
 @collection
 class Category {
   Id id = Isar.autoIncrement;
-  
+
   late int categoryId;
   late String name;
   late String nameArabic;
@@ -259,7 +259,7 @@ class Category {
 @collection
 class EventNotification {
   Id id = Isar.autoIncrement;
-  
+
   late String eventName;
   late String eventNameArabic;
   late DateTime eventDate;
@@ -275,7 +275,7 @@ class EventNotification {
 @collection
 class PrayerTime {
   Id id = Isar.autoIncrement;
-  
+
   late DateTime date;
   late String fajr;
   late String sunrise;
@@ -285,7 +285,7 @@ class PrayerTime {
   late String isha;
   late String location;
   late DateTime lastUpdated;
-  
+
   @Index()
   late DateTime dateIndex;
 }
@@ -295,7 +295,7 @@ class PrayerTime {
 @collection
 class DailyDua {
   Id id = Isar.autoIncrement;
-  
+
   late DateTime date;
   late int duaId;
   late String duaTitle;
@@ -307,7 +307,7 @@ class DailyDua {
 @collection
 class Aamaal {
   Id id = Isar.autoIncrement;
-  
+
   late String month;
   late int day;
   late String title;

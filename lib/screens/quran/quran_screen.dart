@@ -62,8 +62,8 @@ class _QuranScreenState extends State<QuranScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFBF8F3),
-      appBar: hidayatAppBar(context, title: 'Quran'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 1),
+      appBar: haqaiqAppBar(context, title: 'Quran'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 1),
       body: FutureBuilder<List<dynamic>>(
         future: Future.wait([_loadSurahs(), _loadAyahs()]),
         builder: (context, snapshot) {
@@ -120,7 +120,7 @@ class _QuranScreenState extends State<QuranScreen> {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              HidayatSearchField(
+              HaqaiqSearchField(
                 controller: _searchController,
                 hintText: 'Search Surah or Ayah',
                 onChanged: (value) => setState(

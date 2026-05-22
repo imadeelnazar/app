@@ -45,7 +45,7 @@ class _EventsScreenState extends State<EventsScreen> {
             ],
           ),
         ),
-        bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+        bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
         body: FutureBuilder<List<calendar.IslamicCalendarEvent>>(
           future: _loadEvents(),
           builder: (context, snapshot) {

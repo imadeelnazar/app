@@ -153,7 +153,7 @@ class _ContentPreviewScreenState extends State<ContentPreviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Preview & Edit',
         actions: [
@@ -240,7 +240,7 @@ class _HeaderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: hidayatGreen,
+      color: haqaiqGreen,
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -382,7 +382,7 @@ class _ContentItemTile extends StatelessWidget {
               height: 28,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: hidayatTeal.withValues(alpha: 0.12),
+                color: haqaiqTeal.withValues(alpha: 0.12),
                 shape: BoxShape.circle,
               ),
               child: Text(
@@ -390,7 +390,7 @@ class _ContentItemTile extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
-                  color: hidayatTeal,
+                  color: haqaiqTeal,
                 ),
               ),
             ),
@@ -405,7 +405,7 @@ class _ContentItemTile extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
-                        color: hidayatTeal,
+                        color: haqaiqTeal,
                       ),
                     ),
                   if (item.textArabic.isNotEmpty)
@@ -469,16 +469,16 @@ class _EditItemCard extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        border: Border.all(color: hidayatTeal),
+        border: Border.all(color: haqaiqTeal),
         borderRadius: BorderRadius.circular(10),
-        color: hidayatTeal.withValues(alpha: 0.04),
+        color: haqaiqTeal.withValues(alpha: 0.04),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             'Edit Item',
-            style: TextStyle(fontWeight: FontWeight.bold, color: hidayatTeal),
+            style: TextStyle(fontWeight: FontWeight.bold, color: haqaiqTeal),
           ),
           const SizedBox(height: 10),
           _EditField(ctrl: chapterCtrl, label: 'Chapter Title', rtl: false),
@@ -501,7 +501,7 @@ class _EditItemCard extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: onSave,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: hidayatTeal,
+                    backgroundColor: haqaiqTeal,
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Save'),
@@ -607,8 +607,8 @@ class _BottomBar extends StatelessWidget {
               label: const Text('Save Draft'),
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                side: const BorderSide(color: hidayatTeal),
-                foregroundColor: hidayatTeal,
+                side: const BorderSide(color: haqaiqTeal),
+                foregroundColor: haqaiqTeal,
               ),
             ),
           ),
@@ -629,7 +629,7 @@ class _BottomBar extends StatelessWidget {
               label: const Text('Publish'),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                backgroundColor: hidayatTeal,
+                backgroundColor: haqaiqTeal,
                 foregroundColor: Colors.white,
               ),
             ),

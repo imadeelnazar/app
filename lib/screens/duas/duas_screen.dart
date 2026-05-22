@@ -48,8 +48,8 @@ class _DuasScreenState extends State<DuasScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Duas'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 2),
+      appBar: haqaiqAppBar(context, title: 'Duas'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 2),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: _loadDuas(),
         builder: (context, snapshot) {
@@ -70,7 +70,7 @@ class _DuasScreenState extends State<DuasScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
-                child: HidayatSearchField(
+                child: HaqaiqSearchField(
                   controller: _searchController,
                   onChanged: (value) => setState(() => _query = value.trim()),
                   hintText: 'Search duas',

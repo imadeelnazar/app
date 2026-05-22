@@ -55,8 +55,8 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F2EA),
-      appBar: hidayatAppBar(context, title: 'Tasbeeh'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      appBar: haqaiqAppBar(context, title: 'Tasbeeh'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 28),
         children: [
@@ -335,7 +335,7 @@ class _SmallActionButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: hidayatTeal, size: 20),
+              Icon(icon, color: haqaiqTeal, size: 20),
               const SizedBox(width: 8),
               Text(
                 label,
@@ -415,7 +415,7 @@ class _PresetTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
-              color: selected ? hidayatTeal : const Color(0xFFE5DDD0),
+              color: selected ? haqaiqTeal : const Color(0xFFE5DDD0),
               width: selected ? 1.6 : 1,
             ),
           ),
@@ -464,7 +464,7 @@ class _PresetTile extends StatelessWidget {
               Text(
                 preset.target == null ? '--' : '${preset.target}',
                 style: TextStyle(
-                  color: selected ? hidayatTeal : Colors.grey.shade500,
+                  color: selected ? haqaiqTeal : Colors.grey.shade500,
                   fontWeight: FontWeight.w900,
                 ),
               ),

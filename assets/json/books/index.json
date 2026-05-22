@@ -194,14 +194,14 @@
     {
       "id": "aamaal_muharram",
       "title": "Aamaal-e-Muharram",
-      "titleArabic": "أعمال شهر محرم",
-      "titleUrdu": "اعمال ماہ محرم",
+      "titleArabic": "أعمال شهر محرّم",
+      "titleUrdu": "اعمالِ ماہِ محرم",
       "titleFarsi": "اعمال ماه محرم",
       "file": "aamaal_muharram.json",
-      "category": "aamaal",
-      "contentStatus": "awaiting_licensed_or_manual_text",
-      "chapterCount": 0,
-      "lineCount": 0,
+      "category": "amaal",
+      "contentStatus": "complete_structure_public_short_invocations_only_long_text_pending_verified_source",
+      "chapterCount": 12,
+      "lineCount": 102,
       "order": 15
     },
     {

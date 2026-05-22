@@ -180,7 +180,7 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Live Ziyaraat',
         actions: [
@@ -191,7 +191,7 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 4),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 4),
       body: Column(
         children: [
           _LiveStreamSelector(
@@ -463,9 +463,9 @@ class _LiveStreamSelector extends StatelessWidget {
                       : Icons.play_circle_outline
                   : Icons.block,
               size: 18,
-              color: selected ? Colors.white : hidayatTeal,
+              color: selected ? Colors.white : haqaiqTeal,
             ),
-            selectedColor: hidayatTeal,
+            selectedColor: haqaiqTeal,
             labelStyle: TextStyle(
               color: selected ? Colors.white : Colors.black87,
               fontWeight: FontWeight.w600,
@@ -500,7 +500,7 @@ class _LiveStreamHeader extends StatelessWidget {
             width: 42,
             height: 42,
             decoration: const BoxDecoration(
-              color: hidayatTeal,
+              color: haqaiqTeal,
               shape: BoxShape.circle,
             ),
             child: const Icon(Icons.videocam, color: Colors.white),

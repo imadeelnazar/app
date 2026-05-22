@@ -191,7 +191,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
     final aligned = turnAngle != null && turnAngle.abs() <= 3;
 
     return Scaffold(
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Qibla Finder',
         actions: [
@@ -202,7 +202,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: RefreshIndicator(
         onRefresh: _loadLocation,
         child: ListView(

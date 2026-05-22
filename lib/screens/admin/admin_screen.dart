@@ -26,7 +26,7 @@ class _AdminScreenState extends State<AdminScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Content Manager',
         actions: [
@@ -79,7 +79,7 @@ class _StatsRow extends StatelessWidget {
           label: 'Total',
           value: stats['total'] ?? 0,
           icon: Icons.library_books,
-          color: hidayatTeal,
+          color: haqaiqTeal,
         ),
         const SizedBox(width: 10),
         _StatCard(
@@ -144,7 +144,8 @@ class _StatCard extends StatelessWidget {
             ),
             Text(
               label,
-              style: TextStyle(fontSize: 11, color: color.withValues(alpha: 0.8)),
+              style:
+                  TextStyle(fontSize: 11, color: color.withValues(alpha: 0.8)),
             ),
           ],
         ),
@@ -171,7 +172,7 @@ class _ActionGrid extends StatelessWidget {
           icon: Icons.upload_file,
           label: 'Upload Content',
           subtitle: 'Add book, dua, ziyarat',
-          color: hidayatTeal,
+          color: haqaiqTeal,
           onTap: () => context.push('/admin/upload'),
         ),
         _AdminActionTile(
@@ -316,7 +317,7 @@ class _ImportSourcesCard extends StatelessWidget {
             _SourceRow(
               title: 'Duas.org',
               url: 'https://www.duas.org/',
-              color: hidayatTeal,
+              color: haqaiqTeal,
             ),
             const SizedBox(height: 6),
             _SourceRow(
@@ -376,10 +377,10 @@ class _PythonToolsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: hidayatGreen.withValues(alpha: 0.05),
+      color: haqaiqGreen.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: hidayatGreen.withValues(alpha: 0.2)),
+        side: BorderSide(color: haqaiqGreen.withValues(alpha: 0.2)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -388,22 +389,24 @@ class _PythonToolsCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.terminal, color: hidayatGreen),
+                const Icon(Icons.terminal, color: haqaiqGreen),
                 const SizedBox(width: 8),
                 const Text(
                   'Development Tools',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
-                    color: hidayatGreen,
+                    color: haqaiqGreen,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 10),
             _CodeLine('python tools/import_sources.py --list-sources'),
-            _CodeLine('python tools/process_upload.py process --file my_dua.txt --type dua'),
-            _CodeLine('python tools/process_upload.py audio --file audio.mp3 --content-id <id>'),
+            _CodeLine(
+                'python tools/process_upload.py process --file my_dua.txt --type dua'),
+            _CodeLine(
+                'python tools/process_upload.py audio --file audio.mp3 --content-id <id>'),
             _CodeLine('python tools/process_upload.py list'),
           ],
         ),
@@ -431,7 +434,7 @@ class _CodeLine extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'monospace',
             fontSize: 11,
-            color: hidayatGreen,
+            color: haqaiqGreen,
           ),
         ),
       ),

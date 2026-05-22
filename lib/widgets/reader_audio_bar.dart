@@ -34,7 +34,7 @@ class ReaderAudioBar extends StatelessWidget {
                 duration: const Duration(milliseconds: 180),
                 child: IconButton.filled(
                   key: ValueKey(playing),
-                  style: IconButton.styleFrom(backgroundColor: hidayatTeal),
+                  style: IconButton.styleFrom(backgroundColor: haqaiqTeal),
                   onPressed: lines.isEmpty
                       ? null
                       : () {
@@ -142,7 +142,7 @@ class ReaderLineHighlight extends StatelessWidget {
             color: active ? const Color(0xFFE8F7F4) : Colors.transparent,
             borderRadius: BorderRadius.circular(14),
             border: active
-                ? Border.all(color: hidayatTeal.withValues(alpha: 0.35))
+                ? Border.all(color: haqaiqTeal.withValues(alpha: 0.35))
                 : null,
           ),
           child: child,

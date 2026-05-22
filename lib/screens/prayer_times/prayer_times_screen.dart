@@ -50,7 +50,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Prayer Times',
         actions: [
@@ -61,7 +61,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: FutureBuilder<PrayerTimesViewData>(
         future: _future,
         builder: (context, snapshot) {
@@ -186,7 +186,7 @@ class _LocationCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.location_on, color: hidayatTeal, size: 20),
+                const Icon(Icons.location_on, color: haqaiqTeal, size: 20),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -546,7 +546,7 @@ class _IslamicDateCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: hidayatTeal,
+                color: haqaiqTeal,
               ),
             ),
           ],
@@ -619,7 +619,7 @@ class _AzanAlertInfoCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.notifications_active, color: hidayatTeal),
+          const Icon(Icons.notifications_active, color: haqaiqTeal),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -663,8 +663,8 @@ class _AzanAlertInfoCard extends StatelessWidget {
                   icon: const Icon(Icons.volume_up_rounded, size: 18),
                   label: const Text('Test Azan Sound'),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: hidayatTeal,
-                    side: const BorderSide(color: hidayatTeal),
+                    foregroundColor: haqaiqTeal,
+                    side: const BorderSide(color: haqaiqTeal),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -691,7 +691,7 @@ class _PrayerDebugCard extends StatelessWidget {
 
     return ExpansionTile(
       tilePadding: const EdgeInsets.symmetric(horizontal: 4),
-      leading: const Icon(Icons.bug_report_outlined, color: hidayatTeal),
+      leading: const Icon(Icons.bug_report_outlined, color: haqaiqTeal),
       title: const Text('Prayer Time Debug'),
       children: [
         _DebugLine(label: 'Device time', value: _formatDateTime(now)),
@@ -803,7 +803,7 @@ class _PrayerTimesError extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.wifi_off, size: 42, color: hidayatTeal),
+            const Icon(Icons.wifi_off, size: 42, color: haqaiqTeal),
             const SizedBox(height: 12),
             const Text(
               'Prayer timings could not be loaded',
@@ -877,7 +877,7 @@ class _PrayerTimeItemCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: hidayatTeal,
+                color: haqaiqTeal,
               ),
             ),
           ],

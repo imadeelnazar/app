@@ -2,18 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
-const Color hidayatGreen = Color(0xFF1B4D3E);
-const Color hidayatTeal = Color(0xFF1BA098);
+const Color haqaiqGreen = Color(0xFF1B4D3E);
+const Color haqaiqTeal = Color(0xFF1BA098);
 
-PreferredSizeWidget hidayatAppBar(
+PreferredSizeWidget haqaiqAppBar(
   BuildContext context, {
   required String title,
   bool showBack = true,
   List<Widget>? actions,
 }) {
   return AppBar(
-    title: Text(title),
-    backgroundColor: hidayatGreen,
+    title: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Image.asset(
+          'assets/images/haqaiq_logo_mark.png',
+          width: 28,
+          height: 28,
+          fit: BoxFit.contain,
+          filterQuality: FilterQuality.high,
+        ),
+        const SizedBox(width: 8),
+        Flexible(child: Text(title, overflow: TextOverflow.ellipsis)),
+      ],
+    ),
+    backgroundColor: haqaiqGreen,
     foregroundColor: Colors.white,
     surfaceTintColor: Colors.transparent,
     scrolledUnderElevation: 0,
@@ -50,12 +63,12 @@ PreferredSizeWidget hidayatAppBar(
   );
 }
 
-class HidayatSearchField extends StatelessWidget {
+class HaqaiqSearchField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final ValueChanged<String> onChanged;
 
-  const HidayatSearchField({
+  const HaqaiqSearchField({
     super.key,
     required this.controller,
     required this.hintText,
@@ -83,7 +96,7 @@ class HidayatSearchField extends StatelessWidget {
           return TextField(
             controller: controller,
             textInputAction: TextInputAction.search,
-            cursorColor: hidayatTeal,
+            cursorColor: haqaiqTeal,
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -96,7 +109,7 @@ class HidayatSearchField extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0,
               ),
-              prefixIcon: const Icon(Icons.search_rounded, color: hidayatTeal),
+              prefixIcon: const Icon(Icons.search_rounded, color: haqaiqTeal),
               suffixIcon: value.text.isEmpty
                   ? null
                   : IconButton(
@@ -112,7 +125,7 @@ class HidayatSearchField extends StatelessWidget {
               enabledBorder: InputBorder.none,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: hidayatTeal, width: 1.2),
+                borderSide: const BorderSide(color: haqaiqTeal, width: 1.2),
               ),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 14, vertical: 15),
@@ -125,10 +138,10 @@ class HidayatSearchField extends StatelessWidget {
   }
 }
 
-class HidayatBottomNav extends StatelessWidget {
+class HaqaiqBottomNav extends StatelessWidget {
   final int currentIndex;
 
-  const HidayatBottomNav({super.key, required this.currentIndex});
+  const HaqaiqBottomNav({super.key, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {

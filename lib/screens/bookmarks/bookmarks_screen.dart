@@ -14,8 +14,8 @@ class BookmarksScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Bookmarks'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      appBar: haqaiqAppBar(context, title: 'Bookmarks'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: bookmarks.isEmpty
           ? const Center(
               child: Text('No bookmarks yet'),

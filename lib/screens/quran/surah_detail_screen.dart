@@ -27,8 +27,8 @@ class SurahDetailScreen extends StatelessWidget {
 
         return Scaffold(
           backgroundColor: const Color(0xFFFBF8F3),
-          appBar: hidayatAppBar(context, title: title),
-          bottomNavigationBar: const HidayatBottomNav(currentIndex: 1),
+          appBar: haqaiqAppBar(context, title: title),
+          bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 1),
           body: _buildBody(context, snapshot),
         );
       },

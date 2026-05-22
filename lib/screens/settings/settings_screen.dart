@@ -16,8 +16,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(context, title: 'Settings'),
-      bottomNavigationBar: const HidayatBottomNav(currentIndex: 0),
+      appBar: haqaiqAppBar(context, title: 'Settings'),
+      bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 0),
       body: ListView(
         children: [
           // Language Setting

@@ -34,8 +34,8 @@ class BookDetailScreen extends StatelessWidget {
         final title = snapshot.data?['title'] as String? ?? 'Book';
 
         return Scaffold(
-          appBar: hidayatAppBar(context, title: title),
-          bottomNavigationBar: const HidayatBottomNav(currentIndex: 3),
+          appBar: haqaiqAppBar(context, title: title),
+          bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 3),
           body: _buildBody(context, snapshot),
         );
       },

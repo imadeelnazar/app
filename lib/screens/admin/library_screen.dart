@@ -65,7 +65,7 @@ class _AdminLibraryScreenState extends State<AdminLibraryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: hidayatAppBar(
+      appBar: haqaiqAppBar(
         context,
         title: 'Imported Library',
         actions: [
@@ -106,7 +106,7 @@ class _AdminLibraryScreenState extends State<AdminLibraryScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.push('/admin/upload'),
-        backgroundColor: hidayatTeal,
+        backgroundColor: haqaiqTeal,
         foregroundColor: Colors.white,
         icon: const Icon(Icons.upload_file),
         label: const Text('Upload'),
@@ -145,8 +145,8 @@ class _LibraryTile extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor: hidayatTeal.withValues(alpha: 0.12),
-                foregroundColor: hidayatTeal,
+                backgroundColor: haqaiqTeal.withValues(alpha: 0.12),
+                foregroundColor: haqaiqTeal,
                 child: Icon(_iconForType(item.type), size: 20),
               ),
               const SizedBox(width: 12),

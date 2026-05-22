@@ -34,8 +34,8 @@ class ZiyarahDetailScreen extends StatelessWidget {
         final title = snapshot.data?['title'] as String? ?? 'Ziyarah';
 
         return Scaffold(
-          appBar: hidayatAppBar(context, title: title),
-          bottomNavigationBar: const HidayatBottomNav(currentIndex: 4),
+          appBar: haqaiqAppBar(context, title: title),
+          bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 4),
           body: _buildBody(context, snapshot),
         );
       },
