@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen>
     final hasSeenOnboarding = prefs.getBool(onboardingSeenKey) ?? false;
     if (!mounted) return;
 
-    context.go(hasSeenOnboarding ? '/opening' : '/onboarding');
+    context.go(hasSeenOnboarding ? '/home' : '/onboarding');
   }
 
   @override
@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
               ),
               SizedBox(height: 20),
               Text(
-                'Hidayat',
+                'Haqaiq',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,

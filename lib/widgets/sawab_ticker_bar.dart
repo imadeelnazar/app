@@ -240,13 +240,17 @@ class _NewsMarquee extends StatelessWidget {
                   child: child,
                 );
               },
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _TickerText(text: text, textStyle: textStyle),
-                  const SizedBox(width: gap),
-                  _TickerText(text: text, textStyle: textStyle),
-                ],
+              child: OverflowBox(
+                alignment: Alignment.centerLeft,
+                maxWidth: double.infinity,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _TickerText(text: text, textStyle: textStyle),
+                    const SizedBox(width: gap),
+                    _TickerText(text: text, textStyle: textStyle),
+                  ],
+                ),
               ),
             ),
           ),

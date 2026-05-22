@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../services/app_theme_service.dart';
 import '../../widgets/app_chrome.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -10,7 +11,6 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   String language = 'English';
-  bool darkMode = false;
   bool notifications = true;
 
   @override
@@ -57,11 +57,51 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           const Divider(),
-          // Dark Mode
-          SwitchListTile(
-            title: const Text('Dark Mode'),
-            value: darkMode,
-            onChanged: (value) => setState(() => darkMode = value),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 10),
+            child: ValueListenableBuilder<ThemeMode>(
+              valueListenable: AppThemeService.instance.mode,
+              builder: (context, mode, _) {
+                final selected = mode == ThemeMode.dark ? {'dark'} : {'light'};
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Theme Mode',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      width: double.infinity,
+                      child: SegmentedButton<String>(
+                        segments: const [
+                          ButtonSegment(
+                            value: 'light',
+                            icon: Icon(Icons.light_mode_rounded),
+                            label: Text('Light'),
+                          ),
+                          ButtonSegment(
+                            value: 'dark',
+                            icon: Icon(Icons.dark_mode_rounded),
+                            label: Text('Dark'),
+                          ),
+                        ],
+                        selected: selected,
+                        onSelectionChanged: (value) {
+                          final next = value.first == 'dark'
+                              ? ThemeMode.dark
+                              : ThemeMode.light;
+                          AppThemeService.instance.setMode(next);
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
           const Divider(),
           // Notifications
@@ -74,7 +114,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // About
           ListTile(
             title: const Text('About'),
-            subtitle: const Text('Hidayat v1.0.0'),
+            subtitle: const Text('Haqaiq v1.0.0'),
             onTap: () {},
           ),
         ],

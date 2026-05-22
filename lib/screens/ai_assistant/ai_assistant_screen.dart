@@ -116,7 +116,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
           AiAssistantMessage(
             role: 'assistant',
             content:
-                'Maazrat, abhi jawab connect nahi ho pa raha. API key/build config ya internet check kar lein.',
+                'Maazrat, abhi jawab connect nahi ho pa raha. Internet ya service config check kar lein.',
             createdAt: DateTime.now(),
           ),
         ];
@@ -224,7 +224,7 @@ class _AssistantIntro extends StatelessWidget {
           SizedBox(width: 12),
           Expanded(
             child: Text(
-              'Fiqa Jafria Islamic Q&A only. For binding fatwa, apne marja ya qualified alim se confirm karein.',
+              'Fiqa Jafria aur Islamic akhlaq par rehnumai. Binding fatwa ke liye apne marja ya qualified alim se confirm karein.',
               style: TextStyle(
                 fontSize: 13,
                 height: 1.35,
@@ -280,7 +280,7 @@ class _SuggestionList extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(14, 8, 14, 18),
       children: [
         const Text(
-          'Ask anything to Ayatollah Khamenei',
+          'Ask Islamic guidance',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
         ),
         const SizedBox(height: 12),
@@ -373,7 +373,7 @@ class _TypingBubble extends StatelessWidget {
           border: Border.all(color: const Color(0xFFDDEBE6)),
         ),
         child: const Text(
-          'Ayatollah Khamenei jawab tayyar kar rahe hain...',
+          'Jawab tayyar ho raha hai...',
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
       ),
@@ -458,7 +458,7 @@ class _Composer extends StatelessWidget {
                   maxLines: 4,
                   textInputAction: TextInputAction.newline,
                   decoration: InputDecoration(
-                    hintText: 'Ayatollah Khamenei se sawal likhein...',
+                    hintText: 'Islamic sawal likhein...',
                     filled: true,
                     fillColor: const Color(0xFFF4F8F6),
                     border: OutlineInputBorder(

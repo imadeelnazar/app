@@ -6,8 +6,22 @@ import '../../data/models/models.dart';
 
 class DatabaseService {
   static late Isar _isar;
+  static Future<void>? _initializationFuture;
+  static bool _initialized = false;
 
   static Future<void> initialize() async {
+    if (_initialized) return;
+    final existing = _initializationFuture;
+    if (existing != null) return existing;
+
+    _initializationFuture = _initialize().catchError((error) {
+      _initializationFuture = null;
+      throw error;
+    });
+    return _initializationFuture;
+  }
+
+  static Future<void> _initialize() async {
     final dir = await getApplicationDocumentsDirectory();
     _isar = await Isar.open(
       [
@@ -36,6 +50,7 @@ class DatabaseService {
 
     // Auto-seed on first launch
     await _seedDatabase();
+    _initialized = true;
   }
 
   static Future<void> _seedDatabase() async {
@@ -55,7 +70,7 @@ class DatabaseService {
     try {
       final jsonString = await rootBundle.loadString('assets/json/quran.json');
       final data = json.decode(jsonString);
-      
+
       final qurans = <Quran>[];
       final ayahs = <QuranAyah>[];
 
@@ -180,7 +195,8 @@ class DatabaseService {
 
   static Future<void> _seedZiyaraat() async {
     try {
-      final jsonString = await rootBundle.loadString('assets/json/ziyaraat.json');
+      final jsonString =
+          await rootBundle.loadString('assets/json/ziyaraat.json');
       final data = json.decode(jsonString);
 
       final ziyaraat = <Ziyarah>[];
@@ -223,7 +239,8 @@ class DatabaseService {
 
   static Future<void> _seedCategories() async {
     try {
-      final jsonString = await rootBundle.loadString('assets/json/categories.json');
+      final jsonString =
+          await rootBundle.loadString('assets/json/categories.json');
       final data = json.decode(jsonString);
 
       final categories = <Category>[];
@@ -376,12 +393,11 @@ class DatabaseService {
         .contentTypeEqualTo(contentType)
         .findFirst();
 
-    final progress = existing ??
-        ReadingProgress()
-          ..contentType = contentType
-          ..contentTypeIndex = contentType
-          ..contentId = contentId
-          ..totalReadCount = 0;
+    final progress = existing ?? ReadingProgress()
+      ..contentType = contentType
+      ..contentTypeIndex = contentType
+      ..contentId = contentId
+      ..totalReadCount = 0;
 
     progress.lastReadLine = lastReadLine;
     progress.lastReadAt = DateTime.now();
@@ -418,10 +434,7 @@ class DatabaseService {
   }
 
   static Future<List<DuaLine>> getDuaLines(int duaId) async {
-    return await _isar.duaLines
-        .filter()
-        .duaIdEqualTo(duaId)
-        .findAll();
+    return await _isar.duaLines.filter().duaIdEqualTo(duaId).findAll();
   }
 
   // ==================== ZIYARAAT ====================
@@ -444,10 +457,7 @@ class DatabaseService {
   }
 
   static Future<List<BookSection>> getBookSections(int bookId) async {
-    return await _isar.bookSections
-        .filter()
-        .bookIdEqualTo(bookId)
-        .findAll();
+    return await _isar.bookSections.filter().bookIdEqualTo(bookId).findAll();
   }
 
   static Isar getInstance() => _isar;

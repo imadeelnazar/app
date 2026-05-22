@@ -95,7 +95,7 @@ int _notificationIdFor(RemoteMessage message) {
 }
 
 String _titleFor(RemoteMessage message) {
-  return message.notification?.title ?? message.data['title'] ?? 'Hidayat';
+  return message.notification?.title ?? message.data['title'] ?? 'Haqaiq';
 }
 
 String _bodyFor(RemoteMessage message) {

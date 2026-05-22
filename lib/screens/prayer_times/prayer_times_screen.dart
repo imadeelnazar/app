@@ -27,6 +27,26 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
     });
   }
 
+  Future<void> _useCurrentLocation() async {
+    await _service.useAutomaticLocation();
+    _refresh();
+  }
+
+  Future<void> _useManualLocation(PrayerLocationPreset preset) async {
+    await _service.useManualLocation(preset);
+    _refresh();
+  }
+
+  Future<void> _setCalculationMethod(String methodId) async {
+    await _service.setCalculationMethod(methodId);
+    _refresh();
+  }
+
+  Future<void> _setMadhab(String madhab) async {
+    await _service.setMadhab(madhab);
+    _refresh();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +71,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
 
           if (snapshot.hasError) {
             return _PrayerTimesError(
-              timeZone: _service.resolveDeviceTimeZone(),
+              timeZone: _service.resolveDeviceTimeZoneSync(),
               onRetry: _refresh,
             );
           }
@@ -65,6 +85,14 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
               padding: const EdgeInsets.all(16),
               children: [
                 _LocationCard(data: data),
+                const SizedBox(height: 12),
+                _PrayerSettingsCard(
+                  data: data,
+                  onUseCurrentLocation: _useCurrentLocation,
+                  onManualLocationSelected: _useManualLocation,
+                  onCalculationMethodChanged: _setCalculationMethod,
+                  onMadhabChanged: _setMadhab,
+                ),
                 const SizedBox(height: 18),
                 _NextPrayerCard(data: data),
                 const SizedBox(height: 24),
@@ -74,7 +102,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                 ),
                 const SizedBox(height: 12),
                 _PrayerTimeItemCard(
-                  name: 'Fajr',
+                  name: 'Fajar',
                   icon: Icons.wb_twilight,
                   time: prayerTime.fajr,
                   color: const Color(0xFF6A4C93),
@@ -90,7 +118,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                 ),
                 const SizedBox(height: 12),
                 _PrayerTimeItemCard(
-                  name: 'Dhuhr',
+                  name: 'Zuhr',
                   icon: Icons.wb_sunny,
                   time: prayerTime.dhuhr,
                   color: const Color(0xFFC77D00),
@@ -124,6 +152,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                 _IslamicDateCard(data: data),
                 const SizedBox(height: 16),
                 const _AzanAlertInfoCard(),
+                const SizedBox(height: 16),
+                _PrayerDebugCard(data: data),
                 const SizedBox(height: 32),
               ],
             ),
@@ -190,6 +220,110 @@ class _LocationCard extends StatelessWidget {
                 value: data.calculationMethod,
               ),
             ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PrayerSettingsCard extends StatelessWidget {
+  final PrayerTimesViewData data;
+  final Future<void> Function() onUseCurrentLocation;
+  final Future<void> Function(PrayerLocationPreset preset)
+      onManualLocationSelected;
+  final Future<void> Function(String methodId) onCalculationMethodChanged;
+  final Future<void> Function(String madhab) onMadhabChanged;
+
+  const _PrayerSettingsCard({
+    required this.data,
+    required this.onUseCurrentLocation,
+    required this.onManualLocationSelected,
+    required this.onCalculationMethodChanged,
+    required this.onMadhabChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final currentPreset = PrayerTimesService.manualLocationPresets.any(
+      (preset) => preset.label == data.prayerTime.location,
+    )
+        ? data.prayerTime.location
+        : null;
+    final calculationValue = PrayerTimesService.calculationOptions
+        .firstWhere(
+          (option) => option.label == data.calculationMethod,
+          orElse: () => PrayerTimesService.calculationOptions.first,
+        )
+        .id;
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: Color(0xFFE8E3D8)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: onUseCurrentLocation,
+                    icon: const Icon(Icons.my_location, size: 18),
+                    label: const Text('Use Current Location'),
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            DropdownButtonFormField<String>(
+              initialValue: currentPreset,
+              decoration: const InputDecoration(
+                labelText: 'Manual city fallback',
+                border: OutlineInputBorder(),
+                isDense: true,
+              ),
+              items: PrayerTimesService.manualLocationPresets
+                  .map(
+                    (preset) => DropdownMenuItem(
+                      value: preset.label,
+                      child: Text(preset.label),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (value) async {
+                final preset = PrayerTimesService.manualLocationPresets
+                    .firstWhere((item) => item.label == value);
+                await onManualLocationSelected(preset);
+              },
+            ),
+            const SizedBox(height: 8),
+            DropdownButtonFormField<String>(
+              initialValue: calculationValue,
+              decoration: const InputDecoration(
+                labelText: 'Calculation method',
+                border: OutlineInputBorder(),
+                isDense: true,
+              ),
+              items: PrayerTimesService.calculationOptions
+                  .map(
+                    (option) => DropdownMenuItem(
+                      value: option.id,
+                      child: Text(option.label),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (value) async {
+                if (value != null) await onCalculationMethodChanged(value);
+              },
+            ),
           ],
         ),
       ),
@@ -279,8 +413,8 @@ class _NextPrayerCard extends StatelessWidget {
     if (duration == null) return '';
     final hours = duration.inHours;
     final minutes = duration.inMinutes.remainder(60);
-    if (hours <= 0) return ' • in $minutes min';
-    return ' • in ${hours}h ${minutes}m';
+    if (hours <= 0) return ' - in $minutes min';
+    return ' - in ${hours}h ${minutes}m';
   }
 }
 
@@ -297,7 +431,7 @@ class _PrayerVisualTheme {
 
   factory _PrayerVisualTheme.forPrayer(String prayer) {
     final key = prayer.toLowerCase();
-    if (key.contains('fajr')) {
+    if (key.contains('fajr') || key.contains('fajar')) {
       return const _PrayerVisualTheme(
         colors: [Color(0xFF172A4A), Color(0xFF7D8CC4)],
         icon: Icons.wb_twilight,
@@ -311,7 +445,7 @@ class _PrayerVisualTheme {
         caption: 'Sunrise glow',
       );
     }
-    if (key.contains('dhuhr')) {
+    if (key.contains('dhuhr') || key.contains('zuhr')) {
       return const _PrayerVisualTheme(
         colors: [Color(0xFF0F8A82), Color(0xFF67C7B8)],
         icon: Icons.wb_sunny,
@@ -378,8 +512,8 @@ class _PrayerVisualTheme {
     if (duration == null) return '';
     final hours = duration.inHours;
     final minutes = duration.inMinutes.remainder(60);
-    if (hours <= 0) return ' • in $minutes min';
-    return ' • in ${hours}h ${minutes}m';
+    if (hours <= 0) return ' - in $minutes min';
+    return ' - in ${hours}h ${minutes}m';
   }
 }
 
@@ -492,8 +626,36 @@ class _AzanAlertInfoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Prayer alerts are scheduled for Fajr, Dhuhr, Asr, Maghrib, and Isha. Shia azan sound alert ke sath chalegi.',
+                  'Prayer alerts are scheduled for Fajar, Zuhr, Asr, Maghrib, and Isha. Shia azan sound alert ke sath chalegi.',
                   style: TextStyle(fontSize: 13, height: 1.45),
+                ),
+                FutureBuilder<NotificationRuntimeStatus>(
+                  future: NotificationService().getRuntimeStatus(),
+                  builder: (context, snapshot) {
+                    final status = snapshot.data;
+                    if (status == null ||
+                        (status.notificationsEnabled &&
+                            status.exactAlarmsEnabled)) {
+                      return const SizedBox.shrink();
+                    }
+                    final messages = [
+                      if (!status.notificationsEnabled)
+                        'Notifications are disabled in Android settings.',
+                      if (!status.exactAlarmsEnabled)
+                        'Exact alarm permission is disabled; Azan may be delayed.',
+                    ];
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(
+                        messages.join(' '),
+                        style: const TextStyle(
+                          color: Colors.redAccent,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 12),
                 OutlinedButton.icon(
@@ -509,6 +671,113 @@ class _AzanAlertInfoCard extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PrayerDebugCard extends StatelessWidget {
+  final PrayerTimesViewData data;
+
+  const _PrayerDebugCard({required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    final now = DateTime.now();
+    final scheduled = data.scheduledNotifications.take(10).toList();
+
+    return ExpansionTile(
+      tilePadding: const EdgeInsets.symmetric(horizontal: 4),
+      leading: const Icon(Icons.bug_report_outlined, color: hidayatTeal),
+      title: const Text('Prayer Time Debug'),
+      children: [
+        _DebugLine(label: 'Device time', value: _formatDateTime(now)),
+        _DebugLine(label: 'App timezone', value: data.timeZone),
+        _DebugLine(
+          label: 'Location',
+          value:
+              '${data.prayerTime.location} (${data.latitude.toStringAsFixed(5)}, ${data.longitude.toStringAsFixed(5)})',
+        ),
+        _DebugLine(label: 'Method', value: data.calculationMethod),
+        _DebugLine(label: 'Asr method', value: data.madhab),
+        const SizedBox(height: 8),
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Today',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        _DebugLine(label: 'Fajar', value: data.prayerTime.fajr),
+        _DebugLine(label: 'Sunrise', value: data.prayerTime.sunrise),
+        _DebugLine(label: 'Zuhr', value: data.prayerTime.dhuhr),
+        _DebugLine(label: 'Asr', value: data.prayerTime.asr),
+        _DebugLine(label: 'Maghrib', value: data.prayerTime.maghrib),
+        _DebugLine(label: 'Isha', value: data.prayerTime.isha),
+        const SizedBox(height: 8),
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Scheduled',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        if (scheduled.isEmpty)
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text('No upcoming prayer notifications found.'),
+            ),
+          ),
+        for (final item in scheduled)
+          _DebugLine(
+            label: '${item.id} ${item.pendingInOs ? 'OS' : 'Missing'}',
+            value: '${item.title} - ${_formatDateTime(item.scheduledTime)}',
+          ),
+        const SizedBox(height: 12),
+      ],
+    );
+  }
+
+  static String _formatDateTime(DateTime dateTime) {
+    return '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-'
+        '${dateTime.day.toString().padLeft(2, '0')} '
+        '${dateTime.hour.toString().padLeft(2, '0')}:'
+        '${dateTime.minute.toString().padLeft(2, '0')}';
+  }
+}
+
+class _DebugLine extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _DebugLine({
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 112,
+            child: Text(
+              label,
+              style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             ),
           ),
         ],

@@ -322,7 +322,7 @@ class _AiAskAnythingCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'Fiqa Jafria sawalat, chat aur image attachment support',
+                      'Fiqa Jafria sawalat aur Islamic akhlaq ki rehnumai',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -563,7 +563,7 @@ class _QuickActionsSection extends StatelessWidget {
           itemCount: features.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            mainAxisExtent: 112,
+            mainAxisExtent: 124,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
           ),
@@ -800,92 +800,165 @@ class _FeatureButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final cardColor =
+        isDark ? const Color(0xFF18231F) : const Color(0xFFFFFFFF);
+    final titleColor =
+        isDark ? const Color(0xFFFFFFFF) : const Color(0xFF0F1F1B);
+    final subtitleColor =
+        isDark ? const Color(0xFFD1DED8) : const Color(0xFF40534B);
+    final borderColor = action.colors.last.withValues(
+      alpha: isDark ? 0.34 : 0.24,
+    );
+
     return Material(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(8),
+      color: cardColor,
+      borderRadius: BorderRadius.circular(10),
       elevation: 0,
       child: InkWell(
         onTap: action.onTap,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(10),
         child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border:
-                Border.all(color: action.colors.last.withValues(alpha: 0.2)),
+            borderRadius: BorderRadius.circular(10),
+            color: cardColor,
+            border: Border.all(color: borderColor),
             boxShadow: [
               BoxShadow(
-                color: action.colors.first.withValues(alpha: 0.08),
-                blurRadius: 16,
-                offset: const Offset(0, 8),
+                color: action.colors.first.withValues(
+                  alpha: isDark ? 0.20 : 0.10,
+                ),
+                blurRadius: isDark ? 22 : 18,
+                offset: const Offset(0, 10),
               ),
             ],
           ),
-          child: Stack(
-            children: [
-              Positioned(
-                right: -24,
-                top: 12,
-                child: Transform.rotate(
-                  angle: -0.5,
-                  child: Container(
-                    width: 84,
-                    height: 18,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: DecoratedBox(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: action.colors.last.withValues(alpha: 0.08),
+                      gradient: LinearGradient(
+                        colors: [
+                          action.colors.last.withValues(
+                            alpha: isDark ? 0.10 : 0.06,
+                          ),
+                          Colors.transparent,
+                        ],
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  children: [
-                    _AnimatedFeatureIcon(action: action),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            action.label,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              color: Color(0xFF172D27),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            action.subtitle,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 11,
-                              height: 1.15,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                Positioned(
+                  right: -30,
+                  bottom: -34,
+                  child: Icon(
+                    action.icon,
+                    size: 132,
+                    color: action.colors.last.withValues(
+                      alpha: isDark ? 0.50 : 0.46,
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          cardColor.withValues(alpha: isDark ? 0.88 : 0.84),
+                          cardColor.withValues(alpha: isDark ? 0.76 : 0.70),
+                          cardColor.withValues(alpha: isDark ? 0.30 : 0.22),
                         ],
+                        stops: const [0, 0.58, 1],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              Positioned(
-                right: 8,
-                bottom: 8,
-                child: Icon(
-                  Icons.arrow_forward_rounded,
-                  size: 15,
-                  color: action.colors.first.withValues(alpha: 0.7),
+                Positioned(
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: Container(
+                    width: 5,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: action.colors,
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+                  child: Row(
+                    children: [
+                      _AnimatedFeatureIcon(action: action),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              action.label,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: titleColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 0,
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              action.subtitle,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: subtitleColor,
+                                fontSize: 12,
+                                height: 1.22,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  right: 8,
+                  bottom: 8,
+                  child: Container(
+                    width: 26,
+                    height: 26,
+                    decoration: BoxDecoration(
+                      color: action.colors.first.withValues(
+                        alpha: isDark ? 0.24 : 0.12,
+                      ),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.arrow_forward_rounded,
+                      size: 16,
+                      color: action.colors.first.withValues(
+                        alpha: isDark ? 0.92 : 0.7,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

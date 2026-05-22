@@ -16,9 +16,8 @@ class OpeningClipScreen extends StatefulWidget {
 }
 
 class _OpeningClipScreenState extends State<OpeningClipScreen>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late final AnimationController _storyController;
-  late final AnimationController _ambientController;
 
   @override
   void initState() {
@@ -32,18 +31,12 @@ class _OpeningClipScreenState extends State<OpeningClipScreen>
         }
       });
 
-    _ambientController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 8),
-    )..repeat();
-
     _storyController.forward();
   }
 
   @override
   void dispose() {
     _storyController.dispose();
-    _ambientController.dispose();
     super.dispose();
   }
 
@@ -52,20 +45,19 @@ class _OpeningClipScreenState extends State<OpeningClipScreen>
     return Scaffold(
       backgroundColor: Colors.black,
       body: AnimatedBuilder(
-        animation: Listenable.merge([_storyController, _ambientController]),
+        animation: _storyController,
         builder: (context, _) {
           final story = _storyController.value;
-          final ambient = _ambientController.value;
 
           return Stack(
             fit: StackFit.expand,
             children: [
               _ShrineReveal(progress: story),
               _CinematicShade(progress: story),
-              _NoorGlow(progress: story, ambient: ambient),
-              _LightRays(progress: story, ambient: ambient),
+              _NoorGlow(progress: story),
+              _LightRays(progress: story),
               CustomPaint(
-                painter: _ParticlesPainter(progress: story, drift: ambient),
+                painter: _ParticlesPainter(progress: story),
                 size: Size.infinite,
               ),
               SafeArea(
@@ -112,7 +104,7 @@ class _ShrineReveal extends StatelessWidget {
             _karbalaAsset,
             fit: BoxFit.cover,
             alignment: Alignment.center,
-            filterQuality: FilterQuality.high,
+            filterQuality: FilterQuality.low,
           ),
         ),
       ),
@@ -147,18 +139,14 @@ class _CinematicShade extends StatelessWidget {
 
 class _NoorGlow extends StatelessWidget {
   final double progress;
-  final double ambient;
 
-  const _NoorGlow({
-    required this.progress,
-    required this.ambient,
-  });
+  const _NoorGlow({required this.progress});
 
   @override
   Widget build(BuildContext context) {
     final opening = _easeInterval(progress, 0.00, 0.22);
     final reveal = _easeInterval(progress, 0.18, 0.48);
-    final pulse = 0.72 + (math.sin(ambient * math.pi * 2) * 0.08);
+    const pulse = 0.72;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -180,12 +168,8 @@ class _NoorGlow extends StatelessWidget {
 
 class _LightRays extends StatelessWidget {
   final double progress;
-  final double ambient;
 
-  const _LightRays({
-    required this.progress,
-    required this.ambient,
-  });
+  const _LightRays({required this.progress});
 
   @override
   Widget build(BuildContext context) {
@@ -195,7 +179,7 @@ class _LightRays extends StatelessWidget {
     return Opacity(
       opacity: opacity,
       child: CustomPaint(
-        painter: _LightRaysPainter(ambient),
+        painter: const _LightRaysPainter(),
         size: Size.infinite,
       ),
     );
@@ -203,9 +187,7 @@ class _LightRays extends StatelessWidget {
 }
 
 class _LightRaysPainter extends CustomPainter {
-  final double drift;
-
-  const _LightRaysPainter(this.drift);
+  const _LightRaysPainter();
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -220,7 +202,7 @@ class _LightRaysPainter extends CustomPainter {
       ).createShader(Offset.zero & size);
 
     for (var i = 0; i < 7; i++) {
-      final spread = -0.52 + (i * 0.17) + math.sin(drift * math.pi * 2) * 0.025;
+      final spread = -0.52 + (i * 0.17);
       final path = Path()
         ..moveTo(origin.dx, origin.dy)
         ..lineTo(
@@ -238,18 +220,14 @@ class _LightRaysPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _LightRaysPainter oldDelegate) {
-    return oldDelegate.drift != drift;
+    return false;
   }
 }
 
 class _ParticlesPainter extends CustomPainter {
   final double progress;
-  final double drift;
 
-  const _ParticlesPainter({
-    required this.progress,
-    required this.drift,
-  });
+  const _ParticlesPainter({required this.progress});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -258,12 +236,12 @@ class _ParticlesPainter extends CustomPainter {
     if (visible <= 0) return;
 
     final paint = Paint();
-    for (var i = 0; i < 34; i++) {
+    for (var i = 0; i < 18; i++) {
       final seed = i * 37.0;
       final x = ((seed * 13) % 100) / 100;
       final y = ((seed * 29) % 100) / 100;
-      final float = (drift + (i * 0.071)) % 1;
-      final twinkle = 0.45 + (math.sin((drift * 2 * math.pi) + i) * 0.35);
+      final float = (progress + (i * 0.071)) % 1;
+      final twinkle = 0.45;
       final point = Offset(
         size.width * x,
         size.height * ((y + 1 - float * 0.22) % 1),
@@ -276,7 +254,7 @@ class _ParticlesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _ParticlesPainter oldDelegate) {
-    return oldDelegate.progress != progress || oldDelegate.drift != drift;
+    return oldDelegate.progress != progress;
   }
 }
 

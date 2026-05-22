@@ -1,89 +1,125 @@
+import 'dart:convert';
 import 'dart:developer' as developer;
 import 'dart:typed_data';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
+
 import '../data/models/models.dart';
+
+class NotificationScheduleDebugEntry {
+  final int id;
+  final String title;
+  final DateTime scheduledTime;
+  final bool pendingInOs;
+
+  const NotificationScheduleDebugEntry({
+    required this.id,
+    required this.title,
+    required this.scheduledTime,
+    required this.pendingInOs,
+  });
+}
+
+class NotificationRuntimeStatus {
+  final bool notificationsEnabled;
+  final bool exactAlarmsEnabled;
+
+  const NotificationRuntimeStatus({
+    required this.notificationsEnabled,
+    required this.exactAlarmsEnabled,
+  });
+}
 
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
-  static const String _azanChannelId = 'shia_jafria_azan_channel_v5';
+
+  static const String _azanChannelId = 'shia_jafria_azan_channel_v6';
   static const String azanChannelId = _azanChannelId;
+  static const String _eventChannelId = 'event_channel_v2';
+  static const String _generalChannelId = 'general_channel';
   static const String _azanSound = 'shia_azan_01';
   static const List<String> _legacyAzanChannelIds = <String>[
     'shia_jafria_azan_channel',
     'shia_jafria_azan_channel_v2',
     'shia_jafria_azan_channel_v3',
     'shia_jafria_azan_channel_v4',
+    'shia_jafria_azan_channel_v5',
   ];
   static const int _notificationFlagInsistent = 4;
-  static const int _firstPrayerNotificationId = 2100;
-  static const int _maxPrayerScheduleDays = 14;
-  static const int _prayerNotificationIdStride = 10;
+  static const int _maxPrayerScheduleDays = 30;
+  static const String _prayerSchedulePrefsKey = 'scheduled_prayer_alerts_v3';
+  static const String _eventSchedulePrefsKey = 'scheduled_event_alerts_v2';
+
   late FlutterLocalNotificationsPlugin _notificationsPlugin;
   bool _initialized = false;
 
-  factory NotificationService() {
-    return _instance;
-  }
+  factory NotificationService() => _instance;
 
   NotificationService._internal();
 
-  Future<void> initialize() async {
-    if (_initialized) return;
+  Future<void> initialize({String? timeZoneName}) async {
+    if (_initialized) {
+      if (timeZoneName != null) await setLocalTimeZone(timeZoneName);
+      return;
+    }
+
     _notificationsPlugin = FlutterLocalNotificationsPlugin();
     tzdata.initializeTimeZones();
-    _setLocalTimeZone();
+    await setLocalTimeZone(timeZoneName);
 
-    const AndroidInitializationSettings androidSettings =
+    const androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-
-    const DarwinInitializationSettings iOSSettings =
-        DarwinInitializationSettings(
+    const iOSSettings = DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true,
     );
-
-    const InitializationSettings settings = InitializationSettings(
+    const settings = InitializationSettings(
       android: androidSettings,
       iOS: iOSSettings,
     );
 
     await _notificationsPlugin.initialize(settings: settings);
     await _createAndroidChannels();
-
-    // Android 13+ needs runtime notification permission. Some Android 10/11
-    // vendor builds throw here, so never let permission probing block alarms.
-    try {
-      await _notificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>()
-          ?.requestNotificationsPermission();
-    } catch (error, stackTrace) {
-      developer.log(
-        'Notification permission request was skipped/failed',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
-    try {
-      await _notificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>()
-          ?.requestFullScreenIntentPermission();
-    } catch (error, stackTrace) {
-      developer.log(
-        'Full screen alert permission request was skipped/failed',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
-    await _requestExactAlarmPermissionIfNeeded();
     _initialized = true;
+  }
+
+  Future<bool> requestNotificationPermissions() async {
+    var allowed = true;
+    final android = _notificationsPlugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
+    if (android != null) {
+      // Some Huawei Android builds crash inside the plugin permission method
+      // because the platform side receives a null Activity context. Android 12
+      // and below do not need POST_NOTIFICATIONS, while Android 13+ users can
+      // still enable alerts from system settings if the OEM blocks prompting.
+      return allowed;
+    }
+
+    final iOS = _notificationsPlugin.resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>();
+    if (iOS != null) {
+      allowed = await iOS.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          ) ??
+          allowed;
+    }
+    return allowed;
+  }
+
+  Future<void> setLocalTimeZone(String? timeZoneName) async {
+    final resolved = timeZoneName ?? await _resolveDeviceTimeZoneName();
+    try {
+      tz.setLocalLocation(tz.getLocation(resolved));
+    } catch (_) {
+      tz.setLocalLocation(tz.getLocation('UTC'));
+    }
   }
 
   Future<void> schedulePrayerNotifications(PrayerTime prayerTime) async {
@@ -91,18 +127,15 @@ class NotificationService {
   }
 
   Future<void> schedulePrayerNotificationsForDays(
-    List<PrayerTime> prayerTimes,
-  ) async {
-    await initialize();
-
-    for (var id = _firstPrayerNotificationId;
-        id <
-            _firstPrayerNotificationId +
-                (_maxPrayerScheduleDays * _prayerNotificationIdStride);
-        id++) {
-      await cancelNotification(id);
-    }
-
+    List<PrayerTime> prayerTimes, {
+    String? timeZoneName,
+  }) async {
+    await initialize(timeZoneName: timeZoneName);
+    final now = DateTime.now();
+    final pendingIds =
+        (await getPendingNotifications()).map((item) => item.id).toSet();
+    final previousRecords = await _loadScheduleRecords(_prayerSchedulePrefsKey);
+    final expectedRecords = <_ScheduleRecord>[];
     final sortedPrayerTimes = prayerTimes.toList()
       ..sort((a, b) => a.date.compareTo(b.date));
 
@@ -112,40 +145,81 @@ class NotificationService {
         dayIndex++) {
       final prayerTime = sortedPrayerTimes[dayIndex];
       final prayers = <String, String>{
-        'Fajr': prayerTime.fajr,
-        'Dhuhr': prayerTime.dhuhr,
+        'Fajar': prayerTime.fajr,
+        'Zuhr': prayerTime.dhuhr,
         'Asr': prayerTime.asr,
         'Maghrib': prayerTime.maghrib,
         'Isha': prayerTime.isha,
       };
 
-      var prayerIndex = 0;
       for (final entry in prayers.entries) {
-        final id = _firstPrayerNotificationId +
-            (dayIndex * _prayerNotificationIdStride) +
-            prayerIndex;
         final scheduledTime = _dateTimeForPrayer(prayerTime.date, entry.value);
-        final now = DateTime.now();
-        if (scheduledTime == null) {
-          prayerIndex += 1;
+        if (scheduledTime == null) continue;
+        final id = prayerNotificationId(prayerTime.date, entry.key);
+        final title = 'Azan - ${entry.key}';
+        final body = '${entry.key} namaz ka waqt ho gaya hai.';
+        final record = _ScheduleRecord(
+          id: id,
+          title: title,
+          scheduledTime: scheduledTime,
+          category: 'prayer',
+        );
+        expectedRecords.add(record);
+
+        final previous = previousRecords[id];
+        final alreadyScheduled =
+            previous?.scheduledTime.millisecondsSinceEpoch ==
+                    scheduledTime.millisecondsSinceEpoch &&
+                pendingIds.contains(id);
+
+        if (scheduledTime.isBefore(now)) {
+          continue;
+        }
+        if (alreadyScheduled) {
           continue;
         }
 
-        final minutesSincePrayer = now.difference(scheduledTime).inMinutes;
-        if (dayIndex == 0 &&
-            minutesSincePrayer >= 0 &&
-            minutesSincePrayer <= 2) {
-          await showAzanNow(id: id, prayerName: entry.key);
-        } else if (scheduledTime.isAfter(now)) {
-          await scheduleAzanNotification(
-            id: id,
-            prayerName: entry.key,
-            scheduledTime: scheduledTime,
-          );
-        }
-        prayerIndex += 1;
+        await cancelNotification(id);
+        await _zonedScheduleWithFallback(
+          id: id,
+          title: title,
+          body: body,
+          scheduledDate: tz.TZDateTime.from(scheduledTime, tz.local),
+          preferAlarmClock: true,
+          notificationDetails: NotificationDetails(
+            android: _azanAndroidNotificationDetails(),
+            iOS: const DarwinNotificationDetails(
+              presentAlert: true,
+              presentSound: true,
+              interruptionLevel: InterruptionLevel.timeSensitive,
+            ),
+          ),
+        );
       }
     }
+
+    final expectedIds = expectedRecords.map((record) => record.id).toSet();
+    for (final oldId in previousRecords.keys) {
+      if (!expectedIds.contains(oldId)) {
+        await cancelNotification(oldId);
+      }
+    }
+    await _saveScheduleRecords(_prayerSchedulePrefsKey, expectedRecords);
+  }
+
+  int prayerNotificationId(DateTime date, String prayerName) {
+    final dateKey = date.year * 10000 + date.month * 100 + date.day;
+    final prayerIndex = switch (prayerName.toLowerCase()) {
+      'fajr' => 1,
+      'fajar' => 1,
+      'dhuhr' => 2,
+      'zuhr' => 2,
+      'asr' => 3,
+      'maghrib' => 4,
+      'isha' => 5,
+      _ => 9,
+    };
+    return dateKey * 10 + prayerIndex;
   }
 
   Future<void> scheduleAzanNotification({
@@ -153,57 +227,42 @@ class NotificationService {
     required String prayerName,
     required DateTime scheduledTime,
   }) async {
-    try {
-      await initialize();
-      await _zonedScheduleWithFallback(
-        id: id,
-        title: 'Azan - $prayerName',
-        body: '$prayerName namaz ka waqt ho gaya hai.',
-        scheduledDate: tz.TZDateTime.from(scheduledTime, tz.local),
-        preferAlarmClock: true,
-        notificationDetails: NotificationDetails(
-          android: _azanAndroidNotificationDetails(),
-          iOS: const DarwinNotificationDetails(
-            presentSound: true,
-          ),
+    await initialize();
+    await _zonedScheduleWithFallback(
+      id: id,
+      title: 'Azan - $prayerName',
+      body: '$prayerName namaz ka waqt ho gaya hai.',
+      scheduledDate: tz.TZDateTime.from(scheduledTime, tz.local),
+      preferAlarmClock: true,
+      notificationDetails: NotificationDetails(
+        android: _azanAndroidNotificationDetails(),
+        iOS: const DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+          interruptionLevel: InterruptionLevel.timeSensitive,
         ),
-      );
-    } catch (error, stackTrace) {
-      developer.log(
-        'Failed to schedule azan notification',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
+      ),
+    );
   }
 
   Future<void> showAzanNow({
     required int id,
     required String prayerName,
   }) async {
-    try {
-      await initialize();
-      await _notificationsPlugin.show(
-        id: id,
-        title: 'Azan - $prayerName',
-        body: '$prayerName namaz ka waqt ho gaya hai.',
-        notificationDetails: NotificationDetails(
-          android: _azanAndroidNotificationDetails(),
-          iOS: const DarwinNotificationDetails(
-            presentAlert: true,
-            presentSound: true,
-          ),
+    await initialize();
+    await _notificationsPlugin.show(
+      id: id,
+      title: 'Azan - $prayerName',
+      body: '$prayerName namaz ka waqt ho gaya hai.',
+      notificationDetails: NotificationDetails(
+        android: _azanAndroidNotificationDetails(),
+        iOS: const DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+          interruptionLevel: InterruptionLevel.timeSensitive,
         ),
-      );
-    } catch (error, stackTrace) {
-      developer.log(
-        'Failed to show azan notification now',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
+      ),
+    );
   }
 
   Future<void> showAzanPushNotification({
@@ -211,37 +270,189 @@ class NotificationService {
     required String title,
     required String body,
   }) async {
-    try {
-      await initialize();
-      await _notificationsPlugin.show(
-        id: id,
-        title: title,
-        body: body,
-        notificationDetails: NotificationDetails(
-          android: _azanAndroidNotificationDetails(),
-          iOS: const DarwinNotificationDetails(
-            presentAlert: true,
-            presentSound: true,
-            interruptionLevel: InterruptionLevel.timeSensitive,
-          ),
+    await initialize();
+    await _notificationsPlugin.show(
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: NotificationDetails(
+        android: _azanAndroidNotificationDetails(),
+        iOS: const DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+          interruptionLevel: InterruptionLevel.timeSensitive,
         ),
-      );
-    } catch (error, stackTrace) {
-      developer.log(
-        'Failed to show azan push notification',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
+      ),
+    );
+  }
+
+  Future<void> scheduleEventNotification({
+    required int id,
+    required String eventName,
+    required DateTime scheduledTime,
+    String? description,
+  }) async {
+    await initialize();
+    final records = await _loadScheduleRecords(_eventSchedulePrefsKey);
+    final existing = records[id];
+    final pendingIds =
+        (await getPendingNotifications()).map((item) => item.id).toSet();
+    if (existing?.scheduledTime.millisecondsSinceEpoch ==
+            scheduledTime.millisecondsSinceEpoch &&
+        pendingIds.contains(id)) {
+      return;
+    }
+
+    await cancelNotification(id);
+    await _zonedScheduleWithFallback(
+      id: id,
+      title: eventName,
+      body: description ?? 'Islamic Event',
+      scheduledDate: tz.TZDateTime.from(scheduledTime, tz.local),
+      notificationDetails: const NotificationDetails(
+        android: AndroidNotificationDetails(
+          _eventChannelId,
+          'Event Notifications',
+          channelDescription: 'Notifications for Islamic events',
+          importance: Importance.high,
+          priority: Priority.high,
+          playSound: true,
+          category: AndroidNotificationCategory.reminder,
+          visibility: NotificationVisibility.public,
+        ),
+        iOS: DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+        ),
+      ),
+    );
+    records[id] = _ScheduleRecord(
+      id: id,
+      title: eventName,
+      scheduledTime: scheduledTime,
+      category: 'event',
+    );
+    await _saveScheduleRecords(_eventSchedulePrefsKey, records.values.toList());
+  }
+
+  Future<void> showEventNow({
+    required int id,
+    required String title,
+    required String body,
+  }) async {
+    await initialize();
+    await _notificationsPlugin.show(
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: const NotificationDetails(
+        android: AndroidNotificationDetails(
+          _eventChannelId,
+          'Event Notifications',
+          channelDescription: 'Notifications for Islamic events',
+          importance: Importance.high,
+          priority: Priority.high,
+          playSound: true,
+        ),
+        iOS: DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+        ),
+      ),
+    );
+  }
+
+  Future<void> showNotification({
+    required int id,
+    required String title,
+    required String body,
+  }) async {
+    await initialize();
+    await _notificationsPlugin.show(
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: const NotificationDetails(
+        android: AndroidNotificationDetails(
+          _generalChannelId,
+          'General Notifications',
+          channelDescription: 'General app notifications',
+        ),
+        iOS: DarwinNotificationDetails(),
+      ),
+    );
+  }
+
+  Future<void> cancelNotification(int id) async {
+    await initialize();
+    await _notificationsPlugin.cancel(id: id);
+  }
+
+  Future<void> cancelAllNotifications() async {
+    await initialize();
+    await _notificationsPlugin.cancelAll();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_prayerSchedulePrefsKey);
+    await prefs.remove(_eventSchedulePrefsKey);
+  }
+
+  Future<List<PendingNotificationRequest>> getPendingNotifications() async {
+    await initialize();
+    return _notificationsPlugin.pendingNotificationRequests();
+  }
+
+  Future<NotificationRuntimeStatus> getRuntimeStatus() async {
+    await initialize();
+    final android = _notificationsPlugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
+    if (android == null) {
+      return const NotificationRuntimeStatus(
+        notificationsEnabled: true,
+        exactAlarmsEnabled: true,
       );
     }
+
+    var notificationsEnabled = true;
+    var exactAlarmsEnabled = true;
+    try {
+      notificationsEnabled = await android.areNotificationsEnabled() ?? true;
+    } catch (_) {}
+    try {
+      exactAlarmsEnabled =
+          await android.canScheduleExactNotifications() ?? true;
+    } catch (_) {}
+    return NotificationRuntimeStatus(
+      notificationsEnabled: notificationsEnabled,
+      exactAlarmsEnabled: exactAlarmsEnabled,
+    );
+  }
+
+  Future<List<NotificationScheduleDebugEntry>> getPrayerScheduleDebug() async {
+    await initialize();
+    final records = await _loadScheduleRecords(_prayerSchedulePrefsKey);
+    final pendingIds =
+        (await getPendingNotifications()).map((item) => item.id).toSet();
+    final upcoming = records.values
+        .where((record) => record.scheduledTime.isAfter(DateTime.now()))
+        .toList()
+      ..sort((a, b) => a.scheduledTime.compareTo(b.scheduledTime));
+    return upcoming
+        .map(
+          (record) => NotificationScheduleDebugEntry(
+            id: record.id,
+            title: record.title,
+            scheduledTime: record.scheduledTime,
+            pendingInOs: pendingIds.contains(record.id),
+          ),
+        )
+        .toList();
   }
 
   AndroidNotificationDetails _azanAndroidNotificationDetails() {
     return AndroidNotificationDetails(
       _azanChannelId,
       'Fiqa Jafria Azan Notifications',
-      channelDescription:
-          'Prayer time alerts with Shia Fiqa Jafria azan sound until stopped',
+      channelDescription: 'Prayer time alerts with Shia azan sound',
       importance: Importance.max,
       priority: Priority.max,
       playSound: true,
@@ -255,7 +466,7 @@ class NotificationService {
       autoCancel: true,
       ongoing: false,
       showWhen: true,
-      usesChronometer: true,
+      usesChronometer: false,
       colorized: true,
       additionalFlags: Int32List.fromList(<int>[_notificationFlagInsistent]),
       actions: const <AndroidNotificationAction>[
@@ -277,7 +488,6 @@ class NotificationService {
     bool preferAlarmClock = false,
   }) async {
     try {
-      await initialize();
       await _notificationsPlugin.zonedSchedule(
         id: id,
         title: title,
@@ -306,135 +516,6 @@ class NotificationService {
     }
   }
 
-  Future<void> _requestExactAlarmPermissionIfNeeded() async {
-    final android = _notificationsPlugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
-    if (android == null) return;
-
-    try {
-      final canSchedule = await android.canScheduleExactNotifications();
-      if (canSchedule == false) {
-        await android.requestExactAlarmsPermission();
-      }
-    } catch (error, stackTrace) {
-      developer.log(
-        'Failed to schedule event notification',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
-  }
-
-  Future<void> scheduleEventNotification({
-    required int id,
-    required String eventName,
-    required DateTime scheduledTime,
-    String? description,
-  }) async {
-    try {
-      await initialize();
-      await _zonedScheduleWithFallback(
-        id: id,
-        title: eventName,
-        body: description ?? 'Islamic Event',
-        scheduledDate: tz.TZDateTime.from(scheduledTime, tz.local),
-        notificationDetails: const NotificationDetails(
-          android: AndroidNotificationDetails(
-            'event_channel',
-            'Event Notifications',
-            channelDescription: 'Notifications for Islamic events',
-            importance: Importance.high,
-            priority: Priority.high,
-            category: AndroidNotificationCategory.reminder,
-            visibility: NotificationVisibility.public,
-          ),
-          iOS: DarwinNotificationDetails(),
-        ),
-      );
-    } catch (_) {}
-  }
-
-  Future<void> showEventNow({
-    required int id,
-    required String title,
-    required String body,
-  }) async {
-    try {
-      await initialize();
-      await _notificationsPlugin.show(
-        id: id,
-        title: title,
-        body: body,
-        notificationDetails: const NotificationDetails(
-          android: AndroidNotificationDetails(
-            'event_channel',
-            'Event Notifications',
-            channelDescription: 'Notifications for Islamic events',
-            importance: Importance.high,
-            priority: Priority.high,
-          ),
-          iOS: DarwinNotificationDetails(
-            presentAlert: true,
-            presentSound: true,
-          ),
-        ),
-      );
-    } catch (error, stackTrace) {
-      developer.log(
-        'Failed to show event notification',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
-  }
-
-  Future<void> showNotification({
-    required int id,
-    required String title,
-    required String body,
-  }) async {
-    try {
-      await initialize();
-      await _notificationsPlugin.show(
-        id: id,
-        title: title,
-        body: body,
-        notificationDetails: const NotificationDetails(
-          android: AndroidNotificationDetails(
-            'general_channel',
-            'General Notifications',
-            channelDescription: 'General app notifications',
-          ),
-          iOS: DarwinNotificationDetails(),
-        ),
-      );
-    } catch (error, stackTrace) {
-      developer.log(
-        'Failed to show notification',
-        error: error,
-        stackTrace: stackTrace,
-        name: 'NotificationService',
-      );
-    }
-  }
-
-  Future<void> cancelNotification(int id) async {
-    await initialize();
-    await _notificationsPlugin.cancel(id: id);
-  }
-
-  Future<void> cancelAllNotifications() async {
-    await initialize();
-    await _notificationsPlugin.cancelAll();
-  }
-
-  Future<List<PendingNotificationRequest>> getPendingNotifications() async {
-    await initialize();
-    return await _notificationsPlugin.pendingNotificationRequests();
-  }
-
   Future<void> _createAndroidChannels() async {
     final android = _notificationsPlugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
@@ -443,21 +524,14 @@ class NotificationService {
     for (final channelId in _legacyAzanChannelIds) {
       try {
         await android.deleteNotificationChannel(channelId: channelId);
-      } catch (error, stackTrace) {
-        developer.log(
-          'Failed to delete legacy azan notification channel',
-          error: error,
-          stackTrace: stackTrace,
-          name: 'NotificationService',
-        );
-      }
+      } catch (_) {}
     }
 
     await android.createNotificationChannel(
       const AndroidNotificationChannel(
         _azanChannelId,
         'Fiqa Jafria Azan Notifications',
-        description: 'Prayer time alerts with Shia Fiqa Jafria azan sound',
+        description: 'Prayer time alerts with Shia azan sound',
         importance: Importance.max,
         playSound: true,
         sound: RawResourceAndroidNotificationSound(_azanSound),
@@ -466,15 +540,16 @@ class NotificationService {
     );
     await android.createNotificationChannel(
       const AndroidNotificationChannel(
-        'event_channel',
+        _eventChannelId,
         'Event Notifications',
         description: 'Notifications for Islamic events',
         importance: Importance.high,
+        playSound: true,
       ),
     );
     await android.createNotificationChannel(
       const AndroidNotificationChannel(
-        'general_channel',
+        _generalChannelId,
         'General Notifications',
         description: 'General app notifications',
         importance: Importance.defaultImportance,
@@ -482,54 +557,90 @@ class NotificationService {
     );
   }
 
-  void _setLocalTimeZone() {
-    final timeZoneName = _resolveDeviceTimeZoneName();
+  Future<String> _resolveDeviceTimeZoneName() async {
     try {
-      tz.setLocalLocation(tz.getLocation(timeZoneName));
+      return (await FlutterTimezone.getLocalTimezone()).identifier;
     } catch (_) {
-      tz.setLocalLocation(tz.getLocation('UTC'));
+      final now = DateTime.now();
+      final abbreviation = now.timeZoneName.toUpperCase();
+      final minutes = now.timeZoneOffset.inMinutes;
+      if (abbreviation == 'PKT' || minutes == 300) return 'Asia/Karachi';
+      if (abbreviation == 'IST' && minutes == 330) return 'Asia/Kolkata';
+      if (abbreviation == 'BST' && minutes == 360) return 'Asia/Dhaka';
+      if (abbreviation == 'GST' && minutes == 240) return 'Asia/Dubai';
+      if (abbreviation == 'EST' && minutes == -300) return 'America/New_York';
+      if (abbreviation == 'EDT' && minutes == -240) return 'America/New_York';
+      return 'UTC';
     }
   }
 
-  String _resolveDeviceTimeZoneName() {
-    final now = DateTime.now();
-    final abbreviation = now.timeZoneName.toUpperCase();
-    final minutes = now.timeZoneOffset.inMinutes;
-
-    if (abbreviation == 'PKT' || minutes == 300) return 'Asia/Karachi';
-    if (abbreviation == 'IST' && minutes == 330) return 'Asia/Kolkata';
-    if (abbreviation == 'BST' && minutes == 360) return 'Asia/Dhaka';
-    if (abbreviation == 'GST' && minutes == 240) return 'Asia/Dubai';
-    if (abbreviation == 'AST' && minutes == 180) return 'Asia/Riyadh';
-    if (abbreviation == 'CET' && minutes == 60) return 'Europe/Paris';
-    if (abbreviation == 'CEST' && minutes == 120) return 'Europe/Paris';
-    if (abbreviation == 'EET' && minutes == 120) return 'Europe/Cairo';
-    if (abbreviation == 'EEST' && minutes == 180) return 'Europe/Athens';
-    if (abbreviation == 'EST' && minutes == -300) return 'America/New_York';
-    if (abbreviation == 'EDT' && minutes == -240) return 'America/New_York';
-    if (abbreviation == 'CST' && minutes == -360) return 'America/Chicago';
-    if (abbreviation == 'CDT' && minutes == -300) return 'America/Chicago';
-    if (abbreviation == 'MST' && minutes == -420) return 'America/Denver';
-    if (abbreviation == 'MDT' && minutes == -360) return 'America/Denver';
-    if (abbreviation == 'PST' && minutes == -480) return 'America/Los_Angeles';
-    if (abbreviation == 'PDT' && minutes == -420) return 'America/Los_Angeles';
-
-    return 'UTC';
+  DateTime? _dateTimeForPrayer(DateTime date, String displayTime) {
+    final parts = displayTime.split(':');
+    if (parts.length != 2) return null;
+    final hour = int.tryParse(parts[0]);
+    final minute = int.tryParse(parts[1]);
+    if (hour == null || minute == null) return null;
+    if (hour > 23 || minute > 59) return null;
+    return DateTime(date.year, date.month, date.day, hour, minute);
   }
 
-  DateTime? _dateTimeForPrayer(DateTime date, String displayTime) {
-    final match =
-        RegExp(r'^(\d{1,2}):(\d{2})(?:\s*(AM|PM))?$', caseSensitive: false)
-            .firstMatch(displayTime.trim());
-    if (match == null) return null;
+  Future<Map<int, _ScheduleRecord>> _loadScheduleRecords(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(key);
+    if (raw == null) return {};
+    try {
+      final items = json.decode(raw) as List<dynamic>;
+      return {
+        for (final item in items.whereType<Map<String, dynamic>>())
+          _ScheduleRecord.fromJson(item).id: _ScheduleRecord.fromJson(item),
+      };
+    } catch (_) {
+      return {};
+    }
+  }
 
-    var hour = int.parse(match.group(1)!);
-    final minute = int.parse(match.group(2)!);
-    final period = match.group(3)?.toUpperCase();
-    if (period == 'PM' && hour != 12) hour += 12;
-    if (period == 'AM' && hour == 12) hour = 0;
-    if (hour > 23 || minute > 59) return null;
+  Future<void> _saveScheduleRecords(
+    String key,
+    List<_ScheduleRecord> records,
+  ) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+      key,
+      json.encode(records.map((record) => record.toJson()).toList()),
+    );
+  }
+}
 
-    return DateTime(date.year, date.month, date.day, hour, minute);
+class _ScheduleRecord {
+  final int id;
+  final String title;
+  final DateTime scheduledTime;
+  final String category;
+
+  const _ScheduleRecord({
+    required this.id,
+    required this.title,
+    required this.scheduledTime,
+    required this.category,
+  });
+
+  factory _ScheduleRecord.fromJson(Map<String, dynamic> json) {
+    return _ScheduleRecord(
+      id: json['id'] as int? ?? 0,
+      title: json['title'] as String? ?? '',
+      scheduledTime:
+          DateTime.tryParse(json['scheduledTime'] as String? ?? '') ??
+              DateTime.fromMillisecondsSinceEpoch(0),
+      category: json['category'] as String? ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'scheduledTime': scheduledTime.toIso8601String(),
+      'category': category,
+    };
   }
 }

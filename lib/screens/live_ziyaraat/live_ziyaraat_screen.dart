@@ -70,7 +70,7 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
         formatHint: VideoFormat.hls,
         httpHeaders: const {
           'User-Agent':
-              'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Hidayat',
+              'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Haqaiq',
           'Referer': 'https://www.alharamlive.com/',
         },
       );
@@ -145,7 +145,7 @@ class _LiveZiyaraatScreenState extends State<LiveZiyaraatScreen> {
       Uri.parse(webPlayerUrl),
       headers: const {
         'User-Agent':
-            'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Hidayat',
+            'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Haqaiq',
       },
     );
 
