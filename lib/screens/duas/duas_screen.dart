@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../services/reader_audio_service.dart';
+import '../../utils/search_utils.dart';
 import '../../widgets/app_chrome.dart';
 
 class DuasScreen extends StatefulWidget {
@@ -15,7 +16,14 @@ class DuasScreen extends StatefulWidget {
 
 class _DuasScreenState extends State<DuasScreen> {
   final TextEditingController _searchController = TextEditingController();
+  late final Future<List<Map<String, dynamic>>> _duasFuture;
   String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _duasFuture = _loadDuas();
+  }
 
   Future<List<Map<String, dynamic>>> _loadDuas() async {
     final jsonString =
@@ -51,7 +59,7 @@ class _DuasScreenState extends State<DuasScreen> {
       appBar: haqaiqAppBar(context, title: 'Duas'),
       bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 2),
       body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: _loadDuas(),
+        future: _duasFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -61,10 +69,23 @@ class _DuasScreenState extends State<DuasScreen> {
                 child: Text('Unable to load duas: ${snapshot.error}'));
           }
 
-          final duas = (snapshot.data ?? []).where((dua) {
-            final searchText = dua['searchText'] as String? ?? '';
-            return _query.isEmpty || searchText.contains(_query.toLowerCase());
-          }).toList();
+          final duas = rankedSearch<Map<String, dynamic>>(
+            items: snapshot.data ?? const [],
+            query: _query,
+            titles: (dua) => [
+              dua['title'],
+              dua['titleArabic'],
+              dua['titleUrdu'],
+              dua['titleFarsi'],
+            ],
+            fields: (dua) => [
+              dua['id'],
+              dua['category'],
+              dua['tags'],
+              dua['recommendedDays'],
+              dua['searchText'],
+            ],
+          );
 
           return Column(
             children: [

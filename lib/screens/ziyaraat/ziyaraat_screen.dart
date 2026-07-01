@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../services/reader_audio_service.dart';
+import '../../utils/search_utils.dart';
 import '../../widgets/app_chrome.dart';
 
 class ZiyaaratScreen extends StatefulWidget {
@@ -15,7 +16,14 @@ class ZiyaaratScreen extends StatefulWidget {
 
 class _ZiyaaratScreenState extends State<ZiyaaratScreen> {
   final TextEditingController _searchController = TextEditingController();
+  late final Future<List<Map<String, dynamic>>> _ziyaraatFuture;
   String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _ziyaraatFuture = _loadZiyaraat();
+  }
 
   Future<List<Map<String, dynamic>>> _loadZiyaraat() async {
     final jsonString =
@@ -52,7 +60,7 @@ class _ZiyaaratScreenState extends State<ZiyaaratScreen> {
       appBar: haqaiqAppBar(context, title: 'Ziyaraat'),
       bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 4),
       body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: _loadZiyaraat(),
+        future: _ziyaraatFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -63,17 +71,19 @@ class _ZiyaaratScreenState extends State<ZiyaaratScreen> {
             );
           }
 
-          final query = _query.toLowerCase();
-          final ziyaraat = (snapshot.data ?? []).where((item) {
-            final searchText = [
-              item['id'],
+          final ziyaraat = rankedSearch<Map<String, dynamic>>(
+            items: snapshot.data ?? const [],
+            query: _query,
+            titles: (item) => [
               item['title'],
               item['titleArabic'],
               item['titleUrdu'],
+            ],
+            fields: (item) => [
+              item['id'],
               item['category'],
-            ].join(' ').toLowerCase();
-            return query.isEmpty || searchText.contains(query);
-          }).toList();
+            ],
+          );
 
           return Column(
             children: [

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../services/reader_audio_service.dart';
+import '../../utils/search_utils.dart';
 import '../../widgets/app_chrome.dart';
 
 class BooksScreen extends StatefulWidget {
@@ -15,7 +16,14 @@ class BooksScreen extends StatefulWidget {
 
 class _BooksScreenState extends State<BooksScreen> {
   final TextEditingController _searchController = TextEditingController();
+  late final Future<List<Map<String, dynamic>>> _booksFuture;
   String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _booksFuture = _loadBooks();
+  }
 
   Future<List<Map<String, dynamic>>> _loadBooks() async {
     final jsonString =
@@ -62,7 +70,7 @@ class _BooksScreenState extends State<BooksScreen> {
       appBar: haqaiqAppBar(context, title: 'Books'),
       bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 3),
       body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: _loadBooks(),
+        future: _booksFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -72,18 +80,20 @@ class _BooksScreenState extends State<BooksScreen> {
                 child: Text('Unable to load books: ${snapshot.error}'));
           }
 
-          final query = _query.toLowerCase();
-          final books = (snapshot.data ?? []).where((book) {
-            final searchText = [
+          final books = rankedSearch<Map<String, dynamic>>(
+            items: snapshot.data ?? const [],
+            query: _query,
+            titles: (book) => [
               book['title'],
               book['titleArabic'],
               book['titleUrdu'],
               book['titleFarsi'],
+            ],
+            fields: (book) => [
               book['category'],
               book['id'],
-            ].join(' ').toLowerCase();
-            return query.isEmpty || searchText.contains(query);
-          }).toList();
+            ],
+          );
           return Column(
             children: [
               Padding(

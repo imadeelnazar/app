@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../services/reader_audio_service.dart';
+import '../../utils/search_utils.dart';
 import '../../widgets/app_chrome.dart';
 
 class QuranScreen extends StatefulWidget {
@@ -15,7 +16,14 @@ class QuranScreen extends StatefulWidget {
 
 class _QuranScreenState extends State<QuranScreen> {
   final TextEditingController _searchController = TextEditingController();
+  late final Future<List<dynamic>> _quranFuture;
   String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _quranFuture = Future.wait([_loadSurahs(), _loadAyahs()]);
+  }
 
   Future<List<Map<String, dynamic>>> _loadSurahs() async {
     final jsonString =
@@ -65,7 +73,7 @@ class _QuranScreenState extends State<QuranScreen> {
       appBar: haqaiqAppBar(context, title: 'Quran'),
       bottomNavigationBar: const HaqaiqBottomNav(currentIndex: 1),
       body: FutureBuilder<List<dynamic>>(
-        future: Future.wait([_loadSurahs(), _loadAyahs()]),
+        future: _quranFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -76,46 +84,60 @@ class _QuranScreenState extends State<QuranScreen> {
           }
 
           final data = snapshot.data ?? const [];
-          final allSurahs =
-              data.isNotEmpty ? data[0] as List<Map<String, dynamic>> : [];
-          final allAyahs =
-              data.length > 1 ? data[1] as List<Map<String, dynamic>> : [];
+          final allSurahs = data.isNotEmpty
+              ? data[0] as List<Map<String, dynamic>>
+              : <Map<String, dynamic>>[];
+          final allAyahs = data.length > 1
+              ? data[1] as List<Map<String, dynamic>>
+              : <Map<String, dynamic>>[];
           final surahsByNumber = {
             for (final surah in allSurahs) surah['surahNumber'] as int: surah,
           };
-          final query = _query.toLowerCase();
-          final surahs = allSurahs.where((surah) {
-            final searchText = [
-              surah['nameArabic'],
+          final query = normalizeSearchText(_query);
+          final surahs = rankedSearch<Map<String, dynamic>>(
+            items: allSurahs,
+            query: query,
+            titles: (surah) => [
               surah['nameEnglish'],
+              surah['transliteration'],
+              surah['nameArabic'],
               surah['nameUrdu'],
               surah['nameFarsi'],
-              surah['transliteration'],
-              surah['surahNumber'].toString(),
-            ].join(' ').toLowerCase();
-            return query.isEmpty || searchText.contains(query);
-          }).toList();
-          final ayahResults = query.isEmpty
+            ],
+            fields: (surah) => [
+              surah['surahNumber'],
+              surah['revelationType'],
+            ],
+          );
+          final ayahResults = !shouldSearch(query)
               ? <Map<String, dynamic>>[]
-              : allAyahs
-                  .where((ayah) {
+              : rankedSearch<Map<String, dynamic>>(
+                  items: allAyahs,
+                  query: query,
+                  titles: (ayah) {
                     final surah = surahsByNumber[ayah['surahNumber']];
-                    final searchText = [
+                    return [
+                      '${surah?['nameEnglish']} ${ayah['ayahNumber']}',
+                      surah?['nameArabic'],
+                      surah?['nameUrdu'],
+                      surah?['nameFarsi'],
+                    ];
+                  },
+                  fields: (ayah) {
+                    final surah = surahsByNumber[ayah['surahNumber']];
+                    return [
                       ayah['id'],
                       ayah['textArabic'],
                       ayah['textEnglish'],
                       ayah['textUrdu'],
                       ayah['textFarsi'],
                       ayah['transliteration'],
-                      surah?['nameArabic'],
                       surah?['nameEnglish'],
-                      surah?['nameUrdu'],
-                      surah?['nameFarsi'],
-                    ].join(' ').toLowerCase();
-                    return searchText.contains(query);
-                  })
-                  .take(80)
-                  .toList();
+                    ];
+                  },
+                ).take(80).toList();
+          final showSearchResults = shouldSearch(query);
+          final visibleSurahs = surahs;
 
           return ListView(
             padding: const EdgeInsets.all(16),
@@ -128,7 +150,7 @@ class _QuranScreenState extends State<QuranScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-              if (query.isNotEmpty && ayahResults.isNotEmpty) ...[
+              if (showSearchResults && ayahResults.isNotEmpty) ...[
                 const Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: Text(
@@ -151,18 +173,18 @@ class _QuranScreenState extends State<QuranScreen> {
                   ),
                 const SizedBox(height: 10),
               ],
-              if (surahs.isNotEmpty)
+              if (visibleSurahs.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    query.isEmpty ? 'All Surahs' : 'Surah Results',
+                    showSearchResults ? 'Surah Results' : 'All Surahs',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              for (final surah in surahs)
+              for (final surah in visibleSurahs)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: _SurahCard(
